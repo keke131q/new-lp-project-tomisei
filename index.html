@@ -130,11 +130,13 @@
         .service-box:nth-child(even) { flex-direction: row-reverse; }
         .service-img { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; position: relative;}
         .service-img img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s ease; }
+        
         .service-img::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* ほんの少し明るく */
             z-index: 1;
         }
+
         .service-box:hover .service-img img { transform: scale(1.05); } 
         .service-text { flex: 1; min-width: 300px; }
         .service-text h3 { color: var(--gold-accent); font-size: 26px; margin-bottom: 20px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 12px; line-height: 1.4;}
@@ -162,7 +164,6 @@
         tr:last-child td { border-bottom: none; }
         .table-row-title { text-align: left; font-weight: bold; color: var(--text-main); font-size: 16px; padding-left: 20px;}
 
-        
         /* --- 講師紹介 --- */
         .instructors { padding: 100px 20px; }
         .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
@@ -175,7 +176,6 @@
             background-color: #f4f0ea; /* 空欄とわかるように薄い色 */
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin: 0 auto 25px; border: 5px solid var(--bg-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
         .badge { background-color: var(--bg-accent); color: var(--btn-color); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
         .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
@@ -229,12 +229,6 @@
             .week-content h4 { font-size: 18px; }
             .week-content p { font-size: 14px; }
 
-            .instructors { padding: 60px 15px; }
-            .profiles-container { gap: 30px; }
-            .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
-            .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
-            .profile-name { font-size: 22px; }
-
             .pricing { padding: 60px 15px; }
             .course-table-wrapper { padding: 20px 10px; border-radius: 15px;}
             th, td { padding: 15px 8px; font-size: 13px; }
@@ -242,6 +236,12 @@
             .td-price { font-size: 20px; }
             .td-price span { font-size: 11px; }
             .table-row-title { font-size: 13px; padding-left: 5px;}
+
+            .instructors { padding: 60px 15px; }
+            .profiles-container { gap: 30px; }
+            .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
+            .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
+            .profile-name { font-size: 22px; }
 
             /* 想いセクションのスマホ最適化 */
             .our-why-section { padding: 60px 15px; }
@@ -350,44 +350,6 @@
         </div>
     </section>
 
-    <section class="instructors">
-        <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たち夫婦が、ご家庭に伴走します</h2>
-            <p class="section-subtitle fade-in" style="margin-bottom: 40px;">親も子も、自信と誇りを持って生きられる社会づくりをミッションに活動しています。</p>
-
-            <div class="profiles-container">
-                <div class="profile-card fade-in">
-                    <div class="profile-img-placeholder"></div>
-                    <div class="profile-badges">
-                        <span class="badge">素質論アドバイザー</span>
-                        <span class="badge">子育てコーチング</span>
-                        <span class="badge">志教育</span>
-                    </div>
-                    <div class="profile-name">岡本 奎一（夫）</div>
-                    <div class="profile-desc">
-                        子どもたちの「本音」と「可能性」を引き出すコーチングのプロフェッショナル。<br>
-                        素質論に基づき、一人ひとりの持って生まれた才能を見つけ出し、伸ばす声かけを得意とします。<br>
-                        単なる学習支援ではなく、自ら目標に向かって進む「志（こころざし）」を育む教育に尽力しています。
-                    </div>
-                </div>
-
-                <div class="profile-card fade-in">
-                    <div class="profile-img-placeholder"></div>
-                    <div class="profile-badges">
-                        <span class="badge">元中学校教員</span>
-                        <span class="badge">英語専門講師</span>
-                        <span class="badge">0〜3歳児 能力開発</span>
-                    </div>
-                    <div class="profile-name">岡本 〇〇（妻）</div>
-                    <div class="profile-desc">
-                        「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。<br>
-                        元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="pricing" id="pricing">
         <div class="container fade-in" style="padding: 0;">
             <h2 class="section-title">まずは体験してみませんか？<br>選べる2つのモニターコース</h2>
@@ -430,6 +392,44 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="instructors">
+        <div class="container" style="padding: 0;">
+            <h2 class="section-title fade-in">私たち夫婦が、ご家庭に伴走します</h2>
+            <p class="section-subtitle fade-in" style="margin-bottom: 40px;">親も子も、自信と誇りを持って生きられる社会づくりをミッションに活動しています。</p>
+
+            <div class="profiles-container">
+                <div class="profile-card fade-in">
+                    <div class="profile-img-placeholder"></div>
+                    <div class="profile-badges">
+                        <span class="badge">素質論アドバイザー</span>
+                        <span class="badge">子育てコーチング</span>
+                        <span class="badge">志教育</span>
+                    </div>
+                    <div class="profile-name">岡本 奎一（夫）</div>
+                    <div class="profile-desc">
+                        子どもたちの「本音」と「可能性」を引き出すコーチングのプロフェッショナル。<br>
+                        素質論に基づき、一人ひとりの持って生まれた才能を見つけ出し、伸ばす声かけを得意とします。<br>
+                        単なる学習支援ではなく、自ら目標に向かって進む「志（こころざし）」を育む教育に尽力しています。
+                    </div>
+                </div>
+
+                <div class="profile-card fade-in">
+                    <div class="profile-img-placeholder"></div>
+                    <div class="profile-badges">
+                        <span class="badge">元中学校教員</span>
+                        <span class="badge">英語専門講師</span>
+                        <span class="badge">0〜3歳児 能力開発</span>
+                    </div>
+                    <div class="profile-name">岡本 〇〇（妻）</div>
+                    <div class="profile-desc">
+                        「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。<br>
+                        元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
+                    </div>
+                </div>
             </div>
         </div>
     </section>
