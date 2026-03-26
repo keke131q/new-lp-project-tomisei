@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンライン自習室＆子育てサポート | 未来志創プロジェクト</title>
+    <style>
+        /* ベーススタイル */
+        :root {
+            --primary-color: #1a365d; /* 信頼感のあるネイビー */
+            --accent-color: #dd6b20; /* 行動を促すオレンジ */
+            --bg-light: #f7fafc;
+            --text-main: #2d3748;
+            --text-light: #718096;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        img { max-width: 100%; height: auto; }
+        a { text-decoration: none; }
+        
+        /* 共通コンテナ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        
+        /* CTAボタン */
+        .cta-btn-wrapper { text-align: center; margin-top: 30px; }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 20px 40px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(221, 107, 32, 0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(221, 107, 32, 0.4);
+        }
+        .micro-copy {
+            display: block;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* 第1セクション：ヒーローエリア */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: var(--primary-color);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 第2セクション：課題・共感 */
+        .problem-list {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .problem-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .problem-icon { font-size: 24px; margin-right: 15px; }
+        .problem-text h3 { margin: 0 0 5px 0; font-size: 18px; color: #e53e3e; }
+        .problem-text p { margin: 0; }
+
+        /* 第3セクション：解決策 */
+        .solution { background-color: var(--bg-light); }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: calc(33.333% - 40px);
+            min-width: 280px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .feature-card h3 { color: var(--primary-color); margin-top: 15px; }
+
+        /* 第5セクション：料金プラン */
+        .pricing-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        .price-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            position: relative;
+        }
+        .price-card.recommend {
+            border: 3px solid var(--accent-color);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .recommend-badge {
+            background: var(--accent-color);
+            color: #fff;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .price-title { font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .price-amount { font-size: 36px; font-weight: bold; color: var(--primary-color); margin-bottom: 20px; }
+        .price-amount span { font-size: 16px; font-weight: normal; }
+        .price-list { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; }
+        .price-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .price-list li::before { content: '✓'; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
+
+        /* FAQアコーディオン */
+        .faq { background-color: var(--bg-light); }
+        .faq-item {
+            background: #fff;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto 10px auto;
+        }
+        .faq-q {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            background-color: #fff;
+        }
+        .faq-q::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-q.active::after { transform: rotate(45deg); }
+        .faq-a {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+        }
+        .faq-q.active + .faq-a { padding: 0 20px 20px 20px; max-height: 200px; }
+
+        /* 会社概要・フッター */
+        .about { text-align: center; }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+        footer a { color: #fff; margin: 0 10px; text-decoration: underline; }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 24px; }
+            .feature-card { width: 100%; }
+            .price-card.recommend { transform: scale(1); margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>「勉強しなさい！」と怒る毎日と、<br>子育ての悩みを終わりにしませんか？</h1>
+            <p>自ら机に向かう習慣を作る「オンライン自習室」と、親の不安を解消する「子育てライブ配信」。<br>教育のプロが伴走するサポートを、月額500円から。</p>
+            
+            <div class="hero-badges">
+                <div class="badge">📝 毎日の学習習慣化</div>
+                <div class="badge">💡 自分で計画・実行する力</div>
+                <div class="badge">👨‍👩‍👦 親の悩みも解決</div>
+            </div>
+
+            <div class="cta-btn-wrapper">
+                <a href="#pricing" class="cta-btn">今すぐプランを見る（初月お試し）</a>
+                <span class="micro-copy">スマホひとつで、今日から始められます</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="problem">
+        <h2 class="section-title">こんな「モヤモヤ」を抱えていませんか？</h2>
+        <div class="problem-list">
+            <div class="problem-item">
+                <div class="problem-icon">😩</div>
+                <div class="problem-text">
+                    <h3>学習の悩み</h3>
+                    <p>スポーツや習い事は頑張るのに、家では全然机に向かわない。いつもギリギリまで宿題をやらず、計画性が全くない。</p>
+                </div>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">🤔</div>
+                <div class="problem-text">
+                    <h3>関わり方の悩み</h3>
+                    <p>子どもの自己肯定感や自信を育てたいが、正しい関わり方や距離感がわからない。モチベーションを上げる声かけが知りたい。</p>
+                </div>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">😢</div>
+                <div class="problem-text">
+                    <h3>自己嫌悪</h3>
+                    <p>本当は怒りたくないのに、毎日同じことで叱ってしまい自己嫌悪に陥る。「親が管理する」ことに限界を感じている。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">「仲間との繋がり」と「プロの型」が解決します</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div style="font-size: 40px;">💻</div>
+                    <h3>子ども向け<br>ZOOM自習室＆ミニ講義</h3>
+                    <p>毎週オンラインで繋がり各自の課題に取り組みます。最初の15分で「計画の立て方」など一生モノの考える力を養います。</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 40px;">🎥</div>
+                    <h3>親御さん向け<br>子育て応援ライブ</h3>
+                    <p>月に1〜2回、自己肯定感の育て方や反抗期の子どもとの距離感、声かけのコツなどを教育のプロがライブ配信します。</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size: 40px;">🔄</div>
+                    <h3>全講義<br>アーカイブ見放題</h3>
+                    <p>忙しい親御さんも安心。過去の子育てライブや学習講義をいつでも好きな時に振り返ることができます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="pricing">
+        <h2 class="section-title">選べる2つのプラン</h2>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <div class="price-title">【親御さん向け】<br>子育て応援プラン</div>
+                <div class="price-amount">500<span>円/月(税込)</span></div>
+                <ul class="price-list">
+                    <li>親向けライブ配信への参加</li>
+                    <li>全アーカイブ動画見放題</li>
+                    <li style="color: #a0aec0; text-decoration: line-through;">ZOOM自習室の参加</li>
+                </ul>
+            </div>
+            <div class="price-card recommend">
+                <div class="recommend-badge">一番人気・おすすめ</div>
+                <div class="price-title">【親子で受講】<br>自立・共育フルサポートプラン</div>
+                <div class="price-amount">980<span>円/月(税込)</span></div>
+                <ul class="price-list">
+                    <li><strong>子ども向けZOOM自習室の参加権</strong></li>
+                    <li><strong>子ども向けミニ講義の受講</strong></li>
+                    <li>親向けライブ配信への参加</li>
+                    <li>全アーカイブ動画見放題</li>
+                </ul>
+            </div>
+        </div>
+        <div class="cta-btn-wrapper">
+            <a href="#" class="cta-btn">専用LINEに登録して始める</a>
+            <span class="micro-copy">※クリックするとLINEのお友だち追加画面が開きます</span>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">よくあるご質問</h2>
+            <div class="faq-item">
+                <div class="faq-q">Q. いつから始められますか？</div>
+                <div class="faq-a"><p>ご登録後、次の配信・自習室からすぐにご参加いただけます。</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q. 毎週必ず参加しないとダメですか？</div>
+                <div class="faq-a"><p>強制ではありません。ご家庭のペースでご参加ください。見逃した内容はアーカイブでご確認いただけます。</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q. 兄弟で参加する場合、料金は2倍ですか？</div>
+                <div class="faq-a"><p>1家族（1端末）あたりの料金となりますので、ご兄弟一緒に1つの画面で参加される場合は980円のみでご利用いただけます。</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q. 支払い方法はどうなりますか？</div>
+                <div class="faq-a"><p>クレジットカードでの毎月自動引き落としとなります。現金での集金はございません。</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container about">
+        <h2 class="section-title">運営組織</h2>
+        <p><strong>未来志創プロジェクト</strong></p>
+        <p>代表：岡本 奎一<br>活動拠点：富山県立山町</p>
+        <p>理念：子どもが自ら考え行動する「自立」と、親子の笑顔あふれる「共育」をサポートする。</p>
+    </section>
+
+    <footer>
+        <p>
+            <a href="#">特定商取引法に基づく表記</a> | 
+            <a href="#">プライバシーポリシー</a>
+        </p>
+        <p>&copy; 2026 未来志創プロジェクト All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-q').forEach(question => {
+            question.addEventListener('click', () => {
+                const active = document.querySelector('.faq-q.active');
+                if(active && active !== question) {
+                    active.classList.remove('active');
+                }
+                question.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
