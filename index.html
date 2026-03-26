@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>オンライン自習室＆子育てサポート | 未来志創プロジェクト</title>
     <style>
-        /* 温かいカラーパレットの設定 */
+        /* 温かいカラーパレットの設定（変更なし） */
         :root {
-            --bg-base: #fcfaf5; /* 優しいベージュ */
-            --bg-accent: #f8e8e6; /* 薄いコーラルピンク（背景用） */
-            --text-main: #4a3b32; /* 温かみのあるダークブラウン（黒の代わり） */
-            --text-light: #8c7a6b; /* 優しいブラウン */
-            --btn-color: #e07a5f; /* コーラルピンク（ボタン用） */
-            --gold-accent: #c5a059; /* 上品なゴールド */
+            --bg-base: #fcfaf5; 
+            --bg-accent: #f8e8e6; 
+            --text-main: #4a3b32; 
+            --text-light: #8c7a6b; 
+            --btn-color: #e07a5f; 
+            --gold-accent: #c5a059; 
         }
 
         body {
-            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; /* 明朝体系で上品さと温かみを */
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
             color: var(--text-main);
             background-color: var(--bg-base);
             line-height: 1.8;
@@ -25,219 +25,102 @@
             letter-spacing: 0.05em;
         }
         
-        /* sans-serifが必要な部分（ボタンや補足など） */
-        .sans-text {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-        }
-
+        .sans-text { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; }
         img { max-width: 100%; height: auto; border-radius: 8px; }
         a { text-decoration: none; }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 
         .section-title {
-            text-align: center;
-            font-size: 24px;
-            color: var(--gold-accent);
-            margin-bottom: 40px;
-            font-weight: normal;
+            text-align: center; font-size: 24px; color: var(--gold-accent);
+            margin-bottom: 40px; font-weight: normal;
         }
 
         /* 柔らかいボタンデザイン */
         .cta-wrapper { text-align: center; margin-top: 40px; }
         .cta-btn {
-            display: inline-block;
-            background-color: var(--btn-color);
-            color: #fff;
-            font-size: 18px;
-            padding: 20px 50px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(224, 122, 95, 0.3);
+            display: inline-block; background-color: var(--btn-color);
+            color: #fff; font-size: 18px; padding: 20px 50px;
+            border-radius: 50px; box-shadow: 0 4px 15px rgba(224, 122, 95, 0.3);
             transition: all 0.3s ease;
         }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(224, 122, 95, 0.5);
-        }
-        .micro-copy {
-            display: block;
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 10px;
-        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(224, 122, 95, 0.5); }
+        .micro-copy { display: block; font-size: 13px; color: var(--text-light); margin-top: 10px; }
 
-        /* 第1セクション：ヒーローエリア（背景画像設定） */
+        /* 第1セクション：ヒーローエリア */
         .hero {
-            /* ▼ ここを実際の背景画像のURLに変更してください ▼ */
-            background-image: linear-gradient(rgba(252, 250, 245, 0.7), rgba(252, 250, 245, 0.9)), url('hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 100px 20px;
-            text-align: center;
+            background-image: linear-gradient(rgba(252, 250, 245, 0.7), rgba(252, 250, 245, 0.9)), url('images/hero-bg.jpg');
+            background-size: cover; background-position: center;
+            padding: 100px 20px; text-align: center;
         }
-        .hero h1 {
-            font-size: 28px;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-weight: normal;
-        }
-        .hero p {
-            font-size: 16px;
-            color: var(--text-main);
-            margin-bottom: 30px;
-        }
+        .hero h1 { font-size: 28px; margin-bottom: 20px; line-height: 1.6; font-weight: normal; }
+        .hero p { font-size: 16px; margin-bottom: 30px; }
 
         /* 第2セクション：共感 */
         .empathy {
-            background-color: #fff;
-            border-radius: 20px;
-            padding: 40px;
-            margin: -40px auto 0;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05);
-            position: relative;
-            z-index: 10;
+            background-color: #fff; border-radius: 20px; padding: 40px;
+            margin: -40px auto 0; max-width: 800px;
+            box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05); position: relative; z-index: 10;
         }
-        .empathy h2 {
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--btn-color);
-        }
-        .empathy ul {
-            list-style: none;
-            padding: 0;
-        }
-        .empathy li {
-            margin-bottom: 20px;
-            padding-left: 30px;
-            position: relative;
-        }
-        .empathy li::before {
-            content: '・';
-            color: var(--btn-color);
-            position: absolute;
-            left: 0;
-            font-size: 20px;
-        }
+        .empathy h2 { font-size: 20px; text-align: center; margin-bottom: 30px; color: var(--btn-color); }
+        .empathy ul { list-style: none; padding: 0; }
+        .empathy li { margin-bottom: 20px; padding-left: 30px; position: relative; }
+        .empathy li::before { content: '・'; color: var(--btn-color); position: absolute; left: 0; font-size: 20px; }
 
-        /* 第4セクション：3つのサポート（丸い画像） */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-        .feature-card {
-            width: calc(33.333% - 20px);
-            min-width: 250px;
-            text-align: center;
-        }
+        /* 第4セクション：3つのサポート */
+        .features { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .feature-card { width: calc(33.333% - 20px); min-width: 250px; text-align: center; }
         .feature-img-wrapper {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            border: 4px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 180px; height: 180px; border-radius: 50%; overflow: hidden;
+            margin: 0 auto 20px; border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .feature-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .feature-card h3 {
-            font-size: 18px;
-            color: var(--gold-accent);
-            margin-bottom: 15px;
-        }
+        .feature-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .feature-card h3 { font-size: 18px; color: var(--gold-accent); margin-bottom: 15px; }
 
         /* 第5セクション：代表メッセージ */
-        .profile-section {
-            background-color: var(--bg-accent);
-            padding: 60px 20px;
-        }
+        .profile-section { background-color: var(--bg-accent); padding: 60px 20px; }
         .profile-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;
+            max-width: 800px; margin: 0 auto;
         }
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .profile-text {
-            flex: 1;
-            min-width: 300px;
-        }
+        .profile-img-container { flex-shrink: 0; text-align: center; }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;}
+        .profile-badges { display: flex; flex-direction: column; gap: 8px; align-items: center;}
+        .badge { background-color: #fff; color: var(--btn-color); font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--btn-color); font-family: sans-serif;}
+        .profile-text { flex: 1; min-width: 300px; }
 
         /* 第7セクション：料金プラン */
         .pricing { padding: 60px 20px; }
-        .price-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
+        .price-cards { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
         .price-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px 30px;
-            width: 100%;
-            max-width: 350px;
-            text-align: center;
-            position: relative;
-            border: 1px solid #f0e6d2;
+            background: #fff; border-radius: 15px; padding: 40px 30px;
+            width: 100%; max-width: 350px; text-align: center; position: relative; border: 1px solid #f0e6d2;
         }
         .price-card.recommend {
-            border: 2px solid var(--gold-accent);
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15);
-            transform: translateY(-5px);
+            border: 2px solid var(--gold-accent); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15); transform: translateY(-5px);
         }
         .recommend-badge {
-            background: var(--gold-accent);
-            color: #fff;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 5px 25px;
-            border-radius: 20px;
-            font-size: 14px;
+            background: var(--gold-accent); color: #fff; position: absolute;
+            top: -15px; left: 50%; transform: translateX(-50%); padding: 5px 25px; border-radius: 20px; font-size: 14px;
         }
         .price-title { font-size: 18px; margin-bottom: 15px; color: var(--text-main); }
-        .price-amount { font-size: 32px; color: var(--btn-color); margin-bottom: 20px; }
-        .price-amount span { font-size: 14px; color: var(--text-light); }
+        .price-amount { font-size: 32px; color: var(--btn-color); margin-bottom: 20px; line-height: 1.2; }
+        .price-amount span.regular-price { font-size: 14px; color: var(--text-light); text-decoration: line-through; display: block; margin-bottom: 5px; }
+        .price-amount span.monitor-label { font-size: 16px; font-weight: bold; display: block; margin-bottom: 5px; }
+        .price-amount span.unit { font-size: 14px; color: var(--text-light); }
         .price-list { text-align: left; padding: 0; list-style: none; margin-bottom: 0; }
         .price-list li { margin-bottom: 10px; font-size: 15px; }
 
         /* フッター */
         footer {
-            background-color: #fff;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 13px;
-            color: var(--text-light);
-            border-top: 1px solid #f0e6d2;
+            background-color: #fff; text-align: center; padding: 40px 20px; font-size: 13px;
+            color: var(--text-light); border-top: 1px solid #f0e6d2;
         }
         footer a { color: var(--text-light); margin: 0 10px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 22px; }
             .feature-card { width: 100%; }
-            .profile-box { text-align: center; justify-content: center; }
+            .profile-box { flex-direction: column; align-items: center; text-align: center; }
             .price-card.recommend { transform: translateY(0); }
         }
     </style>
@@ -246,11 +129,11 @@
 
     <section class="hero">
         <div class="container">
-            <h1>「つい怒ってしまう」<br>そんな毎日に、やさしい区切りを。<br>親の安心が、子どもの自立を育む場所。</h1>
-            <p>仲間と繋がる「オンライン自習室」と、心がスッと軽くなる「子育てサポート」。<br>未来志創プロジェクトがお届けする、親子が一緒に笑顔になれる新しい居場所です。</p>
+            <h1>「つい怒ってしまう」<br>そんな毎日に、やさしい区切りを。<br>親の安心が、子どもの才能を引き出す場所。</h1>
+            <p>仲間と繋がる「オンライン自習室」と、心がスッと軽くなる「子育てサポート」。<br>教育と子育てのプロである私たちアドバイザー夫婦が、親子が一緒に笑顔になれる新しい居場所をお届けします。</p>
             <div class="cta-wrapper sans-text">
-                <a href="#pricing" class="cta-btn">詳しく見てみる</a>
-                <span class="micro-copy">月額500円から、今日から始められます</span>
+                <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn">詳しく見てみる</a>
+                <span class="micro-copy">【先着モニター募集】月額500円から始められます</span>
             </div>
         </div>
     </section>
@@ -260,57 +143,75 @@
         <ul>
             <li>「早く宿題しなさい！」と毎日同じことで怒ってしまい、寝顔を見ながら自己嫌悪してしまう…</li>
             <li>他の子と比べてしまい、「私の関わり方が間違っているのかな」と不安になる</li>
-            <li>子どもに自信を持ってほしいのに、どう声をかけたらいいか分からない</li>
+            <li>子どもに自信を持ってほしいけれど、才能の引き出し方や声のかけ方が分からない</li>
         </ul>
-        <p style="text-align: center; margin-top: 30px; color: var(--text-light);">私たち「未来志創プロジェクト」は、そんな親御さんの孤独や不安に寄り添いたいと考えています。「親が全てを管理しなきゃ」という肩の荷を、少しだけ下ろしてみませんか？</p>
+        <p style="text-align: center; margin-top: 30px; color: var(--text-light);">私たち夫婦も、これまで多くの親御さんの悩みと向き合ってきました。「親が全てを管理しなきゃ」という肩の荷を、私たちと一緒に少しだけ下ろしてみませんか？</p>
     </section>
 
     <section class="container">
-        <h2 class="section-title">未来志創プロジェクトが寄り添う、3つの柱</h2>
+        <h2 class="section-title">教育と才能育成のプロが寄り添う、3つの柱</h2>
         <div class="features">
             <div class="feature-card">
                 <div class="feature-img-wrapper">
-                    <img src="https://placehold.jp/f8e8e6/e07a5f/400x400.png?text=子どもたちの写真" alt="子どもたちのオンライン自習室">
+                    <img src="images/kids-study.jpg" alt="子どもたちのオンライン自習室">
                 </div>
                 <h3>① 子どもが自ら机に向かう<br>「オンライン自習室」</h3>
-                <p style="font-size: 14px; text-align: left;">毎週オンラインで仲間と繋がり、一緒に机に向かいます。最初の15分で「自分で計画を立てるコツ」などを優しくレクチャーします。</p>
+                <p style="font-size: 14px; text-align: left;">最初の15分で、夫が「自ら動く目標の立て方」を、元中学校・英語教員の妻が「学習のコツ」などを優しくレクチャー。仲間の存在とプロの導きで、毎日の学習習慣を育みます。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-img-wrapper">
-                    <img src="https://placehold.jp/f8e8e6/e07a5f/400x400.png?text=親御さんの写真" alt="子育て応援ライブ">
+                    <img src="images/parents-smile.jpg" alt="子育て応援ライブ">
                 </div>
                 <h3>② 心がスッと軽くなる<br>「子育て応援ライブ」</h3>
-                <p style="font-size: 14px; text-align: left;">月に1〜2回、自己肯定感の育て方や、子どもへの温かい声かけのヒントを配信。「私だけじゃないんだ」と安心できる時間です。</p>
+                <p style="font-size: 14px; text-align: left;">月に1〜2回、素質論アドバイザーの夫と、幼児教育に精通した妻が、子どもの「才能」の引き出し方や温かい声かけのヒントを配信。「私だけじゃないんだ」と安心できる時間です。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-img-wrapper">
-                    <img src="https://placehold.jp/f8e8e6/e07a5f/400x400.png?text=リラックス風景" alt="アーカイブ見放題">
+                    <img src="images/relax-coffee.jpg" alt="アーカイブ見放題">
                 </div>
                 <h3>③ いつでも振り返れる<br>「安心のアーカイブ」</h3>
-                <p style="font-size: 14px; text-align: left;">忙しい毎日でも大丈夫。全ての子育てライブやミニ講義は録画され、いつでもお好きな時間に何度でも見返すことができます。</p>
+                <p style="font-size: 14px; text-align: left;">忙しい毎日でも大丈夫。全ての子育てライブや講義は録画され、いつでもお好きな時間に見返すことができます。ご家庭の「お守り」としてご活用ください。</p>
             </div>
         </div>
     </section>
 
     <section class="profile-section">
         <div class="profile-box">
-            <img src="https://placehold.jp/ffffff/c5a059/400x400.png?text=岡本代表の写真" alt="岡本 奎一" class="profile-img">
+            <div class="profile-img-container">
+                <img src="images/couple-profile.jpg" alt="岡本夫婦" class="profile-img">
+                <div class="profile-badges">
+                    <span class="badge">素質論アドバイザー</span>
+                    <span class="badge">元中学校教員・英語講師</span>
+                </div>
+            </div>
             <div class="profile-text">
-                <p style="color: var(--gold-accent); margin-bottom: 5px;">未来志創プロジェクト 代表</p>
-                <h3 style="margin-top: 0; font-size: 22px;">岡本 奎一</h3>
-                <p>「自立」と「共育」。親子で一緒に成長していく喜びを。</p>
-                <p style="font-size: 14px; color: var(--text-light);">ここに代表の想いや、なぜこのプロジェクトを立ち上げたのかという、親御さんに向けた優しいメッセージ（お手紙）が入ります。</p>
+                <p style="color: var(--gold-accent); margin-bottom: 5px;">学習・子育てアドバイザー</p>
+                <h3 style="margin-top: 0; font-size: 22px;">岡本 奎一 ＆ 妻</h3>
+                <p><strong>親も子も、自信と誇りを持って生きられる社会へ。</strong></p>
+                <p style="font-size: 15px; line-height: 1.8;">
+                    はじめまして、岡本夫婦です。<br>
+                    夫は素質論アドバイザーとして子どもたちの本音と可能性を引き出すコーチングを、妻は元中学校教員・英語講師の経験を活かし、0歳からのお子様の能力開発をサポートしてまいりました。<br><br>
+                    これまで多くのご家庭と関わる中で、「本当は怒りたくないのに…」と涙を流すお母さん、お父さんに出会ってきました。だからこそ、私たち夫婦が「学習」と「子育て」の両面から、ご家庭の温かい伴走者になりたいとこの場所を作りました。<br><br>
+                    子どもの英語の楽しさも、目標に向かう「志」も、すべては親御さんの安心という土台があってこそ育ちます。<br>
+                    どうぞ、ひとりで抱え込まず、私たち夫婦に頼ってくださいね。
+                </p>
             </div>
         </div>
     </section>
 
     <section class="pricing container" id="pricing">
-        <h2 class="section-title">ご家庭のペースに合わせて選べる、2つのコース</h2>
+        <h2 class="section-title">まずは体験してみませんか？<br>選べる2つのモニターコース</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 14px;">今回、実績作りにご協力いただける方を対象に、<br>特別なモニター価格でご案内させていただきます。</p>
+        
         <div class="price-cards sans-text">
             
             <div class="price-card">
                 <div class="price-title">【親御さんのための】<br>子育て応援コース</div>
-                <div class="price-amount">500<span>円/月(税込)</span></div>
+                <div class="price-amount">
+                    <span class="regular-price">通常価格 1,500円</span>
+                    <span class="monitor-label">【特別モニター価格】</span>
+                    500<span class="unit">円/月(税込)</span>
+                </div>
                 <ul class="price-list">
                     <li>・ 子育てライブの参加</li>
                     <li>・ 全アーカイブ見放題</li>
@@ -321,7 +222,11 @@
             <div class="price-card recommend">
                 <div class="recommend-badge">一番人気・おすすめ</div>
                 <div class="price-title">【親子で歩む】<br>自立・共育フルサポートコース</div>
-                <div class="price-amount">980<span>円/月(税込)</span></div>
+                <div class="price-amount">
+                    <span class="regular-price">通常価格 1,980円</span>
+                    <span class="monitor-label">【特別モニター価格】</span>
+                    980<span class="unit">円/月(税込)</span>
+                </div>
                 <ul class="price-list">
                     <li style="color: var(--btn-color); font-weight: bold;">・ 子ども向けオンライン自習室</li>
                     <li>・ 子育てライブの参加</li>
@@ -333,8 +238,8 @@
         </div>
 
         <div class="cta-wrapper sans-text">
-            <p style="margin-bottom: 20px;">ひとりで抱え込まなくて大丈夫です。<br>今日から、私たちと一緒に「新しい子育て」を楽しんでみませんか？</p>
-            <a href="#" class="cta-btn">コースを選んで、一緒に始める</a>
+            <p style="margin-bottom: 20px;">ひとりで抱え込まなくて大丈夫です。<br>今日から、私たち夫婦と一緒に「新しい子育て」を楽しんでみませんか？</p>
+            <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn">モニター価格で申し込む</a>
         </div>
     </section>
 
@@ -343,6 +248,7 @@
             <a href="#">特定商取引法に基づく表記</a> | 
             <a href="#">プライバシーポリシー</a>
         </p>
+        <p style="font-size: 11px;">運営：未来志創プロジェクト</p>
         <p>&copy; 2026 未来志創プロジェクト All Rights Reserved.</p>
     </footer>
 
