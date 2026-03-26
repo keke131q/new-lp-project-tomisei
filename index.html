@@ -87,7 +87,6 @@
             overflow: hidden;
             z-index: 1;
         }
-        /* 家族の団欒を表現する、より明るいフリー画像に変更 */
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop'); 
@@ -95,7 +94,6 @@
             animation: zoomBg 25s infinite alternate linear;
             z-index: -2;
         }
-        /* 白フィルターを少し強めにして明るさをアップ */
         .hero::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(rgba(252, 250, 245, 0.88), rgba(252, 250, 245, 0.99));
@@ -132,14 +130,11 @@
         .service-box:nth-child(even) { flex-direction: row-reverse; }
         .service-img { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; position: relative;}
         .service-img img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s ease; }
-        
-        /* 画像を少し明るく見せるためのオーバーレイを追加 */
         .service-img::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.1); /* ほんの少し明るく */
+            background-color: rgba(255, 255, 255, 0.1);
             z-index: 1;
         }
-
         .service-box:hover .service-img img { transform: scale(1.05); } 
         .service-text { flex: 1; min-width: 300px; }
         .service-text h3 { color: var(--gold-accent); font-size: 26px; margin-bottom: 20px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 12px; line-height: 1.4;}
@@ -153,15 +148,23 @@
         .week-content h4 { margin: 0 0 12px 0; color: var(--text-main); font-size: 20px; }
         .week-content p { margin: 0; font-size: 16px; color: var(--text-light); }
 
-        /* --- 夫婦の想い --- */
-        .our-why-section { padding: 100px 20px; background-color: var(--message-bg); position: relative;}
-        .message-card { background: #fff; border-radius: 20px; padding: 60px; box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05); margin-bottom: 40px; border: 1px solid var(--table-border);}
-        .message-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 20px;}
-        .message-title-marker { color: var(--gold-accent); font-size: 14px; font-weight: bold; border-left: 4px solid var(--gold-accent); padding-left: 10px;}
-        .message-content h4 { font-size: 20px; color: var(--text-main); margin: 0 0 20px 0; line-height: 1.6;}
-        .message-content p { font-size: 16px; color: var(--text-main); margin-bottom: 20px;}
-        .message-content p strong { color: var(--btn-color); }
-        .message-signature { text-align: right; color: var(--gold-accent); font-weight: bold; margin-top: 30px; font-size: 18px;}
+        /* --- 講師紹介 --- */
+        .instructors { padding: 100px 20px; }
+        .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
+        .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
+        .profile-card:hover { transform: translateY(-5px); }
+        /* 空の画像枠用のCSS */
+        .profile-img-placeholder {
+            width: 180px; height: 180px; border-radius: 50%;
+            margin: 0 auto 25px; border: 5px solid var(--bg-accent);
+            background-color: #f4f0ea; /* 空欄とわかるように薄い色 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin: 0 auto 25px; border: 5px solid var(--bg-accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+        .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
+        .badge { background-color: var(--bg-accent); color: var(--btn-color); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
+        .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
+        .profile-desc { text-align: left; font-size: 15px; line-height: 1.9; color: var(--text-main); }
 
         /* --- 料金表 --- */
         .pricing { padding: 100px 20px; background-color: var(--bg-accent); }
@@ -176,6 +179,16 @@
         .td-cross { color: #dcdcdc; font-size: 22px;}
         tr:last-child td { border-bottom: none; }
         .table-row-title { text-align: left; font-weight: bold; color: var(--text-main); font-size: 16px; padding-left: 20px;}
+
+        /* --- 夫婦の想い --- */
+        .our-why-section { padding: 100px 20px; background-color: var(--message-bg); position: relative;}
+        .message-card { background: #fff; border-radius: 20px; padding: 60px; box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05); margin-bottom: 40px; border: 1px solid var(--table-border);}
+        .message-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 20px;}
+        .message-title-marker { color: var(--gold-accent); font-size: 14px; font-weight: bold; border-left: 4px solid var(--gold-accent); padding-left: 10px;}
+        .message-content h4 { font-size: 20px; color: var(--text-main); margin: 0 0 20px 0; line-height: 1.6;}
+        .message-content p { font-size: 16px; color: var(--text-main); margin-bottom: 20px;}
+        .message-content p strong { color: var(--btn-color); }
+        .message-signature { text-align: right; color: var(--gold-accent); font-weight: bold; margin-top: 30px; font-size: 18px;}
 
         /* フッター */
         footer { background-color: #fff; text-align: center; padding: 50px 20px; font-size: 14px; color: var(--text-light); border-top: 1px solid var(--table-border); }
@@ -215,13 +228,11 @@
             .week-content h4 { font-size: 18px; }
             .week-content p { font-size: 14px; }
 
-            /* 想いセクションのスマホ最適化 */
-            .our-why-section { padding: 60px 15px; }
-            .message-card { padding: 30px 20px; border-radius: 15px;}
-            .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
-            .message-content h4 { font-size: 18px; margin-bottom: 15px;}
-            .message-content p { font-size: 14px; margin-bottom: 15px;}
-            .message-signature { font-size: 16px; margin-top: 20px;}
+            .instructors { padding: 60px 15px; }
+            .profiles-container { gap: 30px; }
+            .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
+            .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
+            .profile-name { font-size: 22px; }
 
             .pricing { padding: 60px 15px; }
             .course-table-wrapper { padding: 20px 10px; border-radius: 15px;}
@@ -230,6 +241,14 @@
             .td-price { font-size: 20px; }
             .td-price span { font-size: 11px; }
             .table-row-title { font-size: 13px; padding-left: 5px;}
+
+            /* 想いセクションのスマホ最適化 */
+            .our-why-section { padding: 60px 15px; }
+            .message-card { padding: 30px 20px; border-radius: 15px;}
+            .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
+            .message-content h4 { font-size: 18px; margin-bottom: 15px;}
+            .message-content p { font-size: 14px; margin-bottom: 15px;}
+            .message-signature { font-size: 16px; margin-top: 20px;}
         }
     </style>
 </head>
@@ -240,7 +259,7 @@
             <h1>「つい怒ってしまう」<br>そんな毎日に、やさしい区切りを。<br>親の安心が、子どもの才能を引き出す場所。</h1>
             <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>教育と子育てのプロであるアドバイザー夫婦が、親子が一緒に笑顔になれる居場所をお届けします。</p>
             <div class="cta-wrapper sans-text">
-                <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn">詳しく見てみる</a>
+                <a href="#pricing" class="cta-btn">詳しく見てみる</a>
                 <span class="micro-copy">【先着モニター募集】月額500円から始められます</span>
             </div>
         </div>
@@ -330,39 +349,41 @@
         </div>
     </section>
 
-    <section class="our-why-section">
-        <div class="container fade-in" style="padding: 0;">
-            <h2 class="section-title">私たちが、このサポートを届けたい本当の理由</h2>
-            <p class="section-subtitle">親も子も、ありのままの自分で輝ける未来を目指して。</p>
+    <section class="instructors">
+        <div class="container" style="padding: 0;">
+            <h2 class="section-title fade-in">私たち夫婦が、ご家庭に伴走します</h2>
+            <p class="section-subtitle fade-in" style="margin-bottom: 40px;">親も子も、自信と誇りを持って生きられる社会づくりをミッションに活動しています。</p>
 
-            <div class="message-card">
-                <div class="message-header sans-text">
-                    <span class="message-title-marker">夫・奎一の想い</span>
+            <div class="profiles-container">
+                <div class="profile-card fade-in">
+                    <div class="profile-img-placeholder"></div>
+                    <div class="profile-badges">
+                        <span class="badge">素質論アドバイザー</span>
+                        <span class="badge">子育てコーチング</span>
+                        <span class="badge">志教育</span>
+                    </div>
+                    <div class="profile-name">岡本 奎一（夫）</div>
+                    <div class="profile-desc">
+                        子どもたちの「本音」と「可能性」を引き出すコーチングのプロフェッショナル。<br>
+                        素質論に基づき、一人ひとりの持って生まれた才能を見つけ出し、伸ばす声かけを得意とします。<br>
+                        単なる学習支援ではなく、自ら目標に向かって進む「志（こころざし）」を育む教育に尽力しています。
+                    </div>
                 </div>
-                <div class="message-content">
-                    <h4>スポーツで培った力を、学ぶ力へ。<br>親子で一緒に、自信を育むサポートをしたい。</h4>
-                    <p>もともと、私たち夫婦は二人とも中学校の教員でした。部活動の指導にも熱を入れていましたが、時代が変わり、スポーツの環境も部活動からクラブチームへと移り変わる姿を見てきました。<br>しかし、環境が変わったからといって、スポーツや野球だけをしていれば良いわけではありません。</p>
-                    <p>かつて私自身も、野球に明け暮れた球児でした。練習に打ち込む厳しさも、その楽しさも知っています。<br>だからこそ、グラウンドで見せる「頑張りたい」「両立させたい」と願う子どもたちの純粋なエネルギーを、学習面にも活かしてほしいと強く思うのです。</p>
-                    <p>私たちは、子どもたちがスポーツで培ったチームワークや前向きな姿勢を、学びの場でも発揮できるようサポートしたいと考えています。<br>「もくもく会」は、単に宿題を終わらせる場所ではありません。画面越しに仲間の頑張りを感じながら、「自分もやれる」という自立心と<strong>自己肯定感を高めていく</strong>場です。</p>
-                    <p>そして親御さんには、安心して見守れる環境をお届けします。私たちが伴走することで、親子がそれぞれの場所で、<strong>純粋に自信を育んでいける</strong>よう、全力でサポートいたします。</p>
-                    <p class="message-signature sans-text">岡本 奎一</p>
+
+                <div class="profile-card fade-in">
+                    <div class="profile-img-placeholder"></div>
+                    <div class="profile-badges">
+                        <span class="badge">元中学校教員</span>
+                        <span class="badge">英語専門講師</span>
+                        <span class="badge">0〜3歳児 能力開発</span>
+                    </div>
+                    <div class="profile-name">岡本 〇〇（妻）</div>
+                    <div class="profile-desc">
+                        「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。<br>
+                        元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
+                    </div>
                 </div>
             </div>
-
-            <div class="message-card">
-                <div class="message-header sans-text">
-                    <span class="message-title-marker">妻・〇〇の想い</span>
-                </div>
-                <div class="message-content">
-                    <h4>中学校での教員や講師、英会話教室での経験。<br>そして留学を通じて、私は教育に対する強い思いを育んできました。</h4>
-                    <p>中学校で英語を教えていた経験や、留学経験、その後の英会話教室での講師経験。それらの活動を通じて、私は教育に対する強い思いを育んできました。<br>それは、単に知識を教えるだけでなく、子どもたちの人としての内面、生きる力を育てたいという考えです。</p>
-                    <p>教員として、講師として、そして幼児教育の現場で、10年以上、数千組の親子と向き合ってきました。<br>そこで見たのは、必死に頑張る子どもたちと、それ以上に頑張って、自己嫌悪してしまうお母さん・お父さんの姿でした。</p>
-                    <p>そんな中で出会ったのが「素質論」でした。一人一人が持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができると確信しました。<br>お母さんの心がスッと軽くなった時、子どもは安心して、自分の才能を開花させ始めます。<br>それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
-                    <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。<br>親子がそれぞれの場所で、ありのままの自分で輝ける未来を、私たちは一緒に作っていきたいと願っています。</p>
-                    <p class="message-signature sans-text">岡本 〇〇</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -409,11 +430,47 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </section>
+
+    <section class="our-why-section">
+        <div class="container fade-in" style="padding: 0;">
+            <h2 class="section-title">私たちが、このサポートを届けたい本当の理由</h2>
+            <p class="section-subtitle">親も子も、ありのままの自分で輝ける未来を目指して。</p>
+
+            <div class="message-card">
+                <div class="message-header sans-text">
+                    <span class="message-title-marker">夫・奎一の想い</span>
+                </div>
+                <div class="message-content">
+                    <h4>スポーツで培った力を、学ぶ力へ。<br>親子で一緒に、自信を育むサポートをしたい。</h4>
+                    <p>もともと、私たち夫婦は二人とも中学校の教員でした。部活動の指導にも熱を入れていましたが、時代が変わり、スポーツの環境も部活動からクラブチームへと移り変わる姿を見てきました。<br>しかし、環境が変わったからといって、スポーツや野球だけをしていれば良いわけではありません。</p>
+                    <p>かつて私自身も、野球に明け暮れた球児でした。練習に打ち込む厳しさも、その楽しさも知っています。<br>だからこそ、グラウンドで見せる「頑張りたい」「両立させたい」と願う子どもたちの純粋なエネルギーを、学習面にも活かしてほしいと強く思うのです。</p>
+                    <p>私たちは、子どもたちがスポーツで培ったチームワークや前向きな姿勢を、学びの場でも発揮できるようサポートしたいと考えています。<br>「もくもく会」は、単に宿題を終わらせる場所ではありません。画面越しに仲間の頑張りを感じながら、「自分もやれる」という自立心と<strong>自己肯定感を高めていく</strong>場です。</p>
+                    <p>そして親御さんには、安心して見守れる環境をお届けします。私たちが伴走することで、親子がそれぞれの場所で、<strong>純粋に自信を育んでいける</strong>よう、全力でサポートいたします。</p>
+                    <p class="message-signature sans-text">岡本 奎一</p>
+                </div>
+            </div>
+
+            <div class="message-card">
+                <div class="message-header sans-text">
+                    <span class="message-title-marker">妻・〇〇の想い</span>
+                </div>
+                <div class="message-content">
+                    <h4>中学校での教員や講師、英会話教室での経験。<br>そして留学を通じて、私は教育に対する強い思いを育んできました。</h4>
+                    <p>中学校で英語を教えていた経験や、留学経験、その後の英会話教室での講師経験。それらの活動を通じて、私は教育に対する強い思いを育んできました。<br>それは、単に知識を教えるだけでなく、子どもたちの人としての内面、生きる力を育てたいという考えです。</p>
+                    <p>教員として、講師として、そして幼児教育の現場で、10年以上、数千組の親子と向き合ってきました。<br>そこで見たのは、必死に頑張る子どもたちと、それ以上に頑張って、自己嫌悪してしまうお母さん・お父さんの姿でした。</p>
+                    <p>そんな中で出会ったのが「素質論」でした。一人一人が持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができると確信しました。<br>お母さんの心がスッと軽くなった時、子どもは安心して、自分の才能を開花させ始めます。<br>それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
+                    <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。<br>親子がそれぞれの場所で、ありのままの自分で輝ける未来を、私たちは一緒に作っていきたいと願っています。</p>
+                    <p class="message-signature sans-text">岡本 〇〇</p>
+                </div>
+            </div>
 
             <div class="cta-wrapper sans-text fade-in">
                 <p style="margin-bottom: 25px; font-size: 18px; color: var(--text-main); font-weight:bold;">ひとりで抱え込まなくて大丈夫です。<br>今日から、私たち夫婦と一緒に「新しい子育て」を楽しんでみませんか？</p>
                 <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn">モニター価格で申し込む</a>
             </div>
+
         </div>
     </section>
 
