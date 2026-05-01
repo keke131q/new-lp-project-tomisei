@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>オンライン自習室＆子育てサポート | 未来志創プロジェクト</title>
+    <title>オンライン自習室＆子育てサポート | ほーむBASE</title>
     <style>
         /* --- 温かいカラーパレット --- */
         :root {
@@ -21,6 +21,9 @@
             --color-tane: #9cb380;     /* まなびの種 */
             --color-nekko: #c99a68;    /* こころの根っこ */
             --color-hidamari: #e39d91; /* ひだまりの庭 */
+            
+            /* 新セクション用 */
+            --bg-serious: #f4efea; 
         }
 
         body {
@@ -111,10 +114,11 @@
         .cta-btn {
             display: inline-block; 
             background: linear-gradient(135deg, var(--btn-color), var(--btn-hover));
-            color: #fff; font-size: 18px; padding: 20px 60px; font-weight: bold;
+            color: #fff; font-size: 18px; padding: 20px 40px; font-weight: bold;
             border-radius: 50px; box-shadow: 0 6px 20px rgba(224, 122, 95, 0.4);
             transition: all 0.3s ease;
             animation: pulseBtn 2.5s infinite;
+            line-height: 1.4;
         }
         .cta-btn:hover { 
             transform: translateY(-3px) scale(1.02) !important; 
@@ -122,7 +126,6 @@
             animation: none; 
             color: #fff;
         }
-        .micro-copy { display: block; font-size: 14px; color: var(--text-light); margin-top: 12px; font-weight: bold; }
 
         /* --- FV --- */
         .hero {
@@ -141,13 +144,13 @@
         }
         @keyframes zoomBg { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
         
-        .hero h1 { font-size: 34px; margin-bottom: 25px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
-        .hero p { font-size: 18px; margin-bottom: 40px; font-weight: bold; line-height: 1.9; color: var(--text-light); }
+        .hero h1 { font-size: 32px; margin-bottom: 30px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
+        .hero p { font-size: 17px; margin-bottom: 40px; font-weight: bold; line-height: 2; color: var(--text-light); }
 
         .release-badge {
             display: inline-block; background-color: #fff; color: var(--btn-color);
             font-size: 15px; font-weight: bold; padding: 6px 16px; border-radius: 30px;
-            margin-bottom: 15px; border: 2px solid var(--btn-color); font-family: sans-serif;
+            margin-bottom: 20px; border: 2px solid var(--btn-color); font-family: sans-serif;
         }
 
         /* --- 共感 --- */
@@ -160,6 +163,56 @@
         .empathy ul { list-style: none; padding: 0; }
         .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500;}
         .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
+
+        /* --- 社会課題とチェックリスト (NEW) --- */
+        .issue-section {
+            background-color: var(--bg-serious);
+            padding: 80px 20px 100px;
+            position: relative;
+        }
+        .issue-content { max-width: 800px; margin: 0 auto; }
+        .issue-text { font-size: 16px; line-height: 1.9; color: var(--text-main); margin-bottom: 30px;}
+        .issue-highlight { font-weight: bold; color: var(--btn-hover); font-size: 18px; display: block; margin-top: 15px;}
+        
+        /* 円グラフ */
+        .charts-container {
+            display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin: 50px 0;
+        }
+        .chart-box { text-align: center; width: 200px; }
+        .pie-chart {
+            width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+            background-color: var(--table-border);
+        }
+        .pie-chart::after {
+            content: ''; position: absolute; width: 100px; height: 100px;
+            background-color: var(--bg-serious); border-radius: 50%;
+        }
+        .pie-value { position: relative; z-index: 2; font-size: 26px; font-weight: bold; color: var(--text-main); font-family: sans-serif;}
+        .pie-value span { font-size: 14px; }
+        /* 個別のグラフ割合設定 */
+        .chart1 .pie-chart { background: conic-gradient(var(--btn-color) 57.4%, var(--table-border) 0); }
+        .chart2 .pie-chart { background: conic-gradient(var(--gold-accent) 53.4%, var(--table-border) 0); }
+        .chart3 .pie-chart { background: conic-gradient(var(--color-tane) 49.2%, var(--table-border) 0); }
+        
+        .chart-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; color: var(--text-main); }
+        .chart-desc { font-size: 13px; color: var(--text-light); }
+        .chart-source { font-size: 12px; color: var(--text-light); text-align: right; margin-top: 10px;}
+
+        /* チェックリスト */
+        .checklist-box {
+            background-color: #fff; border-radius: 15px; padding: 40px; margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid var(--table-border);
+        }
+        .checklist-title { font-size: 22px; text-align: center; color: var(--gold-accent); font-weight: bold; margin-bottom: 30px;}
+        .checklist { list-style: none; padding: 0; margin: 0;}
+        .checklist li { font-size: 16px; margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; font-weight: 500;}
+        .checklist li::before { 
+            content: '□'; color: var(--gold-accent); position: absolute; left: 0; top: 0; 
+            font-size: 22px; line-height: 1.4; font-weight: bold; font-family: sans-serif;
+        }
+        .checklist-footer { text-align: center; font-size: 18px; font-weight: bold; color: var(--btn-color); margin-top: 40px; line-height: 1.6;}
 
         /* --- 3つの居場所 --- */
         .service-detail-section { padding: 100px 20px; background-color: var(--bg-accent); position: relative;}
@@ -221,7 +274,10 @@
 
         /* 特典リスト */
         .pricing-features ul { list-style: none; padding: 0; margin: 0;}
-        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: center; line-height: 1.5;}
+        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: flex-start; line-height: 1.6;}
+        .pricing-features li::before { content: '🌸'; margin-right: 12px; font-size: 18px; line-height: 1.6;}
+        .pricing-features li.archive-note { border-top: none; padding-top: 0; font-size: 13px; color: var(--text-light); display: block; padding-left: 36px;}
+        .pricing-features li.archive-note::before { display: none; }
 
         /* --- 講師紹介 --- */
         .instructors { padding: 100px 20px; background-color: var(--bg-accent);}
@@ -229,12 +285,11 @@
         .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
         .profile-card:hover { transform: translateY(-5px); }
         
-        /* 写真枠（共通） */
         .profile-img, .profile-img-placeholder {
             width: 180px; height: 180px; border-radius: 50%;
             margin: 0 auto 25px; border: 5px solid var(--bg-accent);
             background-color: #f4f0ea; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            object-fit: cover; /* 画像が歪まないように調整 */
+            object-fit: cover; 
         }
         
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
@@ -265,7 +320,7 @@
             .container { padding: 60px 15px; }
             .hero { padding: 100px 15px 120px; }
             .hero h1 { font-size: 24px; margin-bottom: 20px; }
-            .hero p { font-size: 15px; margin-bottom: 30px; }
+            .hero p { font-size: 14px; margin-bottom: 30px; }
             .section-title { font-size: 22px; margin-bottom: 15px; }
             .section-subtitle { font-size: 15px; margin-bottom: 40px; }
             .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
@@ -273,6 +328,20 @@
             .empathy { padding: 40px 25px; margin: -50px 15px 0; border-radius: 15px;}
             .empathy h2 { font-size: 20px; margin-bottom: 25px; }
             .empathy li { font-size: 15px; margin-bottom: 20px; padding-left: 25px; }
+
+            .issue-section { padding: 60px 15px; }
+            .charts-container { gap: 20px; margin: 40px 0; }
+            .chart-box { width: 140px; }
+            .pie-chart { width: 100px; height: 100px; margin-bottom: 10px;}
+            .pie-chart::after { width: 75px; height: 75px; }
+            .pie-value { font-size: 20px; }
+            .chart-title { font-size: 16px; }
+            
+            .checklist-box { padding: 25px 20px; margin-top: 40px;}
+            .checklist-title { font-size: 18px; margin-bottom: 25px;}
+            .checklist li { font-size: 14px; }
+            .checklist li::before { font-size: 18px; }
+            .checklist-footer { font-size: 16px; }
 
             .service-detail-section { padding: 60px 15px; }
             .pillar-card { padding: 30px 20px; border-radius: 15px;}
@@ -286,11 +355,10 @@
             .campaign-banner span { font-size: 18px; }
             .price-value { font-size: 36px; }
             .pricing-conditions { padding: 15px; }
+            .pricing-features li { font-size: 14px; }
 
             .instructors { padding: 60px 15px; }
             .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
-            
-            /* スマホ用の写真サイズ調整 */
             .profile-img, .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
             
             .our-why-section { padding: 60px 15px; }
@@ -310,11 +378,14 @@
     <section class="hero">
         <div class="container fade-in">
             <div class="release-badge sans-text">🎉 5月24日(日) ついにリリース！</div>
-            <h1>「勉強しなさい」と言わなくても、<br class="pc-br">自ら机に向かう子へ。<br>スマホから離れ、<br class="sp-br">仲間と「主体性」を育む場所。</h1>
-            <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>スポーツの現場で培った「自ら考え、行動する力」を、<br class="pc-br">家庭学習でも発揮できるよう教育のプロ夫婦が伴走します。</p>
+            <h1>自ら考え、行動する主体性を育む人へ。<br>「考える土台と根っこ」を学ぶ“居場所”</h1>
+            <p>
+                ゆるっと支える「オンライン学習」×<br class="pc-br">
+                知識(情報)とスキル(やり方)とリアル(行動)を学ぶ「人としての学び」×<br class="pc-br">
+                思春期の今こそ大切な「子育ての学びや情報」を<br class="sp-br">お届けします。
+            </p>
             <div class="cta-wrapper sans-text">
-                <a href="#pricing" class="cta-btn">まずは無料体験に参加してみる</a>
-                <span class="micro-copy">＼ 5月中のご登録で初月無料！ ／</span>
+                <a href="#pricing" class="cta-btn">参加してみる<br><span style="font-size: 14px; font-weight: normal;">(※5月中の登録で初月無料)</span></a>
             </div>
         </div>
     </section>
@@ -328,7 +399,71 @@
             <li>失敗から立ち上がる力や、自分で考えて行動する「主体性」を身につけてほしい</li>
             <li>将来、自分の頭で考え、自分の言葉で意見を言える大人になってほしい</li>
         </ul>
-        <p style="text-align: center; margin-top: 35px; color: var(--text-light); font-size: 15px; font-weight: bold;">私たち夫婦も、これまで多くの親御さんの悩みと向き合ってきました。「親が全てを管理しなきゃ」という肩の荷を、私たちと一緒に少しだけ下ろしてみませんか？</p>
+        <p style="text-align: center; margin-top: 35px; color: var(--text-light); font-size: 15px; font-weight: bold;">私たちもこれまで1500人を超える子どもや親御さんたちと向き合ってきました。「思春期だから…」の一言で、時間が解決してくれると思い込んでいませんか？</p>
+    </section>
+
+    <!-- NEW: 社会課題とチェックリスト セクション -->
+    <section class="issue-section">
+        <div class="container fade-in" style="padding: 0;">
+            <div class="issue-content">
+                <p class="issue-text">
+                    若者の悩みで最も大きいのが実は<strong>「自分の将来」</strong>です。これが「進学」「勉強」「容姿」「性格」よりも大きく、彼らの心を覆っています。<br>
+                    つまり、未来に希望がもてない、<strong>「大人になりたくない」「大人って大変そう」</strong>と思わせてしまっている。その結果が今の社会に表れています。
+                </p>
+
+                <div class="charts-container sans-text">
+                    <div class="chart-box chart1">
+                        <div class="pie-chart">
+                            <div class="pie-value">57.4<span>%</span></div>
+                        </div>
+                        <div class="chart-title">自己肯定感</div>
+                        <div class="chart-desc">自分自身に満足している</div>
+                    </div>
+                    <div class="chart-box chart2">
+                        <div class="pie-chart">
+                            <div class="pie-value">53.4<span>%</span></div>
+                        </div>
+                        <div class="chart-title">自己受容</div>
+                        <div class="chart-desc">自分には長所があると感じる</div>
+                    </div>
+                    <div class="chart-box chart3">
+                        <div class="pie-chart">
+                            <div class="pie-value">49.2<span>%</span></div>
+                        </div>
+                        <div class="chart-title">承認意識</div>
+                        <div class="chart-desc">親から愛されていると思う</div>
+                    </div>
+                </div>
+                <div class="chart-source">※世界に比べると圧倒的に低い日本の若者。<br>参考：R5 我が国と諸外国のこどもと若者の意識に関する調査(内閣府調査)</div>
+
+                <p class="issue-text" style="margin-top: 40px;">
+                    2024年の1年間に自ら命を絶った小中高校生は529人。これは、<strong>1週間で約10人</strong>であり、過去最多です。<br><br>
+                    これをなんとしてでも食い止めたい。<br>
+                    しかし、家庭だけでも、学校だけでもこれはできません。<br>
+                    親も子も先生も、たった一度きりの人生を<strong style="color: var(--btn-color);">「自分として生まれてきて本当によかった」と思える人生</strong>を増やしたい。
+                </p>
+
+                <span class="issue-highlight">今のあなたはいかがでしょうか。</span>
+
+                <div class="checklist-box">
+                    <h3 class="checklist-title">親と子の「根っこ」チェックリスト</h3>
+                    <ul class="checklist">
+                        <li>自分の個性・特性を深く理解している。</li>
+                        <li>子どもの個性・特性を深く理解している。</li>
+                        <li>親子共に「自分らしさ」を大切にする関わりができている。</li>
+                        <li>親子共に「私には私の良さがある」と心から思えている。</li>
+                        <li>「ない」ことより、「ある」ことに目を向ける習慣がある。</li>
+                        <li>自己肯定感(自信)を育むための土台が、親子関係を通じて築けている。</li>
+                        <li>子育てを通して、実現したい未来が明確である。</li>
+                        <li>今の自分(自分たち)の子育てに、100％の納得と自信がある。</li>
+                    </ul>
+                    <div class="checklist-footer">
+                        ここにチェックをつけられるようになるために<br class="sp-br">創ったのがこの「ほーむBASE」です。
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <section class="service-detail-section">
@@ -349,9 +484,9 @@
                 
                 <div class="content-item">
                     <div class="content-text">
-                        <h4>仲間とつながる、夜の「もくもく自学タイム」</h4>
+                        <h4>人は弱い。だからこそ仲間とつながり、高めあう「もくもく部屋(オンライン自習室)」</h4>
                         <span class="schedule-tag">原則 毎週木曜日 21:00〜22:00</span>
-                        <p>「勉強しなさい」と言われなくても、画面の向こうに頑張っている仲間がいるから机に向かえます。<br>※質問がある場合は、ブレイクアウトルームにて対応いたします。</p>
+                        <p>「言われたからやる」を卒業し、「自分で決めたからやる」「あいつもやっているから自分も頑張る」そう思える学びの居場所。<br>※質問がある場合は、ブレイクアウトルームにて対応いたします。</p>
                     </div>
                 </div>
 
@@ -359,7 +494,7 @@
                     <div class="content-text">
                         <h4>声にだして楽しむ「やさしい英会話ルーム」</h4>
                         <span class="schedule-tag">月1回</span>
-                        <p>教科書にはない「生きた英語」に触れ、声に出して楽しむレッスンです。</p>
+                        <p>「生きた英語」に触れ、「話す/伝える」ことを、ゆる〜く楽しむレッスンです。<br>難易度は易しめです。</p>
                         <ul>
                             <li>表現力向上</li>
                             <li>自己紹介、簡単な英会話などスピーキング中心</li>
@@ -374,10 +509,11 @@
                 
                 <div class="content-item">
                     <div class="content-text">
-                        <h4>心とからだの栄養になる「スポーツの知恵袋」</h4>
-                        <span class="schedule-tag">週1回 または 2週に1回</span>
-                        <p>スポーツの成長に欠かせない知識を学びます。</p>
+                        <h4>心とからだの栄養になる「スポーツ(野球)の知恵袋」</h4>
+                        <span class="schedule-tag">週1回</span>
+                        <p>スポーツ(野球)を通した成長に欠かせない知識を学びます。</p>
                         <ul>
+                            <li>【テーマ例】</li>
                             <li>ルールの基本と応用</li>
                             <li>メンタル、脳科学</li>
                             <li>栄養学 など</li>
@@ -388,12 +524,15 @@
                 <div class="content-item">
                     <div class="content-text">
                         <h4>なりたい自分を見つける「こころざしの時間」</h4>
+                        <span class="schedule-tag">週1回</span>
                         <p>自ら目標に向かって進み、達成する力を育むための特別な時間です。</p>
                         <ul>
-                            <li>目標の立て方 / モチベーション / 目標達成の習慣化</li>
-                            <li>学力とスポーツ</li>
-                            <li>人間性向上</li>
-                            <li>自分の考えを持つ など</li>
+                            <li>【テーマ例】</li>
+                            <li>目標設定の仕方</li>
+                            <li>モチベーションの正体</li>
+                            <li>目標達成のスキルと習慣化</li>
+                            <li>自分の考えをもつ</li>
+                            <li>「考える」ってどういうこと？</li>
                         </ul>
                     </div>
                 </div>
@@ -402,11 +541,13 @@
                     <div class="content-text">
                         <h4>いろんな生き方に出会える「おとなの背中」</h4>
                         <span class="schedule-tag">月1回</span>
-                        <p>生き様がかっこいい大人（経営者や事業主など）から、学校では教わらないリアルな話を学びます。</p>
+                        <p>生き様がかっこいい大人から、学校では教わらないリアルな話を学びます。</p>
                         <ul>
                             <li>グラブ再生のプロフェッショナル</li>
-                            <li>親子に届ける「お金」の教育 など</li>
+                            <li>親子に届ける「お金」の教育</li>
+                            <li>自分を心身ともに大切にするための「呼吸」など</li>
                         </ul>
+                        <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">※子育て世代や子どもたちに届けたい想いがある経営者、事業者さんなどが登壇予定</p>
                     </div>
                 </div>
             </div>
@@ -417,14 +558,23 @@
                 
                 <div class="content-item">
                     <div class="content-text">
-                        <h4>親の心がふっと軽くなる「子育てホッとカフェ」</h4>
-                        <span class="schedule-tag">週1回 または 2週に1回（親御さん対象）</span>
+                        <h4>月1回のプチ講義 ＋ オンライン座談会</h4>
+                        <span class="schedule-tag">月1回（親御さん対象）</span>
                         <p>子育ての悩みを共有し、ホッとできる親御さんのための時間です。</p>
                         <ul>
+                            <li>【テーマ例】</li>
                             <li>思春期世代の心 / 心の扉を開くコミュニケーション</li>
                             <li>心の声を聞く</li>
                             <li>子育てにおける愛情の正体</li>
                         </ul>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="content-text">
+                        <h4>2週に1回の子育てヒント情報発信</h4>
+                        <span class="schedule-tag">2週に1回</span>
+                        <p>日々の関わりに活かせる、思春期子育てのヒントや気づきを定期的にお届けします。</p>
                     </div>
                 </div>
             </div>
@@ -444,15 +594,15 @@
                 </div>
 
                 <div class="price-display">
-                    <div class="price-label">ずっと月謝500円引き！モニター特別価格</div>
+                    <div class="price-label">ずっと月謝1,000円引き！モニター特別価格</div>
                     <div class="price-value">1,980<span>円/月</span></div>
-                    <div class="price-discount">（通常定価: 2,480円/月）</div>
+                    <div class="price-discount">（通常定価: 2,980円/月）</div>
                 </div>
 
                 <div class="pricing-conditions sans-text">
                     <div class="condition-block">
                         <div class="condition-title">🎁 5月中にご登録の場合</div>
-                        <p class="condition-desc">初月：<span class="highlight-text">完全無料</span><br>2ヶ月目以降：モニター価格 1,980円/月</p>
+                        <p class="condition-desc">初月：<span class="highlight-text">無料</span><br>2ヶ月目以降：モニター価格 1,980円/月</p>
                     </div>
                     <div class="condition-block">
                         <div class="condition-title" style="color: var(--text-light);">🔹 6月以降にご登録の場合</div>
@@ -464,13 +614,14 @@
                     <ul>
                         <li><span class="emoji-sway" style="margin-right:8px;">🌱</span> まなびの種（自学タイム・英会話）参加</li>
                         <li><span class="emoji-sway" style="margin-right:8px;">🌳</span> こころの根っこ（知恵袋・こころざし・ゲスト）参加</li>
-                        <li><span class="emoji-sway" style="margin-right:8px;">☕️</span> ひだまりの庭（親向けカフェ＆座談会）参加</li>
+                        <li><span class="emoji-sway" style="margin-right:8px;">☕️</span> ひだまりの庭（親向けプチ講義・座談会）参加</li>
                         <li><span class="emoji-sway" style="margin-right:8px;">✨</span> 過去のライブ・講義動画のアーカイブ見放題</li>
+                        <li class="archive-note">※ゲスト講師による講義・講話はアーカイブなしの場合もあります</li>
                     </ul>
                 </div>
 
                 <div class="cta-wrapper sans-text" style="margin-top: 40px;">
-                    <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">まずは無料体験に参加してみる</a>
+                    <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">参加してみる<br><span style="font-size: 14px; font-weight: normal;">(※5月中の登録で初月無料)</span></a>
                 </div>
             </div>
 
@@ -484,11 +635,12 @@
 
             <div class="profiles-container">
                 <div class="profile-card fade-in">
-                    <!-- 画像を「奎一.png」に差し替え -->
                     <img src="奎一.png" alt="岡本 奎一" class="profile-img floating-element">
                     <div class="profile-badges">
                         <span class="badge">素質論アドバイザー</span>
-                        <span class="badge">子育てコーチング</span>
+                        <span class="badge">素質論インストラクター</span>
+                        <span class="badge">メンタルコーチ</span>
+                        <span class="badge">子育てコーチ</span>
                         <span class="badge">志教育</span>
                     </div>
                     <div class="profile-name">岡本 奎一（夫）</div>
@@ -500,12 +652,13 @@
                 </div>
 
                 <div class="profile-card fade-in" style="animation-delay: 0.5s;">
-                    <!-- 奥様の画像はまだなので仮枠のまま -->
                     <div class="profile-img-placeholder floating-element" style="animation-delay: 1s;"></div>
                     <div class="profile-badges">
-                        <span class="badge">英語・英会話担当</span>
-                        <span class="badge">栄養学担当</span>
-                        <span class="badge">0〜3歳児 能力開発</span>
+                        <span class="badge">素質論アドバイザー</span>
+                        <span class="badge">素質論インストラクター</span>
+                        <span class="badge">英語・英会話</span>
+                        <span class="badge">子育て伴走支援</span>
+                        <span class="badge">栄養学</span>
                     </div>
                     <div class="profile-name">岡本 瑞生（妻）</div>
                     <div class="profile-desc">
