@@ -18,9 +18,9 @@
             --message-bg: #fff1e6;
             
             /* 3本柱のテーマカラー */
-            --color-tane: #9cb380;     /* まなびの種：優しい若草色 */
-            --color-nekko: #c99a68;    /* こころの根っこ：温かい土の色 */
-            --color-hidamari: #e39d91; /* ひだまりの庭：ぽかぽかしたコーラルピンク */
+            --color-tane: #9cb380;     /* まなびの種 */
+            --color-nekko: #c99a68;    /* こころの根っこ */
+            --color-hidamari: #e39d91; /* ひだまりの庭 */
         }
 
         body {
@@ -52,7 +52,6 @@
         /* =========================================
             ✨ アニメーション設定（ムーブメント）
         ========================================= */
-        /* 1. スクロール時のふわっと表示 */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -63,14 +62,12 @@
             transform: translateY(0);
         }
 
-        /* 2. ボタンの鼓動（パルス） */
         @keyframes pulseBtn {
             0% { transform: scale(1); box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); }
             50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(224, 122, 95, 0.6); }
             100% { transform: scale(1); box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); }
         }
 
-        /* 3. 植物が風に揺れるような「ゆらゆら」 */
         @keyframes sway {
             0%, 100% { transform: rotate(-8deg); }
             50% { transform: rotate(8deg); }
@@ -78,32 +75,21 @@
         .emoji-sway {
             display: inline-block;
             animation: sway 3s ease-in-out infinite;
-            transform-origin: bottom center; /* 根元から揺れるように */
+            transform-origin: bottom center;
         }
 
-        /* 4. 優しく宙に浮く「ふわふわ」 */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
         }
-        .floating-element {
-            animation: float 4s ease-in-out infinite;
-        }
+        .floating-element { animation: float 4s ease-in-out infinite; }
 
-        /* 5. 背景の光のオーブ（木漏れ日感） */
         .bg-blobs {
-            position: absolute;
-            width: 100%; height: 100%;
-            top: 0; left: 0;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
+            position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+            overflow: hidden; z-index: 1; pointer-events: none;
         }
         .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3; /* ほんのり色づく程度 */
+            position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3;
             animation: float 8s ease-in-out infinite;
         }
         .blob1 { width: 400px; height: 400px; background: var(--color-tane); top: -50px; left: -150px; animation-delay: 0s;}
@@ -128,34 +114,31 @@
         }
         .micro-copy { display: block; font-size: 14px; color: var(--text-light); margin-top: 12px; font-weight: bold; }
 
-
         /* --- FV --- */
         .hero {
-            position: relative;
-            padding: 140px 20px 160px; 
-            text-align: center;
-            overflow: hidden;
-            z-index: 1;
+            position: relative; padding: 140px 20px 160px; 
+            text-align: center; overflow: hidden; z-index: 1;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover; background-position: center;
-            animation: zoomBg 25s infinite alternate linear;
-            z-index: -2;
+            animation: zoomBg 25s infinite alternate linear; z-index: -2;
         }
         .hero::after {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(252, 250, 245, 0.92), rgba(252, 250, 245, 1)); /* 少し白みを強くして柔らかく */
-            z-index: -1;
+            background: linear-gradient(rgba(252, 250, 245, 0.92), rgba(252, 250, 245, 1)); z-index: -1;
         }
-        @keyframes zoomBg {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
-        }
+        @keyframes zoomBg { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
         
         .hero h1 { font-size: 34px; margin-bottom: 25px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
         .hero p { font-size: 18px; margin-bottom: 40px; font-weight: bold; line-height: 1.9; color: var(--text-light); }
+
+        .release-badge {
+            display: inline-block; background-color: #fff; color: var(--btn-color);
+            font-size: 15px; font-weight: bold; padding: 6px 16px; border-radius: 30px;
+            margin-bottom: 15px; border: 2px solid var(--btn-color); font-family: sans-serif;
+        }
 
         /* --- 共感 --- */
         .empathy {
@@ -168,78 +151,66 @@
         .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500;}
         .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
 
-        /* --- 3つの居場所（コンテンツ） --- */
-        .service-detail-section { 
-            padding: 100px 20px; 
-            background-color: var(--bg-accent); 
-            position: relative; /* オーブの基準位置 */
-        }
+        /* --- 3つの居場所 --- */
+        .service-detail-section { padding: 100px 20px; background-color: var(--bg-accent); position: relative;}
         
         .pillar-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 50px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-top: 8px solid;
-            transition: transform 0.4s ease, box-shadow 0.4s ease; /* ホバー用トランジション */
-            position: relative;
-            z-index: 2;
+            background: #fff; border-radius: 20px; padding: 50px; margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 8px solid;
+            transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; z-index: 2;
         }
-        .pillar-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-        }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
         .pillar-card:last-child { margin-bottom: 0; }
         
-        /* 柱ごとのカラー設定 */
         .pillar-card.tane { border-top-color: var(--color-tane); }
         .pillar-card.nekko { border-top-color: var(--color-nekko); }
         .pillar-card.hidamari { border-top-color: var(--color-hidamari); }
 
-        .pillar-title {
-            text-align: center;
-            font-size: 26px;
-            margin-bottom: 40px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
+        .pillar-title { text-align: center; font-size: 26px; margin-bottom: 40px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 12px; }
         .pillar-title.tane { color: var(--color-tane); }
         .pillar-title.nekko { color: var(--color-nekko); }
         .pillar-title.hidamari { color: var(--color-hidamari); }
 
-        .content-item {
-            margin-bottom: 35px;
-            padding-bottom: 35px;
-            border-bottom: 1px dashed var(--table-border);
-        }
+        .content-item { margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px dashed var(--table-border); }
         .content-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         
         .content-text h4 { margin: 0 0 12px 0; color: var(--text-main); font-size: 20px; display: flex; align-items: center; gap: 8px;}
         .content-text .schedule-tag { display: inline-block; background-color: var(--bg-base); border: 1px solid var(--table-border); color: var(--text-light); font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; font-family: sans-serif;}
-        
         .content-text p { margin: 0 0 10px 0; font-size: 16px; color: var(--text-main); }
         .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 15px; color: var(--text-light); }
         .content-text li { margin-bottom: 5px; }
 
         /* --- 料金表 --- */
         .pricing { padding: 100px 20px; position: relative;}
-        .pricing-card { background: #fff; max-width: 600px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--gold-accent); transition: transform 0.4s ease;}
+        .pricing-card { background: #fff; max-width: 650px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--gold-accent); transition: transform 0.4s ease;}
         .pricing-card:hover { transform: translateY(-5px); }
-        .pricing-card-title { color: var(--gold-accent); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold; border-bottom: 1px dashed var(--table-border); padding-bottom: 20px;}
+        .pricing-card-title { color: var(--gold-accent); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold;}
         
-        .price-display { text-align: center; margin-bottom: 40px;}
-        .price-label { font-size: 18px; color: var(--btn-color); font-weight: bold; margin-bottom: 5px;}
+        .campaign-banner {
+            background-color: var(--message-bg); border: 2px solid var(--btn-color); color: var(--btn-color);
+            padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; margin-bottom: 35px; line-height: 1.6;
+        }
+        .campaign-banner span { font-size: 20px; display: block; margin-top: 5px;}
+
+        .price-display { text-align: center; margin-bottom: 35px;}
+        .price-label { font-size: 18px; color: var(--text-main); font-weight: bold; margin-bottom: 10px;}
         .price-value { font-size: 46px; color: var(--btn-color); font-weight: bold; line-height: 1; font-family: sans-serif;}
         .price-value span { font-size: 18px; font-weight: normal; color: var(--text-main);}
         .price-discount { font-size: 15px; color: var(--text-light); text-decoration: line-through; margin-top: 8px; }
 
+        /* 条件ボックス */
+        .pricing-conditions {
+            background: var(--bg-base); border-radius: 12px; padding: 25px; margin-bottom: 35px;
+            text-align: left; border: 1px solid var(--table-border);
+        }
+        .condition-block { margin-bottom: 20px; }
+        .condition-block:last-child { margin-bottom: 0; }
+        .condition-title { font-weight: bold; color: var(--text-main); font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;}
+        .condition-desc { font-size: 15px; margin: 0; padding-left: 24px;}
+        .highlight-text { color: var(--btn-color); font-weight: bold;}
+
         .pricing-features ul { list-style: none; padding: 0; margin: 0;}
-        .pricing-features li { padding: 15px 0; border-bottom: 1px solid var(--bg-accent); font-size: 16px; font-weight: 500; display: flex; align-items: center;}
-        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: center;}
         .pricing-features li::before { content: '🌸'; margin-right: 12px; font-size: 18px; }
 
         /* --- 講師紹介 --- */
@@ -247,12 +218,7 @@
         .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
         .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
         .profile-card:hover { transform: translateY(-5px); }
-        .profile-img-placeholder {
-            width: 180px; height: 180px; border-radius: 50%;
-            margin: 0 auto 25px; border: 5px solid var(--bg-accent);
-            background-color: #f4f0ea; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        .profile-img-placeholder { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 25px; border: 5px solid var(--bg-accent); background-color: #f4f0ea; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
         .badge { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
         .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
@@ -279,15 +245,13 @@
         ========================================= */
         @media (max-width: 768px) {
             .container { padding: 60px 15px; }
-            
             .hero { padding: 100px 15px 120px; }
             .hero h1 { font-size: 24px; margin-bottom: 20px; }
             .hero p { font-size: 15px; margin-bottom: 30px; }
-            
             .section-title { font-size: 24px; margin-bottom: 15px; }
             .section-subtitle { font-size: 15px; margin-bottom: 40px; }
             .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
-
+            
             .empathy { padding: 40px 25px; margin: -50px 15px 0; border-radius: 15px;}
             .empathy h2 { font-size: 20px; margin-bottom: 25px; }
             .empathy li { font-size: 15px; margin-bottom: 20px; padding-left: 25px; }
@@ -301,24 +265,23 @@
             .pricing { padding: 60px 15px; }
             .pricing-card { padding: 30px 20px; }
             .pricing-card-title { font-size: 20px; }
+            .campaign-banner span { font-size: 18px; }
             .price-value { font-size: 36px; }
+            .pricing-conditions { padding: 15px; }
 
             .instructors { padding: 60px 15px; }
-            .profiles-container { gap: 30px; }
             .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
             .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
-            .profile-name { font-size: 22px; }
-
+            
             .our-why-section { padding: 60px 15px; }
             .message-card { padding: 30px 20px; border-radius: 15px;}
             .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
             .message-content h4 { font-size: 18px; margin-bottom: 15px;}
             .message-content p { font-size: 14px; margin-bottom: 15px;}
             
-            /* スマホ時の背景オーブ調整 */
             .blob1 { width: 300px; height: 300px; top: 0; left: -100px; }
             .blob2 { width: 300px; height: 300px; bottom: 5%; right: -150px; }
-            .blob3 { display: none; /* スマホでは重すぎるため1つ非表示 */ }
+            .blob3 { display: none; }
         }
     </style>
 </head>
@@ -326,11 +289,12 @@
 
     <section class="hero">
         <div class="container fade-in">
+            <div class="release-badge sans-text">🎉 5月24日(日) ついにリリース！</div>
             <h1>「勉強しなさい」と言わなくても、<br>自ら机に向かう子へ。<br>スマホから離れ、仲間と「主体性」を育む場所。</h1>
             <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>スポーツの現場で培った「自ら考え、行動する力」を、家庭学習でも発揮できるよう教育のプロ夫婦が伴走します。</p>
             <div class="cta-wrapper sans-text">
                 <a href="#pricing" class="cta-btn">まずは無料体験に参加してみる</a>
-                <span class="micro-copy">【初月無料】まずは気軽にお試しください</span>
+                <span class="micro-copy">＼ 5月中のご登録で初月無料！ ／</span>
             </div>
         </div>
     </section>
@@ -451,15 +415,29 @@
     <section class="pricing" id="pricing">
         <div class="container fade-in" style="padding: 0;">
             <h2 class="section-title">まずは体験してみませんか？</h2>
-            <p class="section-subtitle">実績作りにご協力いただける方限定の、特別なモニター価格です。</p>
+            <p class="section-subtitle">『親子の新しい居場所をつくる』という私たち夫婦の初めての挑戦を、<br>一緒に応援していただける方限定の特別なモニター価格です。</p>
 
             <div class="pricing-card">
-                <div class="pricing-card-title">クラブコミュニティ参加費用</div>
-                
+                <div class="campaign-banner sans-text">
+                    ＼ 5月24日(日) リリース記念 ／<br>
+                    <span>5月中にご登録いただいた方限定で「初月無料」！</span>
+                </div>
+
                 <div class="price-display">
-                    <div class="price-label">先着モニター特別価格（初月無料）</div>
+                    <div class="price-label">ずっと月謝500円引き！モニター特別価格</div>
                     <div class="price-value">1,980<span>円/月</span></div>
-                    <div class="price-discount">定価: 2,980円/月</div>
+                    <div class="price-discount">（通常定価: 2,480円/月）</div>
+                </div>
+
+                <div class="pricing-conditions sans-text">
+                    <div class="condition-block">
+                        <div class="condition-title">🎁 5月中にご登録の場合</div>
+                        <p class="condition-desc">初月：<span class="highlight-text">完全無料</span><br>2ヶ月目以降：モニター価格 1,980円/月</p>
+                    </div>
+                    <div class="condition-block">
+                        <div class="condition-title" style="color: var(--text-light);">🔹 6月以降にご登録の場合</div>
+                        <p class="condition-desc">初月より：モニター価格 1,980円/月<br><span style="font-size: 13px; color: var(--text-light);">※初月無料特典は適用されませんのでご注意ください。</span></p>
+                    </div>
                 </div>
 
                 <div class="pricing-features sans-text">
