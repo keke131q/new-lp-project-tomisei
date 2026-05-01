@@ -16,6 +16,11 @@
             --gold-accent: #c5a059; 
             --table-border: #e8dcc8;
             --message-bg: #fff1e6;
+            
+            /* 新しい3本柱のテーマカラー */
+            --color-tane: #9cb380;     /* まなびの種：優しい若草色 */
+            --color-nekko: #c99a68;    /* こころの根っこ：温かい土の色 */
+            --color-hidamari: #e39d91; /* ひだまりの庭：ぽかぽかしたコーラルピンク */
         }
 
         body {
@@ -55,7 +60,7 @@
             transform: translateY(0);
         }
 
-        /* 柔らかいボタンデザインと鼓動アニメーション */
+        /* 柔らかいボタンデザイン */
         .cta-wrapper { text-align: center; margin-top: 40px; }
         .cta-btn {
             display: inline-block; 
@@ -79,7 +84,7 @@
             100% { transform: scale(1); box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); }
         }
 
-        /* --- 第1セクション：FV --- */
+        /* --- FV --- */
         .hero {
             position: relative;
             padding: 140px 20px 160px; 
@@ -107,7 +112,7 @@
         .hero h1 { font-size: 34px; margin-bottom: 25px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
         .hero p { font-size: 18px; margin-bottom: 40px; font-weight: bold; line-height: 1.9; color: var(--text-light); }
 
-        /* --- 第2セクション：共感 --- */
+        /* --- 共感 --- */
         .empathy {
             background-color: #fff; border-radius: 20px; padding: 60px 50px;
             margin: -70px auto 0; max-width: 800px;
@@ -118,31 +123,67 @@
         .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500;}
         .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
 
-        /* --- 第3セクション：提供コンテンツ（6項目） --- */
+        /* --- 3つの居場所（コンテンツ） --- */
         .service-detail-section { padding: 100px 20px; background-color: var(--bg-accent); }
         
-        .content-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; padding: 50px; border: 1px solid var(--table-border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);}
-        .content-item { display: flex; gap: 25px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px dashed var(--table-border); }
+        .pillar-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 8px solid;
+        }
+        .pillar-card:last-child { margin-bottom: 0; }
+        
+        /* 柱ごとのカラー設定 */
+        .pillar-card.tane { border-top-color: var(--color-tane); }
+        .pillar-card.nekko { border-top-color: var(--color-nekko); }
+        .pillar-card.hidamari { border-top-color: var(--color-hidamari); }
+
+        .pillar-title {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .pillar-title.tane { color: var(--color-tane); }
+        .pillar-title.nekko { color: var(--color-nekko); }
+        .pillar-title.hidamari { color: var(--color-hidamari); }
+
+        .content-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px dashed var(--table-border);
+        }
         .content-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         
-        .content-num { background: var(--gold-accent); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0; font-family: sans-serif; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);}
+        .content-text h4 { margin: 0 0 12px 0; color: var(--text-main); font-size: 20px; display: flex; align-items: center; gap: 8px;}
+        .content-text .schedule-tag { display: inline-block; background-color: var(--bg-base); border: 1px solid var(--table-border); color: var(--text-light); font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; font-family: sans-serif;}
         
-        .content-text h4 { margin: 0 0 8px 0; color: var(--text-main); font-size: 22px; }
-        .content-text .schedule-tag { display: inline-block; background-color: var(--bg-accent); color: var(--btn-color); font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; font-family: sans-serif;}
-        .content-text p { margin: 0 0 10px 0; font-size: 16px; color: var(--text-light); }
-        .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 16px; color: var(--text-main); }
+        .content-text p { margin: 0 0 10px 0; font-size: 16px; color: var(--text-main); }
+        .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 15px; color: var(--text-light); }
         .content-text li { margin-bottom: 5px; }
 
         /* --- 料金表 --- */
         .pricing { padding: 100px 20px; }
-        .pricing-card { background: #fff; max-width: 600px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; text-align: center; border: 2px solid var(--gold-accent);}
-        .pricing-card-title { color: var(--gold-accent); font-size: 24px; margin-bottom: 30px; font-weight: bold; border-bottom: 1px dashed var(--table-border); padding-bottom: 20px;}
-        .pricing-row { margin-bottom: 35px; }
-        .pricing-row:last-child { margin-bottom: 0; }
-        .pricing-label { font-size: 18px; margin-bottom: 10px; color: var(--text-main); font-weight: bold;}
-        .pricing-value { font-size: 46px; color: var(--btn-color); font-weight: bold; line-height: 1; font-family: sans-serif;}
-        .pricing-value span { font-size: 18px; font-weight: normal; color: var(--text-main);}
-        .pricing-discount { font-size: 15px; color: var(--text-light); text-decoration: line-through; margin-top: 8px; }
+        .pricing-card { background: #fff; max-width: 600px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--gold-accent);}
+        .pricing-card-title { color: var(--gold-accent); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold; border-bottom: 1px dashed var(--table-border); padding-bottom: 20px;}
+        
+        .price-display { text-align: center; margin-bottom: 40px;}
+        .price-label { font-size: 18px; color: var(--btn-color); font-weight: bold; margin-bottom: 5px;}
+        .price-value { font-size: 46px; color: var(--btn-color); font-weight: bold; line-height: 1; font-family: sans-serif;}
+        .price-value span { font-size: 18px; font-weight: normal; color: var(--text-main);}
+        .price-discount { font-size: 15px; color: var(--text-light); text-decoration: line-through; margin-top: 8px; }
+
+        .pricing-features ul { list-style: none; padding: 0; margin: 0;}
+        .pricing-features li { padding: 15px 0; border-bottom: 1px solid var(--bg-accent); font-size: 16px; font-weight: 500; display: flex; align-items: center;}
+        .pricing-features li:last-child { border-bottom: none; }
+        .pricing-features li::before { content: '🌸'; margin-right: 12px; font-size: 18px; }
 
         /* --- 講師紹介 --- */
         .instructors { padding: 100px 20px; background-color: var(--bg-accent);}
@@ -156,7 +197,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
-        .badge { background-color: var(--bg-accent); color: var(--btn-color); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
+        .badge { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
         .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
         .profile-desc { text-align: left; font-size: 15px; line-height: 1.9; color: var(--text-main); }
 
@@ -176,7 +217,7 @@
         footer a:hover { color: var(--btn-color); }
 
         /* =========================================
-            📱 スマートフォン向け レスポンシブ最適化
+            📱 スマホ対応
         ========================================= */
         @media (max-width: 768px) {
             .container { padding: 60px 15px; }
@@ -187,7 +228,6 @@
             
             .section-title { font-size: 24px; margin-bottom: 15px; }
             .section-subtitle { font-size: 15px; margin-bottom: 40px; }
-
             .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
 
             .empathy { padding: 40px 25px; margin: -50px 15px 0; border-radius: 15px;}
@@ -195,18 +235,15 @@
             .empathy li { font-size: 15px; margin-bottom: 20px; padding-left: 25px; }
 
             .service-detail-section { padding: 60px 15px; }
-            .content-wrapper { padding: 30px 20px; border-radius: 15px;}
-            .content-item { flex-direction: column; align-items: flex-start; gap: 15px; padding-bottom: 25px; margin-bottom: 25px; }
-            .content-num { width: 50px; height: 50px; font-size: 16px; }
+            .pillar-card { padding: 30px 20px; border-radius: 15px;}
+            .pillar-title { font-size: 22px; margin-bottom: 30px;}
             .content-text h4 { font-size: 18px; }
             .content-text p, .content-text ul { font-size: 14px; }
 
             .pricing { padding: 60px 15px; }
             .pricing-card { padding: 30px 20px; }
             .pricing-card-title { font-size: 20px; }
-            .pricing-label { font-size: 16px; }
-            .pricing-value { font-size: 36px; }
-            .pricing-value span { font-size: 14px; }
+            .price-value { font-size: 36px; }
 
             .instructors { padding: 60px 15px; }
             .profiles-container { gap: 30px; }
@@ -219,7 +256,6 @@
             .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
             .message-content h4 { font-size: 18px; margin-bottom: 15px;}
             .message-content p { font-size: 14px; margin-bottom: 15px;}
-            .message-signature { font-size: 16px; margin-top: 20px;}
         }
     </style>
 </head>
@@ -250,26 +286,41 @@
 
     <section class="service-detail-section">
         <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、充実の6つのサポート</h2>
+            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、3つの『居場所』</h2>
             <p class="section-subtitle fade-in">子どもは仲間と学び、親は心にゆとりを持つ。家族の好循環を生み出します。</p>
 
-            <div class="content-wrapper fade-in">
+            <!-- 柱1：まなびの種 -->
+            <div class="pillar-card tane fade-in">
+                <h3 class="pillar-title tane">🌱 まなびの種</h3>
                 
-                <!-- ① -->
                 <div class="content-item">
-                    <div class="content-num">①</div>
                     <div class="content-text">
-                        <h4>オンライン自習室</h4>
+                        <h4>仲間とつながる、夜の「もくもく自学タイム」</h4>
                         <span class="schedule-tag">原則 毎週木曜日 21:00〜22:00</span>
                         <p>「勉強しなさい」と言われなくても、画面の向こうに頑張っている仲間がいるから机に向かえます。<br>※質問がある場合は、ブレイクアウトルームにて対応いたします。</p>
                     </div>
                 </div>
 
-                <!-- ② -->
                 <div class="content-item">
-                    <div class="content-num">②</div>
                     <div class="content-text">
-                        <h4>オンライン勉強会 (野球の座学)</h4>
+                        <h4>声にだして楽しむ「やさしい英会話ルーム」</h4>
+                        <span class="schedule-tag">月1回</span>
+                        <p>教科書にはない「生きた英語」に触れ、声に出して楽しむレッスンです。</p>
+                        <ul>
+                            <li>表現力向上</li>
+                            <li>自己紹介、簡単な英会話などスピーキング中心</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 柱2：こころの根っこ -->
+            <div class="pillar-card nekko fade-in">
+                <h3 class="pillar-title nekko">🌳 こころの根っこ</h3>
+                
+                <div class="content-item">
+                    <div class="content-text">
+                        <h4>心とからだの栄養になる「スポーツの知恵袋」</h4>
                         <span class="schedule-tag">週1回 または 2週に1回</span>
                         <p>スポーツの成長に欠かせない知識を学びます。</p>
                         <ul>
@@ -280,11 +331,9 @@
                     </div>
                 </div>
 
-                <!-- ③ -->
                 <div class="content-item">
-                    <div class="content-num">③</div>
                     <div class="content-text">
-                        <h4>プチ講義「志の学校」</h4>
+                        <h4>なりたい自分を見つける「こころざしの時間」</h4>
                         <p>自ら目標に向かって進み、達成する力を育むための特別な時間です。</p>
                         <ul>
                             <li>目標の立て方 / モチベーション / 目標達成の習慣化</li>
@@ -295,25 +344,26 @@
                     </div>
                 </div>
 
-                <!-- ④ -->
                 <div class="content-item">
-                    <div class="content-num">④</div>
                     <div class="content-text">
-                        <h4>英会話プチレッスン (優しめの内容)</h4>
+                        <h4>いろんな生き方に出会える「おとなの背中」</h4>
                         <span class="schedule-tag">月1回</span>
-                        <p>教科書にはない「生きた英語」に触れ、声に出して楽しむレッスンです。</p>
+                        <p>生き様がかっこいい大人（経営者や事業主など）から、学校では教わらないリアルな話を学びます。</p>
                         <ul>
-                            <li>表現力向上</li>
-                            <li>自己紹介、簡単な英会話などスピーキング中心</li>
+                            <li>グラブ再生のプロフェッショナル</li>
+                            <li>親子に届ける「お金」の教育 など</li>
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                <!-- ⑤ -->
+            <!-- 柱3：ひだまりの庭 -->
+            <div class="pillar-card hidamari fade-in">
+                <h3 class="pillar-title hidamari">☕️ ひだまりの庭</h3>
+                
                 <div class="content-item">
-                    <div class="content-num">⑤</div>
                     <div class="content-text">
-                        <h4>思春期子育てお役立ち情報 ＋ 座談会</h4>
+                        <h4>親の心がふっと軽くなる「子育てホッとカフェ」</h4>
                         <span class="schedule-tag">週1回 または 2週に1回（親御さん対象）</span>
                         <p>子育ての悩みを共有し、ホッとできる親御さんのための時間です。</p>
                         <ul>
@@ -323,22 +373,8 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- ⑥ -->
-                <div class="content-item">
-                    <div class="content-num">⑥</div>
-                    <div class="content-text">
-                        <h4>特別ゲスト講師によるミニ講義</h4>
-                        <span class="schedule-tag">月1回</span>
-                        <p>生き様がかっこいい大人（経営者や事業主など）から、学校では教わらないリアルな話を学びます。</p>
-                        <ul>
-                            <li>グラブ再生のプロフェッショナル</li>
-                            <li>親子に届ける「お金」の教育 など</li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
+
         </div>
     </section>
 
@@ -350,18 +386,22 @@
             <div class="pricing-card">
                 <div class="pricing-card-title">クラブコミュニティ参加費用</div>
                 
-                <div class="pricing-row">
-                    <div class="pricing-label">初月</div>
-                    <div class="pricing-value">無料</div>
+                <div class="price-display">
+                    <div class="price-label">先着モニター特別価格（初月無料）</div>
+                    <div class="price-value">1,980<span>円/月</span></div>
+                    <div class="price-discount">定価: 2,980円/月</div>
                 </div>
 
-                <div class="pricing-row">
-                    <div class="pricing-label" style="color: var(--btn-color);">2ヶ月目以降 <br><span style="font-size: 14px; font-weight: normal; color: var(--text-light);">（先着モニター特別価格）</span></div>
-                    <div class="pricing-value">1,980<span>円/月</span></div>
-                    <div class="pricing-discount">定価: 2,980円/月</div>
+                <div class="pricing-features sans-text">
+                    <ul>
+                        <li>🌱 まなびの種（自学タイム・英会話）参加</li>
+                        <li>🌳 こころの根っこ（知恵袋・こころざし・ゲスト）参加</li>
+                        <li>☕️ ひだまりの庭（親向けカフェ＆座談会）参加</li>
+                        <li>🌸 過去のライブ・講義動画のアーカイブ見放題</li>
+                    </ul>
                 </div>
 
-                <div class="cta-wrapper sans-text fade-in" style="margin-top: 50px;">
+                <div class="cta-wrapper sans-text" style="margin-top: 40px;">
                     <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">まずは無料体験に参加してみる</a>
                 </div>
             </div>
@@ -420,7 +460,7 @@
                     <h4>スポーツで培った力を、学ぶ力へ。<br>親子で一緒に、自信を育むサポートをしたい。</h4>
                     <p>もともと、私たち夫婦は二人とも中学校の教員でした。部活動の指導にも熱を入れていましたが、時代が変わり、スポーツの環境も部活動からクラブチームへと移り変わる姿を見てきました。<br>しかし、環境が変わったからといって、スポーツや野球だけをしていれば良いわけではありません。</p>
                     <p>かつて私自身も、野球に明け暮れた球児でした。練習に打ち込む厳しさも、その楽しさも知っています。<br>だからこそ、グラウンドで見せる「頑張りたい」「両立させたい」と願う子どもたちの純粋なエネルギーを、学習面にも活かしてほしいと強く思うのです。</p>
-                    <p>私たちは、子どもたちがスポーツで培ったチームワークや前向きな姿勢を、学びの場でも発揮できるようサポートしたいと考えています。<br>「もくもく会」は、単に宿題を終わらせる場所ではありません。画面越しに仲間の頑張りを感じながら、「自分もやれる」という自立心と<strong>自己肯定感を高めていく</strong>場です。</p>
+                    <p>私たちは、子どもたちがスポーツで培ったチームワークや前向きな姿勢を、学びの場でも発揮できるようサポートしたいと考えています。<br>「まなびの種」や「こころの根っこ」での時間は、単に知識を入れるだけではありません。画面越しに仲間の頑張りを感じながら、「自分もやれる」という自立心と<strong>自己肯定感を高めていく</strong>場です。</p>
                     <p>そして親御さんには、安心して見守れる環境をお届けします。私たちが伴走することで、親子がそれぞれの場所で、<strong>純粋に自信を育んでいける</strong>よう、全力でサポートいたします。</p>
                     <p class="message-signature sans-text">岡本 奎一</p>
                 </div>
