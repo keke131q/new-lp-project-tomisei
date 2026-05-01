@@ -36,7 +36,7 @@
         }
         
         .sans-text { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; }
-        img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+        img { max-width: 100%; height: auto; display: block; }
         a { text-decoration: none; transition: color 0.3s ease; }
         .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 2; }
 
@@ -47,6 +47,16 @@
         .section-subtitle {
             text-align: center; font-size: 16px; color: var(--text-light);
             margin-bottom: 60px; line-height: 1.6;
+        }
+
+        /* =========================================
+            ✨ レスポンシブ改行制御
+        ========================================= */
+        @media (max-width: 768px) {
+            .pc-br { display: none; }
+        }
+        @media (min-width: 769px) {
+            .sp-br { display: none; }
         }
 
         /* =========================================
@@ -209,16 +219,24 @@
         .condition-desc { font-size: 15px; margin: 0; padding-left: 24px;}
         .highlight-text { color: var(--btn-color); font-weight: bold;}
 
+        /* 特典リスト */
         .pricing-features ul { list-style: none; padding: 0; margin: 0;}
-        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: center;}
-        .pricing-features li::before { content: '🌸'; margin-right: 12px; font-size: 18px; }
+        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: center; line-height: 1.5;}
 
         /* --- 講師紹介 --- */
         .instructors { padding: 100px 20px; background-color: var(--bg-accent);}
         .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
         .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
         .profile-card:hover { transform: translateY(-5px); }
-        .profile-img-placeholder { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 25px; border: 5px solid var(--bg-accent); background-color: #f4f0ea; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* 写真枠（共通） */
+        .profile-img, .profile-img-placeholder {
+            width: 180px; height: 180px; border-radius: 50%;
+            margin: 0 auto 25px; border: 5px solid var(--bg-accent);
+            background-color: #f4f0ea; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            object-fit: cover; /* 画像が歪まないように調整 */
+        }
+        
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
         .badge { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
         .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
@@ -248,7 +266,7 @@
             .hero { padding: 100px 15px 120px; }
             .hero h1 { font-size: 24px; margin-bottom: 20px; }
             .hero p { font-size: 15px; margin-bottom: 30px; }
-            .section-title { font-size: 24px; margin-bottom: 15px; }
+            .section-title { font-size: 22px; margin-bottom: 15px; }
             .section-subtitle { font-size: 15px; margin-bottom: 40px; }
             .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
             
@@ -271,7 +289,9 @@
 
             .instructors { padding: 60px 15px; }
             .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
-            .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
+            
+            /* スマホ用の写真サイズ調整 */
+            .profile-img, .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
             
             .our-why-section { padding: 60px 15px; }
             .message-card { padding: 30px 20px; border-radius: 15px;}
@@ -290,8 +310,8 @@
     <section class="hero">
         <div class="container fade-in">
             <div class="release-badge sans-text">🎉 5月24日(日) ついにリリース！</div>
-            <h1>「勉強しなさい」と言わなくても、<br>自ら机に向かう子へ。<br>スマホから離れ、仲間と「主体性」を育む場所。</h1>
-            <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>スポーツの現場で培った「自ら考え、行動する力」を、家庭学習でも発揮できるよう教育のプロ夫婦が伴走します。</p>
+            <h1>「勉強しなさい」と言わなくても、<br class="pc-br">自ら机に向かう子へ。<br>スマホから離れ、<br class="sp-br">仲間と「主体性」を育む場所。</h1>
+            <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>スポーツの現場で培った「自ら考え、行動する力」を、<br class="pc-br">家庭学習でも発揮できるよう教育のプロ夫婦が伴走します。</p>
             <div class="cta-wrapper sans-text">
                 <a href="#pricing" class="cta-btn">まずは無料体験に参加してみる</a>
                 <span class="micro-copy">＼ 5月中のご登録で初月無料！ ／</span>
@@ -300,7 +320,7 @@
     </section>
 
     <section class="empathy fade-in">
-        <h2>中学生になり、こんなふうに悩んでいませんか？</h2>
+        <h2>中学生になり、<br class="sp-br">こんなふうに悩んでいませんか？</h2>
         <ul>
             <li>「勉強しなさい」と声をかけないとやらない、スマホやゲームばかりしている…</li>
             <li>学習習慣や成績のことが心配。でも、反抗期で言葉をかけにくい</li>
@@ -320,7 +340,7 @@
         </div>
 
         <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、3つの『居場所』</h2>
+            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、<br class="sp-br">3つの『居場所』</h2>
             <p class="section-subtitle fade-in">子どもは仲間と学び、親は心にゆとりを持つ。家族の好循環を生み出します。</p>
 
             <!-- 柱1：まなびの種 -->
@@ -415,12 +435,12 @@
     <section class="pricing" id="pricing">
         <div class="container fade-in" style="padding: 0;">
             <h2 class="section-title">まずは体験してみませんか？</h2>
-            <p class="section-subtitle">『親子の新しい居場所をつくる』という私たち夫婦の初めての挑戦を、<br>一緒に応援していただける方限定の特別なモニター価格です。</p>
+            <p class="section-subtitle">『親子の新しい居場所をつくる』という<br class="sp-br">私たち夫婦の初めての挑戦を、<br class="pc-br">一緒に応援していただける方限定の<br class="sp-br">特別なモニター価格です。</p>
 
             <div class="pricing-card">
                 <div class="campaign-banner sans-text">
                     ＼ 5月24日(日) リリース記念 ／<br>
-                    <span>5月中にご登録いただいた方限定で「初月無料」！</span>
+                    <span>5月中にご登録いただいた方限定で<br class="sp-br">「初月無料」！</span>
                 </div>
 
                 <div class="price-display">
@@ -445,7 +465,7 @@
                         <li><span class="emoji-sway" style="margin-right:8px;">🌱</span> まなびの種（自学タイム・英会話）参加</li>
                         <li><span class="emoji-sway" style="margin-right:8px;">🌳</span> こころの根っこ（知恵袋・こころざし・ゲスト）参加</li>
                         <li><span class="emoji-sway" style="margin-right:8px;">☕️</span> ひだまりの庭（親向けカフェ＆座談会）参加</li>
-                        <li>🌸 過去のライブ・講義動画のアーカイブ見放題</li>
+                        <li><span class="emoji-sway" style="margin-right:8px;">✨</span> 過去のライブ・講義動画のアーカイブ見放題</li>
                     </ul>
                 </div>
 
@@ -464,7 +484,8 @@
 
             <div class="profiles-container">
                 <div class="profile-card fade-in">
-                    <div class="profile-img-placeholder floating-element"></div>
+                    <!-- 画像を「奎一.png」に差し替え -->
+                    <img src="奎一.png" alt="岡本 奎一" class="profile-img floating-element">
                     <div class="profile-badges">
                         <span class="badge">素質論アドバイザー</span>
                         <span class="badge">子育てコーチング</span>
@@ -479,6 +500,7 @@
                 </div>
 
                 <div class="profile-card fade-in" style="animation-delay: 0.5s;">
+                    <!-- 奥様の画像はまだなので仮枠のまま -->
                     <div class="profile-img-placeholder floating-element" style="animation-delay: 1s;"></div>
                     <div class="profile-badges">
                         <span class="badge">英語・英会話担当</span>
@@ -505,11 +527,12 @@
                     <span class="message-title-marker">夫・奎一の想い</span>
                 </div>
                 <div class="message-content">
-                    <h4>スポーツで培った力を、学ぶ力へ。<br>親子で一緒に、自信を育むサポートをしたい。</h4>
-                    <p>もともと、私たち夫婦は二人とも中学校の教員でした。部活動の指導にも熱を入れていましたが、時代が変わり、スポーツの環境も部活動からクラブチームへと移り変わる姿を見てきました。<br>しかし、環境が変わったからといって、スポーツや野球だけをしていれば良いわけではありません。</p>
-                    <p>かつて私自身も、野球に明け暮れた球児でした。練習に打ち込む厳しさも、その楽しさも知っています。<br>だからこそ、グラウンドで見せる「頑張りたい」「両立させたい」と願う子どもたちの純粋なエネルギーを、学習面にも活かしてほしいと強く思うのです。</p>
-                    <p>私たちは、子どもたちがスポーツで培ったチームワークや前向きな姿勢を、学びの場でも発揮できるようサポートしたいと考えています。<br>「まなびの種」や「こころの根っこ」での時間は、単に知識を入れるだけではありません。画面越しに仲間の頑張りを感じながら、「自分もやれる」という自立心と<strong>自己肯定感を高めていく</strong>場です。</p>
-                    <p>そして親御さんには、安心して見守れる環境をお届けします。私たちが伴走することで、親子がそれぞれの場所で、<strong>純粋に自信を育んでいける</strong>よう、全力でサポートいたします。</p>
+                    <h4>スポーツを通して、人間力を高められる環境づくり<br>「一度きりの人生を、本当の自信を育み、自分らしく生き切るためのサポートがしたい」</h4>
+                    <p>私は、10年間、中学校の教員を務めました。<br class="pc-br">今でも、「学校の先生」という志事は、私にとって「天職」です。<br>それくらい、子どもたちから、人生で大切なことをたくさん教わりましたし、<br class="pc-br">教員という仕事を「志事」にしてくれたのも、生徒たちとの日々があったからこそです。</p>
+                    <p>そんな私が、天職を離れてでも成し遂げたい想い(志)があります。<br>それが、<strong>「自分を認められない悲しみを癒し、親も子も先生も、一人ひとりが本当の自信を育み、自分らしさを輝かせられる人生を増やすこと」</strong>です。</p>
+                    <p>令和6年の1年間で自殺した小中高校生は529人います。１週間で約10人という恐ろしい数字です。<br>加えて、世界と比較しても、自己肯定感が低く、憂鬱感が高い、<br class="pc-br">そして将来の日本に希望がもてない若者が多いのが今の日本の現状です。</p>
+                    <p>私は、この現状を変えたいです。<br><strong>大人が輝けば子どもが輝く。子どもが輝けば未来が輝く。</strong><br>この言葉通り、大切なのはまず輝く大人を増やすことであり、<br class="pc-br">子どもたちが輝く大人と出会える環境をつくることです。</p>
+                    <p>この「ほーむBASE」もまさに、この志を実現するための新たな挑戦です。<br>「できるかできないか」で見るのではなく、まさに今、挑戦する大人の背中を示すために、私は命の時間を使います。<br>まさにゼロから創り上げる、そんなプロセスも含めてお楽しみいただきながら、<br class="pc-br">大人も子どもも共に学んでいけたらと思います。</p>
                     <p class="message-signature sans-text">岡本 奎一</p>
                 </div>
             </div>
