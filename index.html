@@ -15,7 +15,7 @@
             --btn-hover: #c9654b;
             --gold-accent: #c5a059; 
             --table-border: #e8dcc8;
-            --message-bg: #fff1e6; /* 想いセクションの背景 */
+            --message-bg: #fff1e6;
         }
 
         body {
@@ -104,7 +104,7 @@
             100% { transform: scale(1.15); }
         }
         
-        .hero h1 { font-size: 36px; margin-bottom: 25px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
+        .hero h1 { font-size: 34px; margin-bottom: 25px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
         .hero p { font-size: 18px; margin-bottom: 40px; font-weight: bold; line-height: 1.9; color: var(--text-light); }
 
         /* --- 第2セクション：共感 --- */
@@ -118,62 +118,41 @@
         .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500;}
         .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
 
-        /* --- 第3セクション：詳細なサポート内容 --- */
+        /* --- 第3セクション：提供コンテンツ（6項目） --- */
         .service-detail-section { padding: 100px 20px; background-color: var(--bg-accent); }
-        .service-box {
-            display: flex; flex-wrap: wrap; align-items: center; gap: 50px;
-            margin-bottom: 60px; background: #fff; padding: 40px; border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease;
-        }
-        .service-box:hover { transform: translateY(-5px); }
-        .service-box:nth-child(even) { flex-direction: row-reverse; }
-        .service-img { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; position: relative;}
-        .service-img img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.6s ease; }
         
-        .service-img::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.1); /* ほんの少し明るく */
-            z-index: 1;
-        }
-
-        .service-box:hover .service-img img { transform: scale(1.05); } 
-        .service-text { flex: 1; min-width: 300px; }
-        .service-text h3 { color: var(--gold-accent); font-size: 26px; margin-bottom: 20px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 12px; line-height: 1.4;}
-        .service-tag { display: inline-block; background: var(--bg-accent); color: var(--btn-color); padding: 6px 18px; border-radius: 30px; font-size: 14px; margin-bottom: 15px; font-weight: bold; letter-spacing: 0.1em;}
-
-        /* --- スケジュール --- */
-        .schedule-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; padding: 50px; border: 1px solid var(--table-border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);}
-        .week-item { display: flex; gap: 25px; margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px dashed var(--table-border); }
-        .week-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-        .week-num { background: var(--gold-accent); color: #fff; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-family: sans-serif; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);}
-        .week-content h4 { margin: 0 0 12px 0; color: var(--text-main); font-size: 20px; }
-        .week-content p { margin: 0; font-size: 16px; color: var(--text-light); }
+        .content-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 20px; padding: 50px; border: 1px solid var(--table-border); box-shadow: 0 10px 30px rgba(0,0,0,0.03);}
+        .content-item { display: flex; gap: 25px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px dashed var(--table-border); }
+        .content-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        
+        .content-num { background: var(--gold-accent); color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0; font-family: sans-serif; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);}
+        
+        .content-text h4 { margin: 0 0 8px 0; color: var(--text-main); font-size: 22px; }
+        .content-text .schedule-tag { display: inline-block; background-color: var(--bg-accent); color: var(--btn-color); font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; font-family: sans-serif;}
+        .content-text p { margin: 0 0 10px 0; font-size: 16px; color: var(--text-light); }
+        .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 16px; color: var(--text-main); }
+        .content-text li { margin-bottom: 5px; }
 
         /* --- 料金表 --- */
-        .pricing { padding: 100px 20px; background-color: var(--bg-accent); }
-        .course-table-wrapper { overflow-x: auto; max-width: 850px; margin: 0 auto; background: #fff; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 40px;}
-        table { width: 100%; border-collapse: collapse; text-align: center; font-family: sans-serif; min-width: 600px;}
-        th, td { padding: 25px 15px; border-bottom: 1px solid var(--table-border); vertical-align: middle; }
-        th { background-color: #fff; font-weight: normal; color: var(--text-main); }
-        .th-course { font-size: 19px; font-weight: bold; color: var(--gold-accent); }
-        .td-price { font-size: 28px; color: var(--btn-color); font-weight: bold; }
-        .td-price span { font-size: 14px; display: block; color: var(--text-light); font-weight: normal; text-decoration: line-through; margin-bottom: 5px;}
-        .td-check { color: var(--btn-color); font-size: 22px; font-weight: bold; }
-        .td-cross { color: #dcdcdc; font-size: 22px;}
-        tr:last-child td { border-bottom: none; }
-        .table-row-title { text-align: left; font-weight: bold; color: var(--text-main); font-size: 16px; padding-left: 20px;}
+        .pricing { padding: 100px 20px; }
+        .pricing-card { background: #fff; max-width: 600px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; text-align: center; border: 2px solid var(--gold-accent);}
+        .pricing-card-title { color: var(--gold-accent); font-size: 24px; margin-bottom: 30px; font-weight: bold; border-bottom: 1px dashed var(--table-border); padding-bottom: 20px;}
+        .pricing-row { margin-bottom: 35px; }
+        .pricing-row:last-child { margin-bottom: 0; }
+        .pricing-label { font-size: 18px; margin-bottom: 10px; color: var(--text-main); font-weight: bold;}
+        .pricing-value { font-size: 46px; color: var(--btn-color); font-weight: bold; line-height: 1; font-family: sans-serif;}
+        .pricing-value span { font-size: 18px; font-weight: normal; color: var(--text-main);}
+        .pricing-discount { font-size: 15px; color: var(--text-light); text-decoration: line-through; margin-top: 8px; }
 
         /* --- 講師紹介 --- */
-        .instructors { padding: 100px 20px; }
+        .instructors { padding: 100px 20px; background-color: var(--bg-accent);}
         .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
         .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
         .profile-card:hover { transform: translateY(-5px); }
-        /* 空の画像枠用のCSS */
         .profile-img-placeholder {
             width: 180px; height: 180px; border-radius: 50%;
             margin: 0 auto 25px; border: 5px solid var(--bg-accent);
-            background-color: #f4f0ea; /* 空欄とわかるように薄い色 */
+            background-color: #f4f0ea; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
@@ -197,13 +176,13 @@
         footer a:hover { color: var(--btn-color); }
 
         /* =========================================
-           📱 スマートフォン向け レスポンシブ最適化
+            📱 スマートフォン向け レスポンシブ最適化
         ========================================= */
         @media (max-width: 768px) {
             .container { padding: 60px 15px; }
             
             .hero { padding: 100px 15px 120px; }
-            .hero h1 { font-size: 26px; margin-bottom: 20px; }
+            .hero h1 { font-size: 24px; margin-bottom: 20px; }
             .hero p { font-size: 15px; margin-bottom: 30px; }
             
             .section-title { font-size: 24px; margin-bottom: 15px; }
@@ -216,26 +195,18 @@
             .empathy li { font-size: 15px; margin-bottom: 20px; padding-left: 25px; }
 
             .service-detail-section { padding: 60px 15px; }
-            .service-box, .service-box:nth-child(even) { flex-direction: column; padding: 30px 20px; gap: 25px; border-radius: 15px;}
-            .service-img { min-width: 100%; }
-            .service-img img { height: 250px; }
-            .service-text { min-width: 100%; }
-            .service-text h3 { font-size: 22px; }
-            .service-text p { font-size: 15px; }
-
-            .schedule-wrapper { padding: 30px 20px; border-radius: 15px;}
-            .week-item { flex-direction: column; align-items: flex-start; gap: 15px; padding-bottom: 25px; margin-bottom: 25px; }
-            .week-num { width: 55px; height: 55px; font-size: 15px; }
-            .week-content h4 { font-size: 18px; }
-            .week-content p { font-size: 14px; }
+            .content-wrapper { padding: 30px 20px; border-radius: 15px;}
+            .content-item { flex-direction: column; align-items: flex-start; gap: 15px; padding-bottom: 25px; margin-bottom: 25px; }
+            .content-num { width: 50px; height: 50px; font-size: 16px; }
+            .content-text h4 { font-size: 18px; }
+            .content-text p, .content-text ul { font-size: 14px; }
 
             .pricing { padding: 60px 15px; }
-            .course-table-wrapper { padding: 20px 10px; border-radius: 15px;}
-            th, td { padding: 15px 8px; font-size: 13px; }
-            .th-course { font-size: 15px; }
-            .td-price { font-size: 20px; }
-            .td-price span { font-size: 11px; }
-            .table-row-title { font-size: 13px; padding-left: 5px;}
+            .pricing-card { padding: 30px 20px; }
+            .pricing-card-title { font-size: 20px; }
+            .pricing-label { font-size: 16px; }
+            .pricing-value { font-size: 36px; }
+            .pricing-value span { font-size: 14px; }
 
             .instructors { padding: 60px 15px; }
             .profiles-container { gap: 30px; }
@@ -243,7 +214,6 @@
             .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
             .profile-name { font-size: 22px; }
 
-            /* 想いセクションのスマホ最適化 */
             .our-why-section { padding: 60px 15px; }
             .message-card { padding: 30px 20px; border-radius: 15px;}
             .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
@@ -257,142 +227,145 @@
 
     <section class="hero">
         <div class="container fade-in">
-            <h1>「つい怒ってしまう」<br>そんな毎日に、やさしい区切りを。<br>親の安心が、子どもの才能を引き出す場所。</h1>
-            <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>教育と子育てのプロであるアドバイザー夫婦が、親子が一緒に笑顔になれる居場所をお届けします。</p>
+            <h1>「勉強しなさい」と言わなくても、<br>自ら机に向かう子へ。<br>スマホから離れ、仲間と「主体性」を育む場所。</h1>
+            <p>オンライン自習室「もくもく会」 × 子育て応援ライブ<br>スポーツの現場で培った「自ら考え、行動する力」を、家庭学習でも発揮できるよう教育のプロ夫婦が伴走します。</p>
             <div class="cta-wrapper sans-text">
-                <a href="#pricing" class="cta-btn">詳しく見てみる</a>
-                <span class="micro-copy">【先着モニター募集】月額500円から始められます</span>
+                <a href="#pricing" class="cta-btn">まずは無料体験に参加してみる</a>
+                <span class="micro-copy">【初月無料】まずは気軽にお試しください</span>
             </div>
         </div>
     </section>
 
     <section class="empathy fade-in">
-        <h2>毎日がんばっているお父さん、お母さんへ。<br>こんなふうに悩んでいませんか？</h2>
+        <h2>中学生になり、こんなふうに悩んでいませんか？</h2>
         <ul>
-            <li>「早く宿題しなさい！」と毎日同じことで怒ってしまい、寝顔を見ながら自己嫌悪してしまう…</li>
-            <li>他の子と比べてしまい、「私の関わり方が間違っているのかな」と不安になる</li>
-            <li>子どもに自信を持ってほしいけれど、才能の引き出し方や声のかけ方が分からない</li>
+            <li>「勉強しなさい」と声をかけないとやらない、スマホやゲームばかりしている…</li>
+            <li>学習習慣や成績のことが心配。でも、反抗期で言葉をかけにくい</li>
+            <li>親の言うことを素直に聞いてくれない。何を考えているかよくわからない</li>
+            <li>失敗から立ち上がる力や、自分で考えて行動する「主体性」を身につけてほしい</li>
+            <li>将来、自分の頭で考え、自分の言葉で意見を言える大人になってほしい</li>
         </ul>
         <p style="text-align: center; margin-top: 35px; color: var(--text-light); font-size: 15px; font-weight: bold;">私たち夫婦も、これまで多くの親御さんの悩みと向き合ってきました。「親が全てを管理しなきゃ」という肩の荷を、私たちと一緒に少しだけ下ろしてみませんか？</p>
     </section>
 
     <section class="service-detail-section">
         <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、2つの柱</h2>
+            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、充実の6つのサポート</h2>
             <p class="section-subtitle fade-in">子どもは仲間と学び、親は心にゆとりを持つ。家族の好循環を生み出します。</p>
 
-            <div class="service-box fade-in">
-                <div class="service-img">
-                    <img src="もくもく自習.png" alt="オンライン自習室 もくもく会">
+            <div class="content-wrapper fade-in">
+                
+                <!-- ① -->
+                <div class="content-item">
+                    <div class="content-num">①</div>
+                    <div class="content-text">
+                        <h4>オンライン自習室</h4>
+                        <span class="schedule-tag">原則 毎週木曜日 21:00〜22:00</span>
+                        <p>「勉強しなさい」と言われなくても、画面の向こうに頑張っている仲間がいるから机に向かえます。<br>※質問がある場合は、ブレイクアウトルームにて対応いたします。</p>
+                    </div>
                 </div>
-                <div class="service-text">
-                    <span class="service-tag">子ども向け</span>
-                    <h3>オンライン自習室「もくもく会」</h3>
-                    <p class="sans-text" style="color:var(--text-light); margin-bottom: 15px; font-weight: bold;">【毎週水曜日 20:00〜21:00】</p>
-                    <p>
-                        「勉強しなさい」と言われなくても、<strong>画面の向こうに頑張っている仲間がいる</strong>から机に向かえる。<br><br>
-                        最初の15分はプロによる「考える力」を育むミニ講義。その後の45分は各自の宿題や課題に集中する「もくもく自習」をおこないます。中学生を対象としたこの自習室では、Zoomを使って、黙々と宿題やテキスト、ノートに向き合う自分の姿を映すことで、仲間との程よい緊張感と一体感が生まれ、自然と集中力が高まります。学習習慣の定着はもちろん、「自分で決めて、自分でやる」という自立心を育む大切な1時間です。
-                    </p>
-                </div>
-            </div>
 
-            <div class="service-box fade-in">
-                <div class="service-img">
-                    <img src="親向けライブ講義.png" alt="子育て応援ライブ">
+                <!-- ② -->
+                <div class="content-item">
+                    <div class="content-num">②</div>
+                    <div class="content-text">
+                        <h4>オンライン勉強会 (野球の座学)</h4>
+                        <span class="schedule-tag">週1回 または 2週に1回</span>
+                        <p>スポーツの成長に欠かせない知識を学びます。</p>
+                        <ul>
+                            <li>ルールの基本と応用</li>
+                            <li>メンタル、脳科学</li>
+                            <li>栄養学 など</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-text">
-                    <span class="service-tag">親御さん向け</span>
-                    <h3>心がスッと軽くなる「子育てライブ講義」</h3>
-                    <p class="sans-text" style="color:var(--text-light); margin-bottom: 15px; font-weight: bold;">【月に2回開催 / リアルタイム参加可能】</p>
-                    <p>
-                        素質論アドバイザーの夫と、幼児教育・能力開発に精通した妻が、子どもの「才能」の引き出し方や温かい声かけのヒントをライブ配信します。<br><br>
-                        「忙しくて画面が見られない」という時は<strong>耳だけの参加もOK</strong>！Zoomを使ったライブ講義なので、パソコンやスマートフォンに向かいながら、それぞれのライフスタイルに合わせてご参加いただけます。
-                        日々の悩みをチャットで相談しながら、「私だけじゃないんだ」とホッとできる時間。<strong>全てアーカイブ（録画）を残します</strong>ので、いつでも見返すことができます。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="container">
-        <h2 class="section-title fade-in">飽きずに続く！<br>「もくもく会」1ヶ月のスケジュール例</h2>
-        <p class="section-subtitle fade-in">最初の15分の講義は、毎週テーマを変えて子どもたちの知的好奇心を刺激します。</p>
+                <!-- ③ -->
+                <div class="content-item">
+                    <div class="content-num">③</div>
+                    <div class="content-text">
+                        <h4>プチ講義「志の学校」</h4>
+                        <p>自ら目標に向かって進み、達成する力を育むための特別な時間です。</p>
+                        <ul>
+                            <li>目標の立て方 / モチベーション / 目標達成の習慣化</li>
+                            <li>学力とスポーツ</li>
+                            <li>人間性向上</li>
+                            <li>自分の考えを持つ など</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <div class="schedule-wrapper fade-in">
-            <div class="week-item">
-                <div class="week-num">第1週</div>
-                <div class="week-content">
-                    <h4>📝 学習計画の作り方</h4>
-                    <p>「今日何をやるか」を自分で決める方法を学びます。やらされる勉強から、自分でコントロールする勉強へ。自立心を育む第一歩です。</p>
+                <!-- ④ -->
+                <div class="content-item">
+                    <div class="content-num">④</div>
+                    <div class="content-text">
+                        <h4>英会話プチレッスン (優しめの内容)</h4>
+                        <span class="schedule-tag">月1回</span>
+                        <p>教科書にはない「生きた英語」に触れ、声に出して楽しむレッスンです。</p>
+                        <ul>
+                            <li>表現力向上</li>
+                            <li>自己紹介、簡単な英会話などスピーキング中心</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="week-item">
-                <div class="week-num">第2週</div>
-                <div class="week-content">
-                    <h4>🧠 脳科学で学ぶ！効率アップのコツ</h4>
-                    <p>脳の仕組みを知ることで、効率的な覚え方や集中力の高め方を楽しく学びます。ゲーム感覚で自分の頭の使い方を知る人気の時間です。</p>
+
+                <!-- ⑤ -->
+                <div class="content-item">
+                    <div class="content-num">⑤</div>
+                    <div class="content-text">
+                        <h4>思春期子育てお役立ち情報 ＋ 座談会</h4>
+                        <span class="schedule-tag">週1回 または 2週に1回（親御さん対象）</span>
+                        <p>子育ての悩みを共有し、ホッとできる親御さんのための時間です。</p>
+                        <ul>
+                            <li>思春期世代の心 / 心の扉を開くコミュニケーション</li>
+                            <li>心の声を聞く</li>
+                            <li>子育てにおける愛情の正体</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="week-item">
-                <div class="week-num">第3週</div>
-                <div class="week-content">
-                    <h4>🌍 英会話を楽しむ時間</h4>
-                    <p>元英語教員の妻が担当！教科書にはない「生きた英語」に触れ、声に出して楽しむことで、世界への興味とグローバルな視野を広げます。</p>
+
+                <!-- ⑥ -->
+                <div class="content-item">
+                    <div class="content-num">⑥</div>
+                    <div class="content-text">
+                        <h4>特別ゲスト講師によるミニ講義</h4>
+                        <span class="schedule-tag">月1回</span>
+                        <p>生き様がかっこいい大人（経営者や事業主など）から、学校では教わらないリアルな話を学びます。</p>
+                        <ul>
+                            <li>グラブ再生のプロフェッショナル</li>
+                            <li>親子に届ける「お金」の教育 など</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="week-item">
-                <div class="week-num">第4週</div>
-                <div class="week-content">
-                    <h4>👨‍👩‍👦 特別編：自習室 ＆ 親向けライブ</h4>
-                    <p>講義なしで、45分間たっぷり子ども向けのZoom自習部屋を開放します。子どもたちが集中しているその熱量のまま、後半30分は親御さん向けの「子育てライブ配信」をスタート。親子で充実した夜を過ごします。</p>
-                </div>
+
             </div>
         </div>
     </section>
 
     <section class="pricing" id="pricing">
         <div class="container fade-in" style="padding: 0;">
-            <h2 class="section-title">まずは体験してみませんか？<br>選べる2つのモニターコース</h2>
+            <h2 class="section-title">まずは体験してみませんか？</h2>
             <p class="section-subtitle">実績作りにご協力いただける方限定の、特別なモニター価格です。</p>
 
-            <div class="course-table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="background:none;"></th>
-                            <th class="th-course">子育て応援コース<br><span style="font-size: 12px; color: var(--text-light); font-weight: normal;">(親御さん向け)</span></th>
-                            <th class="th-course" style="background-color: var(--bg-accent); border-radius: 10px 10px 0 0;">自立・共育フルサポート<br><span style="font-size: 12px; color: var(--btn-color); font-weight: normal;">(親子向け・おすすめ)</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-row-title">モニター月額料金</td>
-                            <td class="td-price"><span>通常 1,500円</span>500<span style="display:inline; font-size:14px; font-weight:normal; text-decoration:none;">円</span></td>
-                            <td class="td-price" style="background-color: var(--bg-accent);"><span>通常 1,980円</span>980<span style="display:inline; font-size:14px; font-weight:normal; text-decoration:none;">円</span></td>
-                        </tr>
-                        <tr>
-                            <td class="table-row-title">親向け：子育てライブ<br><span style="font-size: 11px; font-weight: normal; color: var(--text-light);">(月2回 / リアルタイム)</span></td>
-                            <td class="td-check">○</td>
-                            <td class="td-check" style="background-color: var(--bg-accent);">○</td>
-                        </tr>
-                        <tr>
-                            <td class="table-row-title">親向け：全アーカイブ<br><span style="font-size: 11px; font-weight: normal; color: var(--text-light);">(過去動画見放題)</span></td>
-                            <td class="td-check">○</td>
-                            <td class="td-check" style="background-color: var(--bg-accent);">○</td>
-                        </tr>
-                        <tr>
-                            <td class="table-row-title">子ども向け：もくもく会<br><span style="font-size: 11px; font-weight: normal; color: var(--text-light);">(毎週水曜 20:00〜自習室)</span></td>
-                            <td class="td-cross">×</td>
-                            <td class="td-check" style="background-color: var(--bg-accent);">○</td>
-                        </tr>
-                        <tr>
-                            <td class="table-row-title">子ども向け：ミニ講義<br><span style="font-size: 11px; font-weight: normal; color: var(--text-light);">(計画・脳科学・英語など)</span></td>
-                            <td class="td-cross">×</td>
-                            <td class="td-check" style="background-color: var(--bg-accent);">○</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="pricing-card">
+                <div class="pricing-card-title">クラブコミュニティ参加費用</div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-label">初月</div>
+                    <div class="pricing-value">無料</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="pricing-label" style="color: var(--btn-color);">2ヶ月目以降 <br><span style="font-size: 14px; font-weight: normal; color: var(--text-light);">（先着モニター特別価格）</span></div>
+                    <div class="pricing-value">1,980<span>円/月</span></div>
+                    <div class="pricing-discount">定価: 2,980円/月</div>
+                </div>
+
+                <div class="cta-wrapper sans-text fade-in" style="margin-top: 50px;">
+                    <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">まずは無料体験に参加してみる</a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -420,11 +393,11 @@
                 <div class="profile-card fade-in">
                     <div class="profile-img-placeholder"></div>
                     <div class="profile-badges">
-                        <span class="badge">元中学校教員</span>
-                        <span class="badge">英語専門講師</span>
+                        <span class="badge">英語・英会話担当</span>
+                        <span class="badge">栄養学担当</span>
                         <span class="badge">0〜3歳児 能力開発</span>
                     </div>
-                    <div class="profile-name">岡本 〇〇（妻）</div>
+                    <div class="profile-name">岡本 瑞生（妻）</div>
                     <div class="profile-desc">
                         「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。<br>
                         元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
@@ -455,7 +428,7 @@
 
             <div class="message-card">
                 <div class="message-header sans-text">
-                    <span class="message-title-marker">妻・〇〇の想い</span>
+                    <span class="message-title-marker">妻・瑞生の想い</span>
                 </div>
                 <div class="message-content">
                     <h4>中学校での教員や講師、英会話教室での経験。<br>そして留学を通じて、私は教育に対する強い思いを育んできました。</h4>
@@ -463,13 +436,8 @@
                     <p>教員として、講師として、そして幼児教育の現場で、10年以上、数千組の親子と向き合ってきました。<br>そこで見たのは、必死に頑張る子どもたちと、それ以上に頑張って、自己嫌悪してしまうお母さん・お父さんの姿でした。</p>
                     <p>そんな中で出会ったのが「素質論」でした。一人一人が持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができると確信しました。<br>お母さんの心がスッと軽くなった時、子どもは安心して、自分の才能を開花させ始めます。<br>それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
                     <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。<br>親子がそれぞれの場所で、ありのままの自分で輝ける未来を、私たちは一緒に作っていきたいと願っています。</p>
-                    <p class="message-signature sans-text">岡本 〇〇</p>
+                    <p class="message-signature sans-text">岡本 瑞生</p>
                 </div>
-            </div>
-
-            <div class="cta-wrapper sans-text fade-in">
-                <p style="margin-bottom: 25px; font-size: 18px; color: var(--text-main); font-weight:bold;">ひとりで抱え込まなくて大丈夫です。<br>今日から、私たち夫婦と一緒に「新しい子育て」を楽しんでみませんか？</p>
-                <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn">モニター価格で申し込む</a>
             </div>
 
         </div>
