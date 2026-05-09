@@ -164,7 +164,7 @@
         .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500;}
         .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
 
-        /* --- 社会課題とチェックリスト (NEW) --- */
+        /* --- 社会課題とチェックリスト --- */
         .issue-section {
             background-color: var(--bg-serious);
             padding: 80px 20px 100px;
@@ -191,7 +191,7 @@
         }
         .pie-value { position: relative; z-index: 2; font-size: 26px; font-weight: bold; color: var(--text-main); font-family: sans-serif;}
         .pie-value span { font-size: 14px; }
-        /* 個別のグラフ割合設定 */
+        
         .chart1 .pie-chart { background: conic-gradient(var(--btn-color) 57.4%, var(--table-border) 0); }
         .chart2 .pie-chart { background: conic-gradient(var(--gold-accent) 53.4%, var(--table-border) 0); }
         .chart3 .pie-chart { background: conic-gradient(var(--color-tane) 49.2%, var(--table-border) 0); }
@@ -243,8 +243,33 @@
         .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 15px; color: var(--text-light); }
         .content-text li { margin-bottom: 5px; }
 
+        /* --- サービス全体図 (NEW) --- */
+        .overview-container {
+            max-width: 850px; margin: 0 auto 60px; background: #fff; border-radius: 20px;
+            padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 2px solid var(--gold-accent);
+            position: relative; z-index: 10;
+        }
+        .overview-title { text-align: center; color: var(--gold-accent); font-size: 24px; font-weight: bold; margin-top: 0; margin-bottom: 30px; }
+        .overview-grid { display: flex; gap: 20px; justify-content: space-between; margin-bottom: 25px;}
+        .overview-col { flex: 1; background: var(--bg-base); border-radius: 15px; padding: 25px 15px; text-align: center; border-top: 6px solid; border-bottom: 1px solid var(--table-border); border-left: 1px solid var(--table-border); border-right: 1px solid var(--table-border);}
+        
+        .overview-col.tane { border-top-color: var(--color-tane); }
+        .overview-col.nekko { border-top-color: var(--color-nekko); }
+        .overview-col.hidamari { border-top-color: var(--color-hidamari); }
+        
+        .overview-icon { font-size: 30px; margin-bottom: 5px; }
+        .overview-col-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; color: var(--text-main);}
+        .overview-target { font-size: 12px; background: #fff; display: inline-block; padding: 4px 12px; border-radius: 15px; color: var(--text-light); margin-bottom: 20px; border: 1px solid var(--table-border); font-weight: bold;}
+        
+        .overview-list { list-style: none; padding: 0; margin: 0; text-align: left; }
+        .overview-list li { font-size: 15px; margin-bottom: 15px; padding-left: 20px; position: relative; line-height: 1.4; color: var(--text-main);}
+        .overview-list li::before { content: '✓'; position: absolute; left: 0; color: var(--btn-color); font-size: 14px; font-weight: bold;}
+        .overview-list li:last-child { margin-bottom: 0; }
+        
+        .overview-footer { text-align: center; background: var(--message-bg); padding: 15px; border-radius: 12px; color: var(--btn-color); font-weight: bold; font-size: 16px; border: 1px dashed var(--btn-color);}
+
         /* --- 料金表 --- */
-        .pricing { padding: 100px 20px; position: relative;}
+        .pricing { padding: 40px 20px 100px; position: relative;}
         .pricing-card { background: #fff; max-width: 650px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--gold-accent); transition: transform 0.4s ease;}
         .pricing-card:hover { transform: translateY(-5px); }
         .pricing-card-title { color: var(--gold-accent); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold;}
@@ -349,8 +374,12 @@
             .content-text h4 { font-size: 18px; }
             .content-text p, .content-text ul { font-size: 14px; }
 
-            .pricing { padding: 60px 15px; }
-            .pricing-card { padding: 30px 20px; }
+            .overview-container { padding: 30px 15px; margin-bottom: 40px; border-radius: 15px;}
+            .overview-grid { flex-direction: column; }
+            .overview-list li { font-size: 14px; }
+
+            .pricing { padding: 0 15px 60px; }
+            .pricing-card { padding: 30px 20px; border-radius: 15px;}
             .pricing-card-title { font-size: 20px; }
             .campaign-banner span { font-size: 18px; }
             .price-value { font-size: 36px; }
@@ -582,8 +611,48 @@
         </div>
     </section>
 
+    <!-- 料金セクション -->
     <section class="pricing" id="pricing">
         <div class="container fade-in" style="padding: 0;">
+            
+            <!-- 全体図 -->
+            <div class="overview-container fade-in">
+                <h3 class="overview-title">🔍 ほーむBASE サービス全体図</h3>
+                <div class="overview-grid">
+                    <div class="overview-col tane">
+                        <div class="overview-icon"><span class="emoji-sway">🌱</span></div>
+                        <div class="overview-col-title" style="color: var(--color-tane);">まなびの種</div>
+                        <div class="overview-target sans-text">主に子ども向け</div>
+                        <ul class="overview-list sans-text">
+                            <li><strong>もくもく部屋</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (自学ルーム)</span></li>
+                            <li><strong>やさしい英会話</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (スピーキング中心)</span></li>
+                        </ul>
+                    </div>
+                    <div class="overview-col nekko">
+                        <div class="overview-icon"><span class="emoji-sway">🌳</span></div>
+                        <div class="overview-col-title" style="color: var(--color-nekko);">こころの根っこ</div>
+                        <div class="overview-target sans-text">主に子ども向け</div>
+                        <ul class="overview-list sans-text">
+                            <li><strong>スポーツの知恵袋</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (メンタル・栄養学など)</span></li>
+                            <li><strong>こころざしの時間</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (目標設定・習慣化)</span></li>
+                            <li><strong>おとなの背中</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (ゲスト講義)</span></li>
+                        </ul>
+                    </div>
+                    <div class="overview-col hidamari">
+                        <div class="overview-icon"><span class="emoji-sway">☕️</span></div>
+                        <div class="overview-col-title" style="color: var(--color-hidamari);">ひだまりの庭</div>
+                        <div class="overview-target sans-text">親御さん向け</div>
+                        <ul class="overview-list sans-text">
+                            <li><strong>子育てホッとカフェ</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (プチ講義＋座談会)</span></li>
+                            <li><strong>子育てヒント配信</strong><br><span style="font-size:12px; color:var(--text-light);">2週に1回 (情報発信)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="overview-footer sans-text">
+                    ＋ 過去のライブ・講義動画の<strong>アーカイブ見放題</strong>✨
+                </div>
+            </div>
+
             <h2 class="section-title">まずは体験してみませんか？</h2>
             <p class="section-subtitle">『親子の新しい居場所をつくる』という<br class="sp-br">私たち夫婦の初めての挑戦を、<br class="pc-br">一緒に応援していただける方限定の<br class="sp-br">特別なモニター価格です。</p>
 
