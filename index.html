@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>オンライン自習室＆子育てサポート | ほーむBASE</title>
+    <title>人生の根っこと向き合うプログラム | Roots</title>
     <style>
-        /* --- 温かいカラーパレット --- */
+        /* --- カラーパレット：深い紺 × 白 × 淡い金（静かな情熱と深い安心感） --- */
         :root {
-            --bg-base: #fcfaf5; 
-            --bg-accent: #f8e8e6; 
-            --text-main: #4a3b32; 
-            --text-light: #8c7a6b; 
-            --btn-color: #e07a5f; 
-            --btn-hover: #c9654b;
-            --gold-accent: #c5a059; 
-            --table-border: #e8dcc8;
-            --message-bg: #fff1e6;
+            --bg-base: #fcfcfc;        /* 全体の背景：白 */
+            --bg-accent: #f4f6f8;      /* アクセント背景：ほんのりグレーがかった白 */
+            --text-main: #1a2530;      /* メインテキスト：限りなく黒に近い紺 */
+            --text-light: #5c6c7c;     /* サブテキスト：青みグレー */
+            --btn-color: #1e2e3e;      /* ボタン色：深い紺 */
+            --btn-hover: #2c3e50;      /* ボタンホバー：少し明るい紺 */
+            --gold-accent: #c5a570;    /* アクセント：落ち着いた淡い金（シャンパンゴールド） */
+            --table-border: #e2e8ec;   /* 境界線 */
+            --message-bg: #ffffff;
             
-            /* 3本柱のテーマカラー */
-            --color-tane: #9cb380;     /* まなびの種 */
-            --color-nekko: #c99a68;    /* こころの根っこ */
-            --color-hidamari: #e39d91; /* ひだまりの庭 */
+            /* 特徴セクション用のカラー */
+            --color-1: #c5a570; /* ゴールド */
+            --color-2: #1e2e3e; /* ネイビー */
+            --color-3: #8a7a63; /* アッシュブラウン */
             
             /* 新セクション用 */
-            --bg-serious: #f4efea; 
+            --bg-serious: #ebf0f4; 
         }
 
         body {
@@ -41,244 +41,167 @@
         .sans-text { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif; }
         img { max-width: 100%; height: auto; display: block; }
         a { text-decoration: none; transition: color 0.3s ease; }
-        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 2; }
+        .container { max-width: 850px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 2; }
 
         .section-title {
-            text-align: center; font-size: 30px; color: var(--gold-accent);
-            margin-bottom: 15px; font-weight: bold; line-height: 1.5;
+            text-align: center; font-size: 32px; color: var(--btn-color);
+            margin-bottom: 20px; font-weight: bold; line-height: 1.5;
         }
         .section-subtitle {
-            text-align: center; font-size: 16px; color: var(--text-light);
-            margin-bottom: 60px; line-height: 1.6;
+            text-align: center; font-size: 16px; color: var(--gold-accent);
+            margin-bottom: 60px; line-height: 1.6; font-weight: bold;
         }
 
-        /* =========================================
-            ✨ レスポンシブ改行制御
-        ========================================= */
-        @media (max-width: 768px) {
-            .pc-br { display: none; }
-        }
-        @media (min-width: 769px) {
-            .sp-br { display: none; }
-        }
+        /* レスポンシブ改行 */
+        @media (max-width: 768px) { .pc-br { display: none; } }
+        @media (min-width: 769px) { .sp-br { display: none; } }
 
-        /* =========================================
-            ✨ アニメーション設定（ムーブメント）
-        ========================================= */
+        /* アニメーション */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 0; transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.is-visible { opacity: 1; transform: translateY(0); }
 
         @keyframes pulseBtn {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(224, 122, 95, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(30, 46, 62, 0.3); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(30, 46, 62, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(30, 46, 62, 0.3); }
         }
 
         @keyframes sway {
             0%, 100% { transform: rotate(-8deg); }
             50% { transform: rotate(8deg); }
         }
-        .emoji-sway {
-            display: inline-block;
-            animation: sway 3s ease-in-out infinite;
-            transform-origin: bottom center;
-        }
+        .emoji-sway { display: inline-block; animation: sway 3s ease-in-out infinite; transform-origin: bottom center; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
         }
-        .floating-element { animation: float 4s ease-in-out infinite; }
+        .floating-element { animation: float 5s ease-in-out infinite; }
 
-        .bg-blobs {
-            position: absolute; width: 100%; height: 100%; top: 0; left: 0;
-            overflow: hidden; z-index: 1; pointer-events: none;
-        }
-        .blob {
-            position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.3;
-            animation: float 8s ease-in-out infinite;
-        }
-        .blob1 { width: 400px; height: 400px; background: var(--color-tane); top: -50px; left: -150px; animation-delay: 0s;}
-        .blob2 { width: 500px; height: 500px; background: var(--color-hidamari); bottom: 10%; right: -200px; animation-delay: 2s;}
-        .blob3 { width: 350px; height: 350px; background: var(--color-nekko); top: 40%; left: -100px; animation-delay: 4s;}
+        /* 背景オーブ */
+        .bg-blobs { position: absolute; width: 100%; height: 100%; top: 0; left: 0; overflow: hidden; z-index: 1; pointer-events: none; }
+        .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.15; animation: float 10s ease-in-out infinite; }
+        .blob1 { width: 400px; height: 400px; background: var(--btn-color); top: 5%; left: -100px; animation-delay: 0s;}
+        .blob2 { width: 500px; height: 500px; background: var(--gold-accent); bottom: 10%; right: -150px; animation-delay: 3s;}
 
-        /* --- ボタン共通 --- */
-        .cta-wrapper { text-align: center; margin-top: 40px; }
+        /* ボタン */
+        .cta-wrapper { text-align: center; margin-top: 50px; }
         .cta-btn {
-            display: inline-block; 
-            background: linear-gradient(135deg, var(--btn-color), var(--btn-hover));
-            color: #fff; font-size: 18px; padding: 20px 40px; font-weight: bold;
-            border-radius: 50px; box-shadow: 0 6px 20px rgba(224, 122, 95, 0.4);
-            transition: all 0.3s ease;
-            animation: pulseBtn 2.5s infinite;
-            line-height: 1.4;
+            display: inline-block; background: linear-gradient(135deg, var(--btn-color), var(--btn-hover));
+            color: #fff; font-size: 18px; padding: 22px 50px; font-weight: bold;
+            border-radius: 5px; box-shadow: 0 6px 20px rgba(30, 46, 62, 0.3);
+            transition: all 0.3s ease; animation: pulseBtn 3s infinite; line-height: 1.4; letter-spacing: 0.1em;
         }
-        .cta-btn:hover { 
-            transform: translateY(-3px) scale(1.02) !important; 
-            box-shadow: 0 8px 25px rgba(224, 122, 95, 0.6) !important; 
-            animation: none; 
-            color: #fff;
-        }
+        .cta-btn:hover { transform: translateY(-3px) scale(1.02) !important; box-shadow: 0 8px 25px rgba(30, 46, 62, 0.5) !important; animation: none; color: #fff; }
+
+        /* セクション共通 */
+        .section-card { background: #fff; border-radius: 12px; padding: 60px 50px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); margin-bottom: 40px; border: 1px solid var(--table-border);}
 
         /* --- FV --- */
-        .hero {
-            position: relative; padding: 140px 20px 160px; 
-            text-align: center; overflow: hidden; z-index: 1;
-        }
+        .hero { position: relative; padding: 160px 20px 180px; text-align: center; overflow: hidden; z-index: 1; background-color: var(--bg-base); }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop'); 
-            background-size: cover; background-position: center;
-            animation: zoomBg 25s infinite alternate linear; z-index: -2;
+            background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1600&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; opacity: 0.08; z-index: -2;
         }
-        .hero::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(252, 250, 245, 0.92), rgba(252, 250, 245, 1)); z-index: -1;
+        .hero-label {
+            display: inline-block; background-color: transparent; color: var(--gold-accent); font-size: 14px; font-weight: bold; padding: 6px 20px; border-radius: 30px; margin-bottom: 25px; border: 1px solid var(--gold-accent); font-family: sans-serif; letter-spacing: 0.15em;
         }
-        @keyframes zoomBg { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
-        
-        .hero h1 { font-size: 32px; margin-bottom: 30px; line-height: 1.6; font-weight: bold; color: var(--text-main); text-shadow: 0px 2px 12px rgba(255,255,255,1); }
-        .hero p { font-size: 17px; margin-bottom: 40px; font-weight: bold; line-height: 2; color: var(--text-light); }
+        .hero h1 { font-size: 32px; margin-bottom: 30px; line-height: 1.6; font-weight: bold; color: var(--btn-color); text-shadow: 0px 2px 10px rgba(255,255,255,1); }
+        .hero p { font-size: 16px; margin-bottom: 50px; line-height: 2.2; color: var(--text-main); font-weight: 500;}
 
-        .release-badge {
-            display: inline-block; background-color: #fff; color: var(--btn-color);
-            font-size: 15px; font-weight: bold; padding: 6px 16px; border-radius: 30px;
-            margin-bottom: 20px; border: 2px solid var(--btn-color); font-family: sans-serif;
-        }
+        /* --- ステップ1：なぜ（共感と理由） --- */
+        .empathy { margin: -70px auto 40px; max-width: 750px; position: relative; z-index: 10; border-top: 4px solid var(--btn-color); }
+        .empathy h2 { font-size: 22px; text-align: center; margin-bottom: 40px; color: var(--btn-color); line-height: 1.7;}
+        .empathy ul { list-style: none; padding: 0; }
+        .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 16px; font-weight: 500;}
+        .empathy li::before { content: '✔︎'; color: var(--gold-accent); position: absolute; left: 0; top: -2px; font-size: 20px; }
 
-        /* --- 共感 --- */
-        .empathy {
-            background-color: #fff; border-radius: 20px; padding: 60px 50px;
-            margin: -70px auto 0; max-width: 800px;
-            box-shadow: 0 15px 40px rgba(74, 59, 50, 0.08); position: relative; z-index: 10;
-        }
-        .empathy h2 { font-size: 24px; text-align: center; margin-bottom: 35px; color: var(--btn-color); line-height: 1.6;}
-        .empathy ul { list-style: none; padding: 0; margin: 0; }
-        .empathy li { margin-bottom: 25px; padding-left: 35px; position: relative; font-size: 17px; font-weight: 500; line-height: 1.7; text-align: left;}
-        .empathy li::before { content: '✔︎'; color: var(--btn-color); position: absolute; left: 0; top: -2px; font-size: 20px; }
+        .why-box { background-color: var(--bg-serious); border-radius: 12px; padding: 40px; text-align: center; margin-top: 40px; border-left: 6px solid var(--gold-accent); }
+        .why-box h3 { font-size: 20px; color: var(--text-main); margin-top: 0; margin-bottom: 20px; }
+        .why-box p { font-size: 16px; line-height: 1.8; margin-bottom: 0; text-align: left; }
+        .highlight-text { color: var(--btn-color); font-weight: bold; background: linear-gradient(transparent 70%, rgba(197, 165, 112, 0.3) 70%); }
 
-        /* --- 社会課題とチェックリスト --- */
-        .issue-section {
-            background-color: var(--bg-serious);
-            padding: 80px 20px 100px;
-            position: relative;
-        }
-        .issue-content { max-width: 800px; margin: 0 auto; }
-        .issue-text { font-size: 16px; line-height: 1.9; color: var(--text-main); margin-bottom: 25px;}
-        .issue-highlight { font-weight: bold; color: var(--btn-hover); font-size: 18px; display: block; margin-top: 15px;}
+        /* --- ステップ2：何（証拠・データ・ストーリー） --- */
+        .story-section { padding: 80px 20px 100px; background-color: var(--bg-accent); position: relative;}
         
-        /* 円グラフ */
-        .charts-container {
-            display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin: 50px 0;
-        }
-        .chart-box { text-align: center; width: 200px; }
-        .pie-chart {
-            width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 15px;
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-            background-color: var(--table-border);
-        }
-        .pie-chart::after {
-            content: ''; position: absolute; width: 100px; height: 100px;
-            background-color: var(--bg-serious); border-radius: 50%;
-        }
-        .pie-value { position: relative; z-index: 2; font-size: 26px; font-weight: bold; color: var(--text-main); font-family: sans-serif;}
-        .pie-value span { font-size: 14px; }
-        
+        .charts-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin: 40px 0; }
+        .chart-box { text-align: center; width: 180px; }
+        .pie-chart { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; position: relative; background-color: var(--table-border); }
+        .pie-chart::after { content: ''; position: absolute; width: 90px; height: 90px; background-color: var(--bg-accent); border-radius: 50%; }
+        .pie-value { position: relative; z-index: 2; font-size: 24px; font-weight: bold; color: var(--text-main); font-family: sans-serif;}
+        .pie-value span { font-size: 12px; }
         .chart1 .pie-chart { background: conic-gradient(var(--btn-color) 57.4%, var(--table-border) 0); }
         .chart2 .pie-chart { background: conic-gradient(var(--gold-accent) 53.4%, var(--table-border) 0); }
         .chart3 .pie-chart { background: conic-gradient(var(--color-tane) 49.2%, var(--table-border) 0); }
-        
-        .chart-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; color: var(--text-main); }
+        .chart-title { font-weight: bold; font-size: 16px; margin-bottom: 5px; color: var(--text-main); }
         .chart-desc { font-size: 13px; color: var(--text-light); }
-        .chart-source { font-size: 12px; color: var(--text-light); text-align: right; margin-top: 10px;}
+        
+        .story-card h3 { font-size: 24px; color: var(--btn-color); margin: 0 0 30px 0; line-height: 1.6; text-align: center; border-bottom: 1px dashed var(--table-border); padding-bottom: 25px;}
+        .story-content p { font-size: 16px; color: var(--text-main); margin-bottom: 25px; line-height: 2;}
+        .blockquote { background-color: var(--bg-base); border-left: 4px solid var(--text-light); padding: 20px 25px; margin: 30px 0; font-style: italic; color: var(--text-light); }
 
-        /* チェックリスト */
-        .checklist-box {
-            background-color: #fff; border-radius: 15px; padding: 40px; margin-top: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid var(--table-border);
-        }
+        .checklist-box { background-color: #fff; border-radius: 12px; padding: 40px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 2px solid var(--gold-accent); }
         .checklist-title { font-size: 22px; text-align: center; color: var(--gold-accent); font-weight: bold; margin-bottom: 30px;}
         .checklist { list-style: none; padding: 0; margin: 0;}
-        .checklist li { font-size: 16px; margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; font-weight: 500; text-align: left;}
-        .checklist li::before { 
-            content: '□'; color: var(--gold-accent); position: absolute; left: 0; top: 0; 
-            font-size: 22px; line-height: 1.4; font-weight: bold; font-family: sans-serif;
-        }
-        .checklist-footer { text-align: center; font-size: 18px; font-weight: bold; color: var(--btn-color); margin-top: 40px; line-height: 1.6;}
+        .checklist li { font-size: 16px; margin-bottom: 15px; padding-left: 30px; position: relative; line-height: 1.6; font-weight: 500;}
+        .checklist li::before { content: '□'; color: var(--gold-accent); position: absolute; left: 0; top: 0; font-size: 22px; line-height: 1.4; font-weight: bold; font-family: sans-serif; }
 
-        /* --- 3つの居場所 --- */
-        .service-detail-section { padding: 100px 20px; background-color: var(--bg-accent); position: relative;}
+        /* --- ステップ3：どうやって（3つの強み・居場所・全体図・流れ） --- */
+        .how-section { padding: 100px 20px; background-color: var(--bg-base); position: relative;}
         
-        .pillar-card {
-            background: #fff; border-radius: 20px; padding: 50px; margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 8px solid;
-            transition: transform 0.4s ease, box-shadow 0.4s ease; position: relative; z-index: 2;
-        }
-        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-        .pillar-card:last-child { margin-bottom: 0; }
-        
+        .feature-card { background: #fff; border-radius: 12px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 6px solid; display: flex; align-items: center; gap: 30px; }
+        .feature-card.f1 { border-top-color: var(--color-1); }
+        .feature-card.f2 { border-top-color: var(--color-2); }
+        .feature-card.f3 { border-top-color: var(--color-3); }
+        .feature-num { font-size: 60px; font-weight: bold; line-height: 1; font-family: sans-serif; opacity: 0.2; flex-shrink: 0;}
+        .f1 .feature-num { color: var(--color-1); }
+        .f2 .feature-num { color: var(--color-2); }
+        .f3 .feature-num { color: var(--color-3); }
+        .feature-text h4 { margin: 0 0 10px 0; color: var(--text-main); font-size: 20px; line-height: 1.5;}
+        .feature-text p { margin: 0; font-size: 15px; color: var(--text-light); line-height: 1.8;}
+
+        .pillar-card { background: #fff; border-radius: 12px; padding: 40px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 6px solid; }
         .pillar-card.tane { border-top-color: var(--color-tane); }
         .pillar-card.nekko { border-top-color: var(--color-nekko); }
         .pillar-card.hidamari { border-top-color: var(--color-hidamari); }
-
-        .pillar-title { text-align: center; font-size: 26px; margin-bottom: 40px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 12px; }
-        .pillar-title.tane { color: var(--color-tane); }
-        .pillar-title.nekko { color: var(--color-nekko); }
-        .pillar-title.hidamari { color: var(--color-hidamari); }
-
-        .content-item { margin-bottom: 35px; padding-bottom: 35px; border-bottom: 1px dashed var(--table-border); }
+        .pillar-title { text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .content-item { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px dashed var(--table-border); }
         .content-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-        
-        .content-text h4 { margin: 0 0 12px 0; color: var(--text-main); font-size: 20px; display: flex; align-items: center; gap: 8px; text-align: left;}
-        .content-text .schedule-tag { display: inline-block; background-color: var(--bg-base); border: 1px solid var(--table-border); color: var(--text-light); font-size: 13px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 15px; font-family: sans-serif;}
-        .content-text p { margin: 0 0 10px 0; font-size: 16px; color: var(--text-main); text-align: left; }
-        .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 15px; color: var(--text-light); text-align: left;}
-        .content-text li { margin-bottom: 5px; }
+        .content-text h4 { margin: 0 0 10px 0; color: var(--text-main); font-size: 18px;}
+        .content-text .schedule-tag { display: inline-block; background-color: var(--bg-accent); color: var(--text-light); font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; font-family: sans-serif;}
+        .content-text p { margin: 0 0 10px 0; font-size: 15px; color: var(--text-main); }
+        .content-text ul { margin: 10px 0 0 0; padding-left: 20px; font-size: 14px; color: var(--text-light); }
 
-        /* --- サービス全体図 --- */
-        .overview-container {
-            max-width: 850px; margin: 0 auto 60px; background: #fff; border-radius: 20px;
-            padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 2px solid var(--gold-accent);
-            position: relative; z-index: 10;
-        }
-        .overview-title { text-align: center; color: var(--gold-accent); font-size: 24px; font-weight: bold; margin-top: 0; margin-bottom: 30px; }
+        .overview-container { max-width: 850px; margin: 60px auto 0; background: #fff; border-radius: 12px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 2px solid var(--gold-accent); }
         .overview-grid { display: flex; gap: 20px; justify-content: space-between; margin-bottom: 25px;}
-        .overview-col { flex: 1; background: var(--bg-base); border-radius: 15px; padding: 25px 15px; text-align: center; border-top: 6px solid; border-bottom: 1px solid var(--table-border); border-left: 1px solid var(--table-border); border-right: 1px solid var(--table-border);}
-        
+        .overview-col { flex: 1; background: var(--bg-accent); border-radius: 8px; padding: 20px 15px; text-align: center; border-top: 4px solid;}
         .overview-col.tane { border-top-color: var(--color-tane); }
         .overview-col.nekko { border-top-color: var(--color-nekko); }
         .overview-col.hidamari { border-top-color: var(--color-hidamari); }
-        
-        .overview-icon { font-size: 30px; margin-bottom: 5px; }
-        .overview-col-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; color: var(--text-main);}
-        .overview-target { font-size: 12px; background: #fff; display: inline-block; padding: 4px 12px; border-radius: 15px; color: var(--text-light); margin-bottom: 20px; border: 1px solid var(--table-border); font-weight: bold;}
-        
+        .overview-icon { font-size: 24px; margin-bottom: 5px; }
+        .overview-col-title { font-weight: bold; font-size: 16px; margin-bottom: 15px; color: var(--text-main);}
         .overview-list { list-style: none; padding: 0; margin: 0; text-align: left; }
-        .overview-list li { font-size: 15px; margin-bottom: 15px; padding-left: 20px; position: relative; line-height: 1.4; color: var(--text-main);}
-        .overview-list li::before { content: '✓'; position: absolute; left: 0; color: var(--btn-color); font-size: 14px; font-weight: bold;}
-        .overview-list li:last-child { margin-bottom: 0; }
-        
-        .overview-footer { text-align: center; background: var(--message-bg); padding: 15px; border-radius: 12px; color: var(--btn-color); font-weight: bold; font-size: 16px; border: 1px dashed var(--btn-color);}
+        .overview-list li { font-size: 13px; margin-bottom: 10px; padding-left: 15px; position: relative; line-height: 1.4; color: var(--text-main);}
+        .overview-list li::before { content: '✓'; position: absolute; left: 0; color: var(--btn-color); font-weight: bold;}
+        .overview-footer { text-align: center; background: var(--message-bg); padding: 15px; border-radius: 8px; color: var(--btn-color); font-weight: bold; font-size: 15px; border: 1px dashed var(--btn-color);}
 
-        /* --- 料金表 --- */
-        .pricing { padding: 40px 20px 100px; position: relative;}
-        .pricing-card { background: #fff; max-width: 650px; margin: 0 auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--gold-accent); transition: transform 0.4s ease;}
-        .pricing-card:hover { transform: translateY(-5px); }
-        .pricing-card-title { color: var(--gold-accent); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold;}
+        .flow-wrapper { max-width: 600px; margin: 60px auto 0; }
+        .flow-step { display: flex; gap: 20px; margin-bottom: 20px; background: #fff; padding: 25px; border-radius: 8px; border: 1px solid var(--table-border);}
+        .flow-num { background: var(--btn-color); color: #fff; font-size: 14px; font-weight: bold; padding: 5px 15px; border-radius: 30px; height: fit-content; flex-shrink: 0; font-family: sans-serif;}
+        .flow-text h4 { margin: 0 0 10px 0; font-size: 18px; color: var(--text-main); }
+        .flow-text p { margin: 0; font-size: 14px; color: var(--text-light); }
+
+        /* --- ステップ4：今すぐ（料金とCTA） --- */
+        .now-section { padding: 100px 20px; background-color: var(--bg-accent); position: relative;}
+        .pricing-card { background: #fff; max-width: 650px; margin: 0 auto; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); padding: 50px; border: 2px solid var(--btn-color); }
+        .pricing-card-title { color: var(--btn-color); text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: bold;}
         
-        .campaign-banner {
-            background-color: var(--message-bg); border: 2px solid var(--btn-color); color: var(--btn-color);
-            padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; margin-bottom: 35px; line-height: 1.6;
-        }
-        .campaign-banner span { font-size: 20px; display: block; margin-top: 5px;}
+        .campaign-banner { background-color: var(--btn-color); color: #fff; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 35px; line-height: 1.6; }
+        .campaign-banner span { font-size: 22px; display: block; margin-top: 5px; color: var(--gold-accent);}
 
         .price-display { text-align: center; margin-bottom: 35px;}
         .price-label { font-size: 18px; color: var(--text-main); font-weight: bold; margin-bottom: 10px;}
@@ -286,145 +209,54 @@
         .price-value span { font-size: 18px; font-weight: normal; color: var(--text-main);}
         .price-discount { font-size: 15px; color: var(--text-light); text-decoration: line-through; margin-top: 8px; }
 
-        /* 条件ボックス */
-        .pricing-conditions {
-            background: var(--bg-base); border-radius: 12px; padding: 25px; margin-bottom: 35px;
-            text-align: left; border: 1px solid var(--table-border);
-        }
-        .condition-block { margin-bottom: 25px; }
-        .condition-block:last-child { margin-bottom: 0; }
-        .condition-title { font-weight: bold; color: var(--text-main); font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;}
-        .condition-desc { font-size: 15px; margin: 0; padding-left: 24px; line-height: 1.7;}
-        .highlight-text { color: var(--btn-color); font-weight: bold;}
-        
-        /* メンバー限定案内枠 */
-        .member-discount-notice {
-            background-color: #fff9f3; border: 1px solid #f3d9c2; border-radius: 12px;
-            padding: 20px; margin-bottom: 30px; text-align: left; font-size: 15px; line-height: 1.7;
-        }
+        .pricing-conditions { background: var(--bg-base); border-radius: 8px; padding: 25px; margin-bottom: 35px; border: 1px solid var(--table-border); }
+        .condition-block { margin-bottom: 15px; }
+        .condition-title { font-weight: bold; color: var(--text-main); font-size: 16px; margin-bottom: 5px;}
+        .condition-desc { font-size: 15px; margin: 0; padding-left: 20px;}
 
-        /* 特典リスト */
-        .pricing-features ul { list-style: none; padding: 0; margin: 0; }
-        .pricing-features li { padding: 15px 0; border-top: 1px dashed var(--table-border); font-size: 16px; font-weight: 500; display: flex; align-items: flex-start; line-height: 1.6; text-align: left;}
-        .pricing-features li::before { content: '🌸'; margin-right: 12px; font-size: 18px; line-height: 1.6; flex-shrink: 0;}
-        .pricing-features li.archive-note { border-top: none; padding-top: 0; font-size: 13px; color: var(--text-light); display: block; padding-left: 36px;}
-        .pricing-features li.archive-note::before { display: none; }
-
-        /* --- 講師紹介 --- */
-        .instructors { padding: 100px 20px; background-color: var(--bg-accent);}
-        .profiles-container { display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; max-width: 1000px; margin: 0 auto; }
-        .profile-card { flex: 1; min-width: 320px; background: #fff; border-radius: 20px; padding: 50px 40px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: transform 0.3s ease;}
-        .profile-card:hover { transform: translateY(-5px); }
-        
-        .profile-img, .profile-img-placeholder {
-            width: 180px; height: 180px; border-radius: 50%;
-            margin: 0 auto 25px; border: 5px solid var(--bg-accent);
-            background-color: #f4f0ea; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            object-fit: cover; 
-        }
-        
-        .profile-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
-        .badge { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 5px 15px; border-radius: 20px; font-family: sans-serif; font-weight: bold;}
-        .profile-name { font-size: 24px; color: var(--gold-accent); margin-bottom: 20px; font-weight: bold;}
-        .profile-desc { text-align: left; font-size: 15px; line-height: 1.9; color: var(--text-main); }
-
-        /* --- 夫婦の想い --- */
-        .our-why-section { padding: 100px 20px; background-color: var(--message-bg); position: relative;}
-        .message-card { background: #fff; border-radius: 20px; padding: 60px; box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05); margin-bottom: 40px; border: 1px solid var(--table-border); transition: transform 0.4s ease;}
-        .message-card:hover { transform: translateY(-5px); }
-        .message-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 20px;}
-        .message-title-marker { color: var(--gold-accent); font-size: 14px; font-weight: bold; border-left: 4px solid var(--gold-accent); padding-left: 10px;}
-        .message-content h4 { font-size: 20px; color: var(--text-main); margin: 0 0 20px 0; line-height: 1.6; text-align: left;}
-        .message-content p { font-size: 16px; color: var(--text-main); margin-bottom: 25px; text-align: left; line-height: 1.9;}
-        .message-content p strong { color: var(--btn-color); }
-        .message-signature { text-align: right; color: var(--gold-accent); font-weight: bold; margin-top: 30px; font-size: 18px;}
+        /* --- プロフィール --- */
+        .profile-section { padding: 100px 20px; background-color: #fff;}
+        .profile-card { max-width: 800px; margin: 0 auto; display: flex; gap: 40px; align-items: flex-start; margin-bottom: 50px;}
+        .profile-img-wrapper { flex-shrink: 0; width: 200px; }
+        .profile-img { width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-accent); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .profile-info { flex: 1; }
+        .profile-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .badge { background-color: var(--bg-accent); color: var(--text-main); font-size: 12px; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-family: sans-serif;}
+        .profile-name { font-size: 26px; font-weight: bold; color: var(--btn-color); margin-bottom: 5px; }
+        .profile-desc { font-size: 15px; line-height: 1.9; color: var(--text-main); }
 
         /* フッター */
-        footer { background-color: #fff; text-align: center; padding: 50px 20px; font-size: 14px; color: var(--text-light); border-top: 1px solid var(--table-border); }
-        footer a { color: var(--text-light); margin: 0 15px; transition: color 0.3s ease;}
-        footer a:hover { color: var(--btn-color); }
+        footer { background-color: var(--bg-accent); text-align: center; padding: 50px 20px; font-size: 14px; color: var(--text-light); }
 
         /* =========================================
-            📱 スマホ最適化（文字サイズ・余白・行間）
+            📱 スマホ対応
         ========================================= */
         @media (max-width: 768px) {
-            body { line-height: 1.9; font-size: 15px; }
-            .container { padding: 50px 15px; }
-            .hero { padding: 90px 15px 100px; }
-            .hero h1 { font-size: 23px; margin-bottom: 20px; line-height: 1.5; }
-            .hero p { font-size: 14px; margin-bottom: 30px; line-height: 1.8; }
-            .section-title { font-size: 22px; margin-bottom: 12px; line-height: 1.4; }
-            .section-subtitle { font-size: 14px; margin-bottom: 35px; line-height: 1.5; }
-            .cta-btn { font-size: 16px; padding: 16px 25px; width: 100%; box-sizing: border-box; }
+            .container { padding: 60px 15px; }
+            .hero { padding: 120px 15px 100px; }
+            .hero h1 { font-size: 22px; margin-bottom: 20px; }
+            .hero p { font-size: 14px; margin-bottom: 40px; }
+            .section-title { font-size: 24px; margin-bottom: 15px; }
+            .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
             
-            .empathy { padding: 35px 20px; margin: -40px 10px 0; border-radius: 12px;}
-            .empathy h2 { font-size: 18px; margin-bottom: 20px; line-height: 1.5; }
-            .empathy li { font-size: 14px; margin-bottom: 15px; padding-left: 22px; line-height: 1.6; }
+            .section-card { padding: 40px 25px; }
+            .empathy { margin: -40px auto 40px; }
 
-            .issue-section { padding: 50px 15px; }
-            .issue-text { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
-            .issue-highlight { font-size: 16px; margin-top: 10px; }
-            .charts-container { gap: 15px; margin: 30px 0; }
+            .charts-container { gap: 20px; margin: 30px 0; }
             .chart-box { width: 130px; }
-            .pie-chart { width: 95px; height: 95px; margin-bottom: 8px;}
-            .pie-chart::after { width: 71px; height: 71px; }
-            .pie-value { font-size: 18px; }
-            .chart-title { font-size: 14px; }
-            .chart-desc { font-size: 11px; line-height: 1.4; }
+            .pie-chart { width: 100px; height: 100px; }
+            .pie-chart::after { width: 75px; height: 75px; }
             
-            .checklist-box { padding: 25px 15px; margin-top: 35px; border-radius: 12px; }
-            .checklist-title { font-size: 17px; margin-bottom: 20px;}
-            .checklist li { font-size: 14px; margin-bottom: 12px; padding-left: 24px; }
-            .checklist li::before { font-size: 18px; }
-            .checklist-footer { font-size: 15px; margin-top: 25px; }
+            .feature-card { flex-direction: column; text-align: center; padding: 30px 20px;}
+            .overview-grid { flex-direction: column; }
+            .flow-step { flex-direction: column; gap: 10px; padding: 20px; }
 
-            .service-detail-section { padding: 50px 15px; }
-            .pillar-card { padding: 25px 15px; border-radius: 12px; margin-bottom: 30px; }
-            .pillar-title { font-size: 19px; margin-bottom: 25px;}
-            .content-text h4 { font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
-            .content-text p { font-size: 14px; line-height: 1.7; }
-            .content-text ul { font-size: 13px; padding-left: 15px; }
+            .profile-card { flex-direction: column; align-items: center; text-align: center; gap: 25px; }
+            .profile-img-wrapper { width: 160px; }
+            .profile-badges { justify-content: center; }
 
-            .overview-container { padding: 25px 15px; margin-bottom: 35px; border-radius: 12px;}
-            .overview-title { font-size: 19px; margin-bottom: 20px; }
-            .overview-grid { gap: 15px; }
-            .overview-col { padding: 15px 10px; border-radius: 10px; }
-            .overview-col-title { font-size: 15px; }
-            .overview-list li { font-size: 13px; margin-bottom: 8px; }
-            .overview-footer { font-size: 14px; padding: 12px; }
-
-            .pricing { padding: 0 10px 50px; }
-            .pricing-card { padding: 25px 15px; border-radius: 12px;}
-            .pricing-card-title { font-size: 19px; margin-bottom: 20px; }
-            .campaign-banner { padding: 12px; margin-bottom: 25px; border-radius: 10px; }
-            .campaign-banner span { font-size: 16px; margin-top: 3px; line-height: 1.4; }
-            .price-label { font-size: 15px; margin-bottom: 6px; }
-            .price-value { font-size: 32px; }
-            .price-value span { font-size: 14px; }
-            .price-discount { font-size: 13px; margin-top: 4px; }
-            .pricing-conditions { padding: 15px; margin-bottom: 25px; border-radius: 10px; }
-            .condition-block { margin-bottom: 18px; }
-            .condition-title { font-size: 14px; margin-bottom: 4px; }
-            .condition-desc { font-size: 13px; padding-left: 0; line-height: 1.6; }
-            .member-discount-notice { padding: 15px; margin-bottom: 20px; font-size: 13px; border-radius: 10px; }
-            .pricing-features li { font-size: 13px; padding: 10px 0; }
-            .pricing-features li::before { font-size: 15px; margin-right: 8px; }
-            .pricing-features li.archive-note { padding-left: 23px; font-size: 11px; }
-
-            .instructors { padding: 50px 15px; }
-            .instructors .section-subtitle { margin-bottom: 30px; }
-            .profiles-container { gap: 25px; }
-            .profile-card { padding: 30px 20px; min-width: 100%; box-sizing: border-box; border-radius: 12px;}
-            .profile-img, .profile-img-placeholder { width: 130px; height: 130px; margin-bottom: 15px; }
-            .profile-name { font-size: 20px; margin-bottom: 12px; }
-            .profile-desc { font-size: 13px; line-height: 1.7; }
-            
-            .our-why-section { padding: 50px 15px; }
-            .message-card { padding: 25px 15px; border-radius: 12px; margin-bottom: 25px; }
-            .message-header { flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 12px; margin-bottom: 15px;}
-            .message-content h4 { font-size: 16px; margin-bottom: 12px; line-height: 1.5; }
-            .message-content p { font-size: 14px; margin-bottom: 18px; line-height: 1.8; }
-            .message-signature { font-size: 15px; margin-top: 15px; }
+            .blob1 { width: 300px; height: 300px; left: -100px; }
+            .blob2 { width: 300px; height: 300px; right: -150px; }
         }
     </style>
 </head>
@@ -432,7 +264,7 @@
 
     <section class="hero">
         <div class="container fade-in">
-            <div class="release-badge sans-text">🎉 5月24日(日) ついにリリース！</div>
+            <div class="hero-label sans-text">25歳〜35歳の働く男性へ</div>
             <h1>自ら考え、行動する主体性を育む人へ。<br>「考える土台と根っこ」を学ぶ“居場所”</h1>
             <p>
                 ゆるっと支える「オンライン学習」×<br class="pc-br">
@@ -445,100 +277,144 @@
         </div>
     </section>
 
-    <section class="empathy fade-in">
-        <h2>中学生になり、<br class="sp-br">こんなふうに悩んでいませんか？</h2>
-        <ul>
-            <li>「勉強しなさい」と声をかけないとやらない、スマホやゲームばかりしている…</li>
-            <li>学習習慣や成績のことが心配。でも、反抗期で言葉をかけにくい</li>
-            <li>親の言うことを素適に聞いてくれない。何を考えているかよくわからない</li>
-            <li>失敗から立ち上がる力や、自分で考えて行動する「主体性」を身につけてほしい</li>
-            <li>将来、自分の頭で考え、自分の言葉で意見を言える大人になってほしい</li>
-        </ul>
-        <p style="text-align: center; margin-top: 35px; color: var(--text-light); font-size: 15px; font-weight: bold;">私たちもこれまで1500人を超える子どもや親御さんたちと向き合ってきました。「思春期だから…」の一言で、時間が解決してくれると思い込んでいませんか？</p>
+    <section class="container" style="padding-top: 0; padding-bottom: 0;">
+        <div class="section-card empathy fade-in">
+            <h2>中学生になり、<br class="sp-br">こんなふうに悩んでいませんか？</h2>
+            <ul>
+                <li>「勉強しなさい」と声をかけないとやらない、スマホやゲームばかりしている…</li>
+                <li>学習習慣や成績のことが心配。でも、反抗期で言葉をかけにくい</li>
+                <li>親の言うことを素直に聞いてくれない。何を考えているかよくわからない</li>
+                <li>失敗から立ち上がる力や、自分で考えて行動する「主体性」を身につけてほしい</li>
+                <li>将来、自分の頭で考え、自分の言葉で意見を言える大人になってほしい</li>
+            </ul>
+            <p style="text-align: center; margin-top: 35px; color: var(--text-light); font-size: 15px; font-weight: bold;">私たちもこれまで1500人を超える子どもや親御さんたちと向き合ってきました。「思春期だから…」の一言で、時間が解決してくれると思い込んでいませんか？</p>
+
+            <div class="why-box fade-in">
+                <h3>なぜ今、「人生の根っこ」と<br class="sp-br">向き合う必要があるのか？</h3>
+                <p>
+                    「何かが足りない」と焦る日々。もしこのまま自分の根っこと向き合わず、上辺のスキルやノウハウだけを追い求めれば、<strong>この先3年も5年も、自分の本当の価値がわからないままモヤモヤし続ける</strong>ことになります。<br><br>
+                    逆に、自分の「命のバトン（ルーツ）」を知れば、<span class="highlight-text">自分の存在価値を肚の底から理解でき、どんな困難にもブレない「誇り」を持って生きられる</span>ようになります。
+                </p>
+            </div>
+        </div>
     </section>
 
-    <section class="issue-section">
-        <div class="container fade-in" style="padding: 0;">
-            <div class="issue-content">
-                <p class="issue-text">
-                    若者の悩みで最も大きいのが実は<strong>「自分の将来」</strong>です。これが「進学」「勉強」「容姿」「性格」よりも大きく、彼らの心を覆っています。
-                </p>
-                <p class="issue-text">
+    <section class="story-section">
+        <div class="bg-blobs">
+            <div class="blob blob1"></div>
+            <div class="blob blob2"></div>
+        </div>
+
+        <div class="container" style="padding: 0;">
+            <h2 class="section-title fade-in">なぜ、私たちがそれを言い切れるのか？</h2>
+            <p class="section-subtitle fade-in">社会の現状と、私たちの実体験という「証拠」</p>
+
+            <div class="section-card fade-in" style="background-color: var(--bg-serious);">
+                <p style="font-size: 16px; margin-bottom: 20px;">
+                    若者の悩みで最も大きいのが実は<strong>「自分の将来」</strong>です。これが「進学」「勉強」「容姿」「性格」よりも大きく、彼らの心を覆っています。<br>
                     つまり、未来に希望がもてない、<strong>「大人になりたくない」「大人って大変そう」</strong>と思わせてしまっている。その結果が今の社会に表れています。
                 </p>
 
                 <div class="charts-container sans-text">
                     <div class="chart-box chart1">
-                        <div class="pie-chart">
-                            <div class="pie-value">57.4<span>%</span></div>
-                        </div>
+                        <div class="pie-chart"><div class="pie-value">57.4<span>%</span></div></div>
                         <div class="chart-title">自己肯定感</div>
                         <div class="chart-desc">自分自身に満足している</div>
                     </div>
                     <div class="chart-box chart2">
-                        <div class="pie-chart">
-                            <div class="pie-value">53.4<span>%</span></div>
-                        </div>
+                        <div class="pie-chart"><div class="pie-value">53.4<span>%</span></div></div>
                         <div class="chart-title">自己受容</div>
                         <div class="chart-desc">自分には長所があると感じる</div>
                     </div>
                     <div class="chart-box chart3">
-                        <div class="pie-chart">
-                            <div class="pie-value">49.2<span>%</span></div>
-                        </div>
+                        <div class="pie-chart"><div class="pie-value">49.2<span>%</span></div></div>
                         <div class="chart-title">承認意識</div>
                         <div class="chart-desc">親から愛されていると思う</div>
                     </div>
                 </div>
                 <div class="chart-source">※世界に比べると圧倒的に低い日本の若者。<br>参考：R5 我が国と諸外国のこどもと若者の意識に関する調査(内閣府調査)</div>
 
-                <p class="issue-text" style="margin-top: 40px;">
-                    2024年の1年間に自ら命を絶った小中高校生は529人。これは、<strong>1週間で約10人</strong>であり、過去最多です。
+                <p style="font-size: 16px; margin-top: 30px;">
+                    2024年の1年間に自ら命を絶った小中高校生は529人。これは、<strong>1週間で約10人</strong>であり、過去最多です。<br>
+                    これをなんとしてでも食い止めたい。<br>
+                    親も子も先生も、たった一度きりの人生を<strong style="color: var(--btn-color);">「自分として生まれてきて本当によかった」と思える人生</strong>を増やしたいのです。
                 </p>
-                <p class="issue-text">
-                    これをなんとしてでも食い止めたい。しかし、家庭だけでも、学校だけでもこれはできません。
-                </p>
-                <p class="issue-text">
-                    親も子も先生も、たった一度きりの人生を<strong style="color: var(--btn-color);">「自分として生まれてきて本当によかった」と思える人生</strong>を増やしたい。
-                </p>
+            </div>
 
-                <span class="issue-highlight">今のあなたはいかがでしょうか。</span>
+            <div class="section-card fade-in">
+                <h3 style="font-size: 22px; color: var(--btn-color); text-align: center; margin-bottom: 30px; border-bottom: 1px dashed var(--table-border); padding-bottom: 20px;">
+                    私（綿内）自身もかつて、「存在価値がない」と<br class="pc-br">本気で思っていました。
+                </h3>
+                <div style="font-size: 16px; line-height: 1.9;">
+                    <p>新卒で入社した会社でボロボロになり、飲食業界へ転職した時のことです。<br>
+                    慣れない業務でミスを連発し、ついにオーナーから呼び出されてこう告げられました。</p>
 
-                <div class="checklist-box">
-                    <h3 class="checklist-title">親と子の「根っこ」チェックリスト</h3>
-                    <ul class="checklist">
-                        <li>自分の個性・特性を深く理解している。</li>
-                        <li>子どもの個性・特性を深く理解している。</li>
-                        <li>親子共に「自分らしさ」を大切にする関わりができている。</li>
-                        <li>親子共に「私には私の良さがある」と心から思えている。</li>
-                        <li>「ない」ことより、「ある」ことに目を向ける習慣がある。</li>
-                        <li>自己肯定感(自信)を育むための土台が、親子関係を通じて築けている。</li>
-                        <li>子育てを通して、実現したい未来が明確である。</li>
-                        <li>今の自分(自分たち)の子育てに、100％の納得と自信がある。</li>
-                    </ul>
-                    <div class="checklist-footer">
-                        ここにチェックをつけられるようになるために<br class="sp-br">創ったのがこの「ほーむBASE」です。
+                    <div class="blockquote">
+                        「君と一緒に働き続けることはできない。<br>
+                        そして、あまりにもミスが多いから、脳に障害があるんじゃないかと本気で心配している。病院のMRIに行って結果を報告してくれ」
                     </div>
-                </div>
 
+                    <p>真顔で言われたその言葉に、自尊心は粉々に砕け散りました。<br>
+                    <strong>「自分にできることなんて何一つない。存在している価値もない。」</strong><br>
+                    暗闇の中で、本気でそう思いました。</p>
+
+                    <p style="margin-top: 30px;">そんなどん底から私を救い出し、原動力（エンジン）を根底から変えてくれたのは、スキルや資格ではありません。<br>
+                    <span class="highlight-text">「ご先祖様と家系（自分のルーツ）」について深く知ったこと</span>でした。</p>
+
+                    <p>今の自分が生まれるまでに、先人たちがどんな思いで命を繋いできてくれたのか。<br>
+                    それを肚（はら）に落とし込んだ瞬間から、自信を取り戻し、仕事の成果も劇的に変わっていきました。<br>
+                    だからこそ、私は確信を持って言えます。<strong>答えは、あなたの【命のバトン】の中にある</strong>と。</p>
+                </div>
+            </div>
+
+            <div class="checklist-box fade-in">
+                <h3 class="checklist-title">親と子の「根っこ」チェックリスト</h3>
+                <ul class="checklist">
+                    <li>自分の個性・特性を深く理解している。</li>
+                    <li>子どもの個性・特性を深く理解している。</li>
+                    <li>親子共に「自分らしさ」を大切にする関わりができている。</li>
+                    <li>親子共に「私には私の良さがある」と心から思えている。</li>
+                    <li>「ない」ことより、「ある」ことに目を向ける習慣がある。</li>
+                    <li>自己肯定感(自信)を育むための土台が、親子関係を通じて築けている。</li>
+                    <li>子育てを通して、実現したい未来が明確である。</li>
+                    <li>今の自分(自分たち)の子育てに、100％の納得と自信がある。</li>
+                </ul>
+                <div class="checklist-footer">
+                    ここにチェックをつけられるようになるために<br class="sp-br">創ったのがこの「ほーむBASE」です。
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="service-detail-section">
-        <div class="bg-blobs">
-            <div class="blob blob1"></div>
-            <div class="blob blob2"></div>
-            <div class="blob blob3"></div>
-        </div>
-
+    <section class="how-section">
         <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たちがご家庭に寄り添う、<br class="sp-br">3つの『居場所』</h2>
-            <p class="section-subtitle fade-in">子どもは仲間と学び、親は心にゆとりを持つ。家族の好循環を生み出します。</p>
+            <h2 class="section-title fade-in">では、どうやって<br class="sp-br">「根っこ」を育むのか？</h2>
+            <p class="section-subtitle fade-in">私たちが提供する、3つのアプローチと『居場所』</p>
+
+            <div class="feature-card f1 fade-in">
+                <div class="feature-num">01</div>
+                <div class="feature-text">
+                    <h4>「知識」ではなく「問い」を受け取り、<br class="pc-br">“人生そのもの”への理解が深まる</h4>
+                    <p>一方的に正解を教えるのではなく、本質的な「問い」に向き合うことで、あなた自身の内側から答えを引き出します。</p>
+                </div>
+            </div>
+            <div class="feature-card f2 fade-in">
+                <div class="feature-num">02</div>
+                <div class="feature-text">
+                    <h4>自分の「命の尊さ」を、<br class="pc-br">肚の底から理解できる</h4>
+                    <p>先人たちから受け継いできた命の歴史（ルーツ）を紐解き、頭での理解を超えて「自分という存在の尊さ」を実感します。</p>
+                </div>
+            </div>
+            <div class="feature-card f3 fade-in">
+                <div class="feature-num">03</div>
+                <div class="feature-text">
+                    <h4>志を語り合い、<br class="pc-br">応援しあえる一生の仲間ができる</h4>
+                    <p>人生の根っこの部分を共有し、互いの「志」を本気で応援し合える、熱く深い繋がりを持った仲間と出会えます。</p>
+                </div>
+            </div>
 
             <div class="pillar-card tane fade-in">
                 <h3 class="pillar-title tane"><span class="emoji-sway">🌱</span> まなびの種</h3>
-                
                 <div class="content-item">
                     <div class="content-text">
                         <h4>人は弱い。だからこそ仲間とつながり、高めあう「もくもく部屋(オンライン自習室)」</h4>
@@ -546,12 +422,11 @@
                         <p>「言われたからやる」を卒業し、「自分で決めたからやる」「あいつもやっているから自分も頑張る」そう思える学びの居場所。<br>※質問がある場合は、ブレイクアウトルームにて対応いたします。</p>
                     </div>
                 </div>
-
                 <div class="content-item">
                     <div class="content-text">
                         <h4>声にだして楽しむ「やさしい英会話ルーム」</h4>
                         <span class="schedule-tag">月1回</span>
-                        <p>「生きた英語」に触れ、「話す/伝える」ことを、ゆる〜く楽しむレッスンです。<br>難易度は易しめです。</p>
+                        <p>「生きた英語」に触れ、「話す/伝える」ことを、ゆる〜く楽しむレッスンです。難易度は易しめです。</p>
                         <ul>
                             <li>表現力向上</li>
                             <li>自己紹介、簡単な英会話などスピーキング中心</li>
@@ -562,7 +437,6 @@
 
             <div class="pillar-card nekko fade-in">
                 <h3 class="pillar-title nekko"><span class="emoji-sway">🌳</span> こころの根っこ</h3>
-                
                 <div class="content-item">
                     <div class="content-text">
                         <h4>心とからだの栄養になる「スポーツ(野球)の知恵袋」</h4>
@@ -570,13 +444,10 @@
                         <p>スポーツ(野球)を通した成長に欠かせない知識を学びます。</p>
                         <ul>
                             <li>【テーマ例】</li>
-                            <li>ルールの基本と応用</li>
-                            <li>メンタル、脳科学</li>
-                            <li>栄養学 など</li>
+                            <li>ルールの基本と応用 / メンタル、脳科学 / 栄養学 など</li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="content-item">
                     <div class="content-text">
                         <h4>なりたい自分を見つける「こころざしの時間」</h4>
@@ -584,24 +455,17 @@
                         <p>自ら目標に向かって進み、達成する力を育むための特別な時間です。</p>
                         <ul>
                             <li>【テーマ例】</li>
-                            <li>目標設定の仕方</li>
-                            <li>モチベーションの正体</li>
-                            <li>目標達成のスキルと習慣化</li>
-                            <li>自分の考えをもつ</li>
-                            <li>「考える」ってどういうこと？</li>
+                            <li>目標設定の仕方 / モチベーションの正体 / 目標達成のスキルと習慣化 / 自分の考えをもつ / 「考える」ってどういうこと？</li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="content-item">
                     <div class="content-text">
                         <h4>いろんな生き方に出会える「おとなの背中」</h4>
                         <span class="schedule-tag">月1回</span>
                         <p>生き様がかっこいい大人から、学校では教わらないリアルな話を学びます。</p>
                         <ul>
-                            <li>グラブ再生のプロフェッショナル</li>
-                            <li>親子に届ける「お金」の教育</li>
-                            <li>自分を心身ともに大切にするための「呼吸」など</li>
+                            <li>グラブ再生のプロフェッショナル / 親子に届ける「お金」の教育 / 自分を心身ともに大切にするための「呼吸」など</li>
                         </ul>
                         <p style="font-size: 13px; color: var(--text-light); margin-top: 8px;">※子育て世代や子どもたちに届けたい想いがある経営者、事業者さんなどが登壇予定</p>
                     </div>
@@ -610,7 +474,6 @@
 
             <div class="pillar-card hidamari fade-in">
                 <h3 class="pillar-title hidamari"><span class="emoji-sway">☕️</span> ひだまりの庭</h3>
-                
                 <div class="content-item">
                     <div class="content-text">
                         <h4>月1回のプチ講義 ＋ オンライン座談会</h4>
@@ -618,13 +481,10 @@
                         <p>子育ての悩みを共有し、ホッとできる親御さんのための時間です。</p>
                         <ul>
                             <li>【テーマ例】</li>
-                            <li>思春期世代の心 / 心の扉を開くコミュニケーション</li>
-                            <li>心の声を聞く</li>
-                            <li>子育てにおける愛情の正体</li>
+                            <li>思春期世代の心 / 心の扉を開くコミュニケーション / 心の声を聞く / 子育てにおける愛情の正体</li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="content-item">
                     <div class="content-text">
                         <h4>2週に1回の子育てヒント情報発信</h4>
@@ -634,41 +494,32 @@
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <section class="pricing" id="pricing">
-        <div class="container fade-in" style="padding: 0;">
-            
             <div class="overview-container fade-in">
-                <h3 class="overview-title">🔍 ほーむBASE サービス全体図</h3>
+                <h3 style="text-align: center; color: var(--gold-accent); margin-top:0;">🔍 ほーむBASE サービス全体図</h3>
                 <div class="overview-grid">
                     <div class="overview-col tane">
                         <div class="overview-icon"><span class="emoji-sway">🌱</span></div>
                         <div class="overview-col-title" style="color: var(--color-tane);">まなびの種</div>
-                        <div class="overview-target sans-text">主に子ども向け</div>
                         <ul class="overview-list sans-text">
-                            <li><strong>もくもく部屋</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (自学ルーム)</span></li>
-                            <li><strong>やさしい英会話</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (スピーキング中心)</span></li>
+                            <li><strong>もくもく部屋</strong> (週1)</li>
+                            <li><strong>やさしい英会話</strong> (月1)</li>
                         </ul>
                     </div>
                     <div class="overview-col nekko">
                         <div class="overview-icon"><span class="emoji-sway">🌳</span></div>
                         <div class="overview-col-title" style="color: var(--color-nekko);">こころの根っこ</div>
-                        <div class="overview-target sans-text">主に子ども向け</div>
                         <ul class="overview-list sans-text">
-                            <li><strong>スポーツの知恵袋</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (メンタル・栄養学など)</span></li>
-                            <li><strong>こころざしの時間</strong><br><span style="font-size:12px; color:var(--text-light);">週1回 (目標設定・習慣化)</span></li>
-                            <li><strong>おとなの背中</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (ゲスト講義)</span></li>
+                            <li><strong>スポーツの知恵袋</strong> (週1)</li>
+                            <li><strong>こころざしの時間</strong> (週1)</li>
+                            <li><strong>おとなの背中</strong> (月1)</li>
                         </ul>
                     </div>
                     <div class="overview-col hidamari">
                         <div class="overview-icon"><span class="emoji-sway">☕️</span></div>
                         <div class="overview-col-title" style="color: var(--color-hidamari);">ひだまりの庭</div>
-                        <div class="overview-target sans-text">親御さん向け</div>
                         <ul class="overview-list sans-text">
-                            <li><strong>子育てホッとカフェ</strong><br><span style="font-size:12px; color:var(--text-light);">月1回 (プチ講義＋座談会)</span></li>
-                            <li><strong>子育てヒント配信</strong><br><span style="font-size:12px; color:var(--text-light);">2週に1回 (情報発信)</span></li>
+                            <li><strong>子育てホッとカフェ</strong> (月1)</li>
+                            <li><strong>子育てヒント配信</strong> (隔週)</li>
                         </ul>
                     </div>
                 </div>
@@ -677,70 +528,78 @@
                 </div>
             </div>
 
-            <h2 class="section-title">まずは体験してみませんか？</h2>
-            <p class="section-subtitle">『親子の新しい居場所をつくる』という<br class="sp-br">私たち夫婦の初めての挑戦を、<br class="pc-br">一緒に応援していただける方限定の<br class="sp-br">特別なモニター価格です。</p>
-
-            <div class="pricing-card">
-                <div class="campaign-banner sans-text">
-                    ＼ 5月24日(日) リリース記念 ／<br>
-                    <span>5月中にご登録いただいた方限定で<br class="sp-br">「初月無料キャンペーン」実施中！</span>
-                </div>
-
-                <div class="price-display">
-                    <div class="price-label">モニター特別価格</div>
-                    <div class="price-value">1,980<span>円/月</span></div>
-                    <div class="price-discount">（通常定価: 3,980円/月）</div>
-                </div>
-
-                <div class="member-discount-notice sans-text">
-                    📌 <strong>【重要案内】</strong><br>
-                    当コミュニティにメンバー登録していただいた方は、通常の基本月謝から**毎月500円引き**が永続的に適用されます。<br>
-                    （※上記のモニター価格「1,980円」は、すでに500円引きが反映された大変お得な金額となっております）
-                </div>
-
-                <div class="pricing-conditions sans-text">
-                    <div class="condition-block">
-                        <div class="condition-title">🎁 5月中にご登録の場合</div>
-                        <p class="condition-desc">
-                            リリース記念特典として、**初月（6月分）の月謝が完全無料**となります！<br>
-                            2ヶ月目（7月分）以降から、モニター特別価格（1,980円/月）が発生いたします。
-                        </p>
-                    </div>
-                    <div class="condition-block">
-                        <div class="condition-title" style="color: var(--text-light);">🔹 6月以降にご登録の場合</div>
-                        <p class="condition-desc">
-                            **初月（ご登録いただいた月）から通常通り料金が発生**いたします。<br>
-                            （初月からモニター特別価格「1,980円/月」の適用となります。5月中限定の初月無料特典は適用されませんのでご注意ください）
-                        </p>
+            <div class="flow-wrapper">
+                <h3 style="text-align: center; font-size: 20px; margin-bottom: 20px;">参加までの3ステップ</h3>
+                <div class="flow-step fade-in">
+                    <div class="flow-num">STEP 1</div>
+                    <div class="flow-text">
+                        <h4>お気軽にお問い合わせください</h4>
+                        <p>まずは当ページ下部のボタンより、個別面談へお申し込みください。</p>
                     </div>
                 </div>
-
-                <div class="pricing-features sans-text">
-                    <ul>
-                        <li><span class="emoji-sway" style="margin-right:8px;">🌱</span> まなびの種（自学タイム・英会話）参加</li>
-                        <li><span class="emoji-sway" style="margin-right:8px;">🌳</span> こころの根っこ（知恵袋・こころざし・ゲスト）参加</li>
-                        <li><span class="emoji-sway" style="margin-right:8px;">☕️</span> ひだまりの庭（親向けプチ講義・座談会）参加</li>
-                        <li><span class="emoji-sway" style="margin-right:8px;">✨</span> 過去のライブ・講義動画のアーカイブ見放題</li>
-                        <li class="archive-note">※ゲスト講師による講義・講話はアーカイブなしの場合もあります</li>
-                    </ul>
+                <div class="flow-step fade-in">
+                    <div class="flow-num">STEP 2</div>
+                    <div class="flow-text">
+                        <h4>無料オンライン個別面談</h4>
+                        <p>担当者とZoom等で面談を行います。現状のモヤモヤをお伺いし、詳細をご説明します。</p>
+                    </div>
                 </div>
-
-                <div class="cta-wrapper sans-text" style="margin-top: 40px;">
-                    <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">参加してみる<br><span style="font-size: 14px; font-weight: normal;">(※5月中の登録で初月無料)</span></a>
+                <div class="flow-step fade-in">
+                    <div class="flow-num">STEP 3</div>
+                    <div class="flow-text">
+                        <h4>受講スタート！</h4>
+                        <p>ご納得いただけましたらお申し込み完了です。</p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="instructors">
-        <div class="container" style="padding: 0;">
-            <h2 class="section-title fade-in">私たち夫婦が子どもたちの学習、<br class="sp-br">子どもたちの未来を支えます、サポートします</h2>
-            <p class="section-subtitle fade-in" style="margin-bottom: 40px;">親も子も、自信と誇りを持って生きられる社会づくりをミッションに活動しています。</p>
+    <section class="now-section" id="pricing">
+        <div class="container fade-in" style="padding: 0;">
+            <h2 class="section-title">今すぐ、一歩を踏み出しませんか？</h2>
+            <p class="section-subtitle">『親子の新しい居場所をつくる』という私たち夫婦の初めての挑戦を、<br>一緒に応援していただける方限定の特別なモニター価格です。</p>
 
-            <div class="profiles-container">
-                <div class="profile-card fade-in">
+            <div class="pricing-card">
+                <div class="campaign-banner sans-text">
+                    ＼ 5月24日(日) リリース記念 ／<br>
+                    <span>5月中にご登録いただいた方限定で<br class="sp-br">「初月無料」！</span>
+                </div>
+
+                <div class="price-display">
+                    <div class="price-label">ずっと月謝1,000円引き！モニター特別価格</div>
+                    <div class="price-value">1,980<span>円/月</span></div>
+                    <div class="price-discount">（通常定価: 2,980円/月）</div>
+                </div>
+
+                <div class="pricing-conditions sans-text">
+                    <div class="condition-block">
+                        <div class="condition-title">🎁 5月中にご登録の場合</div>
+                        <p class="condition-desc">初月：<span style="color: var(--btn-color); font-weight: bold;">無料</span><br>2ヶ月目以降：モニター価格 1,980円/月</p>
+                    </div>
+                    <div class="condition-block">
+                        <div class="condition-title" style="color: var(--text-light);">🔹 6月以降にご登録の場合</div>
+                        <p class="condition-desc">初月より：モニター価格 1,980円/月<br><span style="font-size: 13px; color: var(--text-light);">※初月無料特典は適用されませんのでご注意ください。</span></p>
+                    </div>
+                </div>
+
+                <div class="cta-wrapper sans-text" style="margin-top: 40px;">
+                    <a href="【ここにフォームのURLを貼り付けます】" target="_blank" class="cta-btn" style="width: 100%; box-sizing: border-box;">参加してみる<br><span style="font-size: 14px; font-weight: normal;">(※5月中の登録で初月無料)</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-section">
+        <div class="container fade-in" style="padding: 0;">
+            <h2 class="section-title">ナビゲーター紹介</h2>
+            
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
                     <img src="奎一.png" alt="岡本 奎一" class="profile-img floating-element">
+                </div>
+                <div class="profile-info">
                     <div class="profile-badges">
                         <span class="badge">素質論アドバイザー</span>
                         <span class="badge">素質論インストラクター</span>
@@ -750,14 +609,16 @@
                     </div>
                     <div class="profile-name">岡本 奎一（夫）</div>
                     <div class="profile-desc">
-                        子どもたちの「本音」と「可能性」を引き出すコーチングのプロフェッショナル。<br>
-                        素質論に基づき、一人ひとりの持って生まれた才能を見つけ出し、伸ばす声かけを得意とします。<br>
-                        単なる学習支援ではなく、自ら目標に向かって進む「志（こころざし）」を育む教育に尽力しています。
+                        子どもたちの「本音」と「可能性」を引き出すコーチングのプロフェッショナル。素質論に基づき、一人ひとりの持って生まれた才能を見つけ出し、伸ばす声かけを得意とします。単なる学習支援ではなく、自ら目標に向かって進む「志（こころざし）」を育む教育に尽力しています。
                     </div>
                 </div>
+            </div>
 
-                <div class="profile-card fade-in" style="animation-delay: 0.5s;">
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
                     <img src="瑞生.jpg" alt="岡本 瑞生" class="profile-img floating-element" style="animation-delay: 1s;">
+                </div>
+                <div class="profile-info">
                     <div class="profile-badges">
                         <span class="badge">素質論アドバイザー</span>
                         <span class="badge">素質論インストラクター</span>
@@ -767,109 +628,10 @@
                     </div>
                     <div class="profile-name">岡本 瑞生（妻）</div>
                     <div class="profile-desc">
-                        「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。<br>
-                        元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
+                        「わかる！」「楽しい！」を引き出す学習指導のプロフェッショナル。元中学校教員として教育現場に立ち、英会話教室の講師経験も豊富。現在は0歳〜3歳児の能力開発サポートも行っており、乳幼児期から思春期まで、幅広い子どもの発達段階に合わせた的確なアドバイスをご提供します。
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="our-why-section">
-        <div class="container fade-in" style="padding: 0;">
-            <h2 class="section-title">私たちが、このサポートを届けたい本当の理由</h2>
-            <p class="section-subtitle">親も子も、ありのままの自分で輝ける未来を目指して。</p>
-
-            <div class="message-card">
-                <div class="message-header sans-text">
-                    <span class="message-title-marker">夫・奎一の想い</span>
-                </div>
-                <div class="message-content">
-                    <h4>スポーツを通して、人間力を高められる環境づくり<br>「一度きりの人生を、本当の自信を育み、自分らしく生き切るためのサポートがしたい」</h4>
-                    
-                    <p>
-                        私は、10年間、中学校の教員を務めました。<br>
-                        今でも、「学校の先生」という志事は、私にとって「天職」です。
-                    </p>
-                    
-                    <p>
-                        それくらい、子どもたちから、人生で大切なことをたくさん教わりました。<br>
-                        教員という仕事を「志事」にしてくれたのも、生徒たちとの日々があったからこそです。
-                    </p>
-                    
-                    <p>
-                        そんな私が、天職を離れてでも成し遂げたい想い(志)があります。<br>
-                        それが、<strong>「自分を認められない悲しみを癒し、親も子も先生も、一人ひとりが本当の自信を育み、自分らしさを輝かせられる人生を増やすこと」</strong>です。
-                    </p>
-                    
-                    <p>
-                        令和6年の1年間で自殺した小中高校生は529人います。<br>
-                        １週間で約10人という恐ろしい数字です。
-                    </p>
-                    
-                    <p>
-                        加えて、世界と比較しても、自己肯定感が低く、憂鬱感が高い、<br class="pc-br">
-                        そして将来の日本に希望がもてない若者が多いのが今の日本の現状です。
-                    </p>
-                    
-                    <p>
-                        私は、この現状を変えたいです。<br>
-                        <strong>大人が輝けば子どもが輝く。子どもが輝けば未来が輝く。</strong>
-                    </p>
-                    
-                    <p>
-                        この言葉通り、大切なのはまず輝く大人を増やすことであり、<br class="pc-br">
-                        子どもたちが輝く大人と出会える環境をつくることです。
-                    </p>
-                    
-                    <p>
-                        この「ほーむBASE」もまさに、この志を実現するための新たな挑戦です。<br>
-                        「できるかできないか」で見るのではなく、まさに今、挑戦する大人の背中を示すために、私は命の時間を使います。
-                    </p>
-                    
-                    <p>
-                        まさにゼロから創り上げる、そんなプロセスも含めてお楽しみいただきながら、<br class="pc-br">
-                        大人も子どもも共に学んでいけたらと思います。
-                    </p>
-                    <p class="message-signature sans-text">岡本 奎一</p>
-                </div>
-            </div>
-
-            <div class="message-card">
-                <div class="message-header sans-text">
-                    <span class="message-title-marker">妻・瑞生の想い</span>
-                </div>
-                <div class="message-content">
-                    <h4>私の活動の根底にあるのは、<br class="pc-br">「未来を担う子どもたちの可能性を引き出し、笑顔あふれる人生にしてもらいたい」という強い信念です。</h4>
-                    
-                    <p>この思いを形にするため、私は子どもたちと親御さんに寄り添う道を選びました。</p>
-                    
-                    <p>
-                        もともとは教員を志望して大学へ進学し、教育の基礎を学びました。<br>
-                        その後、中学校で英語を教えていた経験や留学経験、英会話教室での講師活動を通して、教育に対する強い思いを育んしてきました。
-                    </p>
-                    
-                    <p>
-                        しかし、現場や世界での経験を重ねる中で、「単に知識を教えるだけでなく、もっと広い視野を持って子どもたちの可能性を広げる活動をしたい」と強く実感するようになりました。<br>
-                        子どもたちの人としての内面、生きる力を育てたいと願うようになったのです。
-                    </p>
-                    
-                    <p>学校という枠を超え、最も成長の基盤となる「0歳~3歳」の能力開発と親子の絆づくりに注力しています。</p>
-                    
-                    <p>
-                        一人ひとりが持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができるようになります。<br>
-                        そして、親御さんの心がスッと軽くなった時、子どもは安心して、自分の才能を開花させ始めます。
-                    </p>
-                    
-                    <p>それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
-                    
-                    <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。</p>
-                    
-                    <p>親子がそれぞれの場所で、ありのままの自分で笑顔あふれる未来を、一緒に創っていきたいと願っています。</p>
-                    <p class="message-signature sans-text">岡本 瑞生</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -878,19 +640,23 @@
             <a href="#">特定商取引法に基づく表記</a> | 
             <a href="#">プライバシーポリシー</a>
         </p>
-        <p style="font-size: 12px; margin-bottom: 5px;">運営：未来志創プロジェクト</p>
-        <p style="font-size: 12px;">&copy; 2026 未来志創プロジェクト All Rights Reserved.</p>
+        <p style="font-size: 12px; margin-bottom: 5px;">運営：ほーむBASE事務局</p>
+        <p style="font-size: 12px;">&copy; 2026 ほーむBASE All Rights Reserved.</p>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const faders = document.querySelectorAll('.fade-in');
-            
-            const appearOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            };
-
+            const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
             const appearOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
-                    if (!entry
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); 
+                });
+            }, appearOptions);
+            faders.forEach(fader => { appearOnScroll.observe(fader); });
+        });
+    </script>
+</body>
+</html>
