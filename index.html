@@ -55,8 +55,10 @@
         /* =========================================
             ✨ レスポンシブ改行制御
         ========================================= */
+        .sp-only { display: none; }
         @media (max-width: 768px) {
             .pc-br { display: none; }
+            .sp-only { display: block; }
         }
         @media (min-width: 769px) {
             .sp-br { display: none; }
@@ -249,7 +251,9 @@
             padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 2px solid var(--gold-accent);
             position: relative; z-index: 10;
         }
-        .overview-title { text-align: center; color: var(--gold-accent); font-size: 24px; font-weight: bold; margin-top: 0; margin-bottom: 30px; }
+        .overview-title { text-align: center; color: var(--gold-accent); font-size: 24px; font-weight: bold; margin-top: 0; margin-bottom: 10px; }
+        .overview-scroll-hint { text-align: center; font-size: 12px; color: var(--text-light); margin-bottom: 20px; }
+        
         .overview-grid { display: flex; gap: 20px; justify-content: space-between; margin-bottom: 25px;}
         .overview-col { flex: 1; background: var(--bg-base); border-radius: 15px; padding: 25px 15px; text-align: center; border-top: 6px solid; border-bottom: 1px solid var(--table-border); border-left: 1px solid var(--table-border); border-right: 1px solid var(--table-border);}
         
@@ -300,7 +304,7 @@
         /* メンバー限定案内枠 */
         .member-discount-notice {
             background-color: #fff9f3; border: 1px solid #f3d9c2; border-radius: 12px;
-            padding: 20px; margin-bottom: 30px; text-align: left; font-size: 15px; line-height: 1.7;
+            padding: 20px; margin-bottom: 30px; text-align: center; font-size: 15px; line-height: 1.7;
         }
 
         /* 特典リスト */
@@ -335,7 +339,7 @@
         .message-header { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid var(--bg-accent); padding-bottom: 20px;}
         .message-title-marker { color: var(--gold-accent); font-size: 14px; font-weight: bold; border-left: 4px solid var(--gold-accent); padding-left: 10px;}
         .message-content h4 { font-size: 20px; color: var(--text-main); margin: 0 0 20px 0; line-height: 1.6; text-align: left;}
-        .message-content p { font-size: 16px; color: var(--text-main); margin-bottom: 25px; text-align: left; line-height: 1.9;}
+        .message-content p { font-size: 16px; color: var(--text-main); margin-bottom: 15px; text-align: left; line-height: 1.9;}
         .message-content p strong { color: var(--btn-color); }
         .message-signature { text-align: right; color: var(--gold-accent); font-weight: bold; margin-top: 30px; font-size: 18px;}
 
@@ -345,86 +349,81 @@
         footer a:hover { color: var(--btn-color); }
 
         /* =========================================
-            📱 スマホ最適化（文字サイズ・余白・行間）
+            📱 スマホ最適化（文字サイズ・余白・スクロール）
         ========================================= */
         @media (max-width: 768px) {
-            body { line-height: 1.9; font-size: 15px; }
-            .container { padding: 50px 15px; }
-            .hero { padding: 90px 15px 100px; }
-            .hero h1 { font-size: 23px; margin-bottom: 20px; line-height: 1.5; }
-            .hero p { font-size: 14px; margin-bottom: 30px; line-height: 1.8; }
-            .section-title { font-size: 22px; margin-bottom: 12px; line-height: 1.4; }
-            .section-subtitle { font-size: 14px; margin-bottom: 35px; line-height: 1.5; }
-            .cta-btn { font-size: 16px; padding: 16px 25px; width: 100%; box-sizing: border-box; }
+            .container { padding: 60px 15px; }
+            .hero { padding: 100px 15px 120px; }
+            .hero h1 { font-size: 24px; margin-bottom: 20px; }
+            .hero p { font-size: 14px; margin-bottom: 30px; }
+            .section-title { font-size: 22px; margin-bottom: 15px; }
+            .section-subtitle { font-size: 15px; margin-bottom: 40px; }
+            .cta-btn { font-size: 16px; padding: 18px 20px; width: 100%; box-sizing: border-box; }
             
-            .empathy { padding: 35px 20px; margin: -40px 10px 0; border-radius: 12px;}
-            .empathy h2 { font-size: 18px; margin-bottom: 20px; line-height: 1.5; }
-            .empathy li { font-size: 14px; margin-bottom: 15px; padding-left: 22px; line-height: 1.6; }
+            .empathy { padding: 40px 25px; margin: -50px 15px 0; border-radius: 15px;}
+            .empathy h2 { font-size: 20px; margin-bottom: 25px; }
+            .empathy li { font-size: 15px; margin-bottom: 20px; padding-left: 25px; }
 
-            .issue-section { padding: 50px 15px; }
-            .issue-text { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
-            .issue-highlight { font-size: 16px; margin-top: 10px; }
-            .charts-container { gap: 15px; margin: 30px 0; }
-            .chart-box { width: 130px; }
-            .pie-chart { width: 95px; height: 95px; margin-bottom: 8px;}
-            .pie-chart::after { width: 71px; height: 71px; }
-            .pie-value { font-size: 18px; }
-            .chart-title { font-size: 14px; }
-            .chart-desc { font-size: 11px; line-height: 1.4; }
+            .issue-section { padding: 60px 15px; }
+            .charts-container { gap: 20px; margin: 40px 0; }
+            .chart-box { width: 140px; }
+            .pie-chart { width: 100px; height: 100px; margin-bottom: 10px;}
+            .pie-chart::after { width: 75px; height: 75px; }
+            .pie-value { font-size: 20px; }
+            .chart-title { font-size: 16px; }
             
-            .checklist-box { padding: 25px 15px; margin-top: 35px; border-radius: 12px; }
-            .checklist-title { font-size: 17px; margin-bottom: 20px;}
-            .checklist li { font-size: 14px; margin-bottom: 12px; padding-left: 24px; }
+            .checklist-box { padding: 25px 20px; margin-top: 40px;}
+            .checklist-title { font-size: 18px; margin-bottom: 25px;}
+            .checklist li { font-size: 14px; }
             .checklist li::before { font-size: 18px; }
-            .checklist-footer { font-size: 15px; margin-top: 25px; }
+            .checklist-footer { font-size: 16px; }
 
-            .service-detail-section { padding: 50px 15px; }
-            .pillar-card { padding: 25px 15px; border-radius: 12px; margin-bottom: 30px; }
-            .pillar-title { font-size: 19px; margin-bottom: 25px;}
-            .content-text h4 { font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
-            .content-text p { font-size: 14px; line-height: 1.7; }
-            .content-text ul { font-size: 13px; padding-left: 15px; }
+            .service-detail-section { padding: 60px 15px; }
+            .pillar-card { padding: 30px 20px; border-radius: 15px;}
+            .pillar-title { font-size: 22px; margin-bottom: 30px;}
+            .content-text h4 { font-size: 18px; }
+            .content-text p, .content-text ul { font-size: 14px; }
 
-            .overview-container { padding: 25px 15px; margin-bottom: 35px; border-radius: 12px;}
-            .overview-title { font-size: 19px; margin-bottom: 20px; }
-            .overview-grid { gap: 15px; }
-            .overview-col { padding: 15px 10px; border-radius: 10px; }
-            .overview-col-title { font-size: 15px; }
-            .overview-list li { font-size: 13px; margin-bottom: 8px; }
-            .overview-footer { font-size: 14px; padding: 12px; }
-
-            .pricing { padding: 0 10px 50px; }
-            .pricing-card { padding: 25px 15px; border-radius: 12px;}
-            .pricing-card-title { font-size: 19px; margin-bottom: 20px; }
-            .campaign-banner { padding: 12px; margin-bottom: 25px; border-radius: 10px; }
-            .campaign-banner span { font-size: 16px; margin-top: 3px; line-height: 1.4; }
-            .price-label { font-size: 15px; margin-bottom: 6px; }
-            .price-value { font-size: 32px; }
-            .price-value span { font-size: 14px; }
-            .price-discount { font-size: 13px; margin-top: 4px; }
-            .pricing-conditions { padding: 15px; margin-bottom: 25px; border-radius: 10px; }
-            .condition-block { margin-bottom: 18px; }
-            .condition-title { font-size: 14px; margin-bottom: 4px; }
-            .condition-desc { font-size: 13px; padding-left: 0; line-height: 1.6; }
-            .member-discount-notice { padding: 15px; margin-bottom: 20px; font-size: 13px; border-radius: 10px; }
-            .pricing-features li { font-size: 13px; padding: 10px 0; }
-            .pricing-features li::before { font-size: 15px; margin-right: 8px; }
-            .pricing-features li.archive-note { padding-left: 23px; font-size: 11px; }
-
-            .instructors { padding: 50px 15px; }
-            .instructors .section-subtitle { margin-bottom: 30px; }
-            .profiles-container { gap: 25px; }
-            .profile-card { padding: 30px 20px; min-width: 100%; box-sizing: border-box; border-radius: 12px;}
-            .profile-img, .profile-img-placeholder { width: 130px; height: 130px; margin-bottom: 15px; }
-            .profile-name { font-size: 20px; margin-bottom: 12px; }
-            .profile-desc { font-size: 13px; line-height: 1.7; }
+            /* ★ サービス全体図のスマホ最適化（横スクロールで一目でわかるように） */
+            .overview-container { padding: 30px 15px; margin-bottom: 40px; border-radius: 15px;}
+            .overview-title { font-size: 20px; margin-bottom: 5px; }
+            .overview-grid { 
+                flex-direction: row; 
+                overflow-x: auto; 
+                scroll-snap-type: x mandatory; 
+                padding-bottom: 15px; 
+                gap: 15px;
+            }
+            .overview-col { 
+                min-width: 250px; /* カードの横幅を固定して横並びに */
+                scroll-snap-align: center;
+            }
+            .overview-list li { font-size: 14px; }
             
-            .our-why-section { padding: 50px 15px; }
-            .message-card { padding: 25px 15px; border-radius: 12px; margin-bottom: 25px; }
-            .message-header { flex-direction: column; align-items: flex-start; gap: 8px; padding-bottom: 12px; margin-bottom: 15px;}
-            .message-content h4 { font-size: 16px; margin-bottom: 12px; line-height: 1.5; }
-            .message-content p { font-size: 14px; margin-bottom: 18px; line-height: 1.8; }
-            .message-signature { font-size: 15px; margin-top: 15px; }
+            /* 横スクロールのヒント（スマホのみ表示） */
+            .overview-scroll-hint { display: block; }
+
+            .pricing { padding: 0 15px 60px; }
+            .pricing-card { padding: 30px 20px; border-radius: 15px;}
+            .pricing-card-title { font-size: 20px; }
+            .campaign-banner span { font-size: 18px; }
+            .price-value { font-size: 36px; }
+            .pricing-conditions { padding: 15px; }
+            .pricing-features li { font-size: 14px; }
+
+            .instructors { padding: 60px 15px; }
+            .profile-card { padding: 40px 25px; min-width: 100%; box-sizing: border-box; border-radius: 15px;}
+            .profile-img, .profile-img-placeholder { width: 140px; height: 140px; margin-bottom: 20px; }
+            
+            .our-why-section { padding: 60px 15px; }
+            .message-card { padding: 30px 20px; border-radius: 15px;}
+            .message-header { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;}
+            .message-content h4 { font-size: 18px; margin-bottom: 15px;}
+            .message-content p { font-size: 14px; margin-bottom: 15px;}
+            
+            .blob1 { width: 300px; height: 300px; top: 0; left: -100px; }
+            .blob2 { width: 300px; height: 300px; bottom: 5%; right: -150px; }
+            .blob3 { display: none; }
         }
     </style>
 </head>
@@ -450,7 +449,7 @@
         <ul>
             <li>「勉強しなさい」と声をかけないとやらない、スマホやゲームばかりしている…</li>
             <li>学習習慣や成績のことが心配。でも、反抗期で言葉をかけにくい</li>
-            <li>親の言うことを素適に聞いてくれない。何を考えているかよくわからない</li>
+            <li>親の言うことを素直に聞いてくれない。何を考えているかよくわからない</li>
             <li>失敗から立ち上がる力や、自分で考えて行動する「主体性」を身につけてほしい</li>
             <li>将来、自分の頭で考え、自分の言葉で意見を言える大人になってほしい</li>
         </ul>
@@ -461,9 +460,7 @@
         <div class="container fade-in" style="padding: 0;">
             <div class="issue-content">
                 <p class="issue-text">
-                    若者の悩みで最も大きいのが実は<strong>「自分の将来」</strong>です。これが「進学」「勉強」「容姿」「性格」よりも大きく、彼らの心を覆っています。
-                </p>
-                <p class="issue-text">
+                    若者の悩みで最も大きいのが実は<strong>「自分の将来」</strong>です。これが「進学」「勉強」「容姿」「性格」よりも大きく、彼らの心を覆っています。<br>
                     つまり、未来に希望がもてない、<strong>「大人になりたくない」「大人って大変そう」</strong>と思わせてしまっている。その結果が今の社会に表れています。
                 </p>
 
@@ -493,12 +490,9 @@
                 <div class="chart-source">※世界に比べると圧倒的に低い日本の若者。<br>参考：R5 我が国と諸外国のこどもと若者の意識に関する調査(内閣府調査)</div>
 
                 <p class="issue-text" style="margin-top: 40px;">
-                    2024年の1年間に自ら命を絶った小中高校生は529人。これは、<strong>1週間で約10人</strong>であり、過去最多です。
-                </p>
-                <p class="issue-text">
-                    これをなんとしてでも食い止めたい。しかし、家庭だけでも、学校だけでもこれはできません。
-                </p>
-                <p class="issue-text">
+                    2024年の1年間に自ら命を絶った小中高校生は529人。これは、<strong>1週間で約10人</strong>であり、過去最多です。<br><br>
+                    これをなんとしてでも食い止めたい。<br>
+                    しかし、家庭だけでも、学校だけでもこれはできません。<br>
                     親も子も先生も、たった一度きりの人生を<strong style="color: var(--btn-color);">「自分として生まれてきて本当によかった」と思える人生</strong>を増やしたい。
                 </p>
 
@@ -642,6 +636,7 @@
             
             <div class="overview-container fade-in">
                 <h3 class="overview-title">🔍 ほーむBASE サービス全体図</h3>
+                <div class="overview-scroll-hint sp-only">※横にスクロールしてご確認いただけます👉</div>
                 <div class="overview-grid">
                     <div class="overview-col tane">
                         <div class="overview-icon"><span class="emoji-sway">🌱</span></div>
@@ -694,23 +689,22 @@
 
                 <div class="member-discount-notice sans-text">
                     📌 <strong>【重要案内】</strong><br>
-                    当コミュニティにメンバー登録していただいた方は、通常の基本月謝から**毎月500円引き**が永続的に適用されます。<br>
-                    （※上記のモニター価格「1,980円」は、すでに500円引きが反映された大変お得な金額となっております）
+                    当コミュニティにメンバー登録していただいた方は、通常の基本月謝から<strong>毎月500円引き</strong>が永続的に適用されます。
                 </div>
 
                 <div class="pricing-conditions sans-text">
                     <div class="condition-block">
                         <div class="condition-title">🎁 5月中にご登録の場合</div>
                         <p class="condition-desc">
-                            リリース記念特典として、**初月（6月分）の月謝が完全無料**となります！<br>
-                            2ヶ月目（7月分）以降から、モニター特別価格（1,980円/月）が発生いたします。
+                            リリース記念特典として、<strong>6月分が無料</strong>となります！<br>
+                            翌月（7月分）以降から、モニター特別価格（1,980円/月）が発生いたします。
                         </p>
                     </div>
                     <div class="condition-block">
                         <div class="condition-title" style="color: var(--text-light);">🔹 6月以降にご登録の場合</div>
                         <p class="condition-desc">
-                            **初月（ご登録いただいた月）から通常通り料金が発生**いたします。<br>
-                            （初月からモニター特別価格「1,980円/月」の適用となります。5月中限定の初月無料特典は適用されませんのでご注意ください）
+                            <strong>初月（ご登録いただいた月）から通常通り料金が発生</strong>いたします。<br>
+                            （※5月中限定の「6月分が無料」となる特典は適用されませんのでご注意ください）
                         </p>
                     </div>
                 </div>
@@ -787,50 +781,16 @@
                 <div class="message-content">
                     <h4>スポーツを通して、人間力を高められる環境づくり<br>「一度きりの人生を、本当の自信を育み、自分らしく生き切るためのサポートがしたい」</h4>
                     
-                    <p>
-                        私は、10年間、中学校の教員を務めました。<br>
-                        今でも、「学校の先生」という志事は、私にとって「天職」です。
-                    </p>
+                    <p>私は10年間、中学校の教員を務めました。今でも「学校の先生」という志事は、私にとって天職です。それくらい子どもたちから人生で大切なことをたくさん教わりましたし、教員という仕事を「志事」にしてくれたのも、生徒たちとの日々があったからこそです。</p>
                     
-                    <p>
-                        それくらい、子どもたちから、人生で大切なことをたくさん教わりました。<br>
-                        教員という仕事を「志事」にしてくれたのも、生徒たちとの日々があったからこそです。
-                    </p>
+                    <p>そんな私が、天職を離れてでも成し遂げたい想い(志)があります。<br>それが、<strong>「自分を認められない悲しみを癒し、親も子も先生も、一人ひとりが本当の自信を育み、自分らしさを輝かせられる人生を増やすこと」</strong>です。</p>
                     
-                    <p>
-                        そんな私が、天職を離れてでも成し遂げたい想い(志)があります。<br>
-                        それが、<strong>「自分を認められない悲しみを癒し、親も子も先生も、一人ひとりが本当の自信を育み、自分らしさを輝かせられる人生を増やすこと」</strong>です。
-                    </p>
+                    <p>令和6年の1年間で自殺した小中高校生は529人。1週間で約10人という恐ろしい数字です。加えて、世界と比較しても自己肯定感が低く、憂鬱感が高い、そして将来の日本に希望がもてない若者が多いのが今の現状です。</p>
                     
-                    <p>
-                        令和6年の1年間で自殺した小中高校生は529人います。<br>
-                        １週間で約10人という恐ろしい数字です。
-                    </p>
+                    <p>私はこの現状を変えたいです。<br><strong>大人が輝けば子どもが輝く。子どもが輝けば未来が輝く。</strong><br>この言葉通り、大切なのはまず輝く大人を増やすことであり、子どもたちが輝く大人と出会える環境をつくることです。</p>
                     
-                    <p>
-                        加えて、世界と比較しても、自己肯定感が低く、憂鬱感が高い、<br class="pc-br">
-                        そして将来の日本に希望がもてない若者が多いのが今の日本の現状です。
-                    </p>
+                    <p>この「ほーむBASE」もまさに、この志を実現するための新たな挑戦です。「できるかできないか」で見るのではなく、まさに今、挑戦する大人の背中を示すために、私は命の時間を使います。<br>まさにゼロから創り上げる、そんなプロセスも含めてお楽しみいただきながら、大人も子どもも共に学んでいけたらと思います。</p>
                     
-                    <p>
-                        私は、この現状を変えたいです。<br>
-                        <strong>大人が輝けば子どもが輝く。子どもが輝けば未来が輝く。</strong>
-                    </p>
-                    
-                    <p>
-                        この言葉通り、大切なのはまず輝く大人を増やすことであり、<br class="pc-br">
-                        子どもたちが輝く大人と出会える環境をつくることです。
-                    </p>
-                    
-                    <p>
-                        この「ほーむBASE」もまさに、この志を実現するための新たな挑戦です。<br>
-                        「できるかできないか」で見るのではなく、まさに今、挑戦する大人の背中を示すために、私は命の時間を使います。
-                    </p>
-                    
-                    <p>
-                        まさにゼロから創り上げる、そんなプロセスも含めてお楽しみいただきながら、<br class="pc-br">
-                        大人も子どもも共に学んでいけたらと思います。
-                    </p>
                     <p class="message-signature sans-text">岡本 奎一</p>
                 </div>
             </div>
@@ -844,28 +804,16 @@
                     
                     <p>この思いを形にするため、私は子どもたちと親御さんに寄り添う道を選びました。</p>
                     
-                    <p>
-                        もともとは教員を志望して大学へ進学し、教育の基礎を学びました。<br>
-                        その後、中学校で英語を教えていた経験や留学経験、英会話教室での講師活動を通して、教育に対する強い思いを育んしてきました。
-                    </p>
+                    <p>もともとは教員を志望して大学へ進学し、教育の基礎を学びました。その後、中学校で英語を教えていた経験や留学経験、英会話教室での講師活動を通して、教育に対する強い思いを育んできました。</p>
                     
-                    <p>
-                        しかし、現場や世界での経験を重ねる中で、「単に知識を教えるだけでなく、もっと広い視野を持って子どもたちの可能性を広げる活動をしたい」と強く実感するようになりました。<br>
-                        子どもたちの人としての内面、生きる力を育てたいと願うようになったのです。
-                    </p>
+                    <p>しかし、現場や世界での経験を重ねる中で、「単に知識を教えるだけでなく、もっと広い視野を持って子どもたちの可能性を広げる活動をしたい」と強く実感するようになりました。子どもたちの人としての内面、生きる力を育てたいと願うようになったのです。</p>
                     
-                    <p>学校という枠を超え、最も成長の基盤となる「0歳~3歳」の能力開発と親子の絆づくりに注力しています。</p>
+                    <p>学校という枠を超え、最も成長の基盤となる「0歳~3歳」の能力開発と親子の絆づくりに注力しています。一人ひとりが持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができるようになります。</p>
                     
-                    <p>
-                        一人ひとりが持つ強みや才能を客観的に知ることで、よりその子に合ったサポートができるようになります。<br>
-                        そして、親御さんの心がスッと軽くなった時、子どもは安心して、自分の才能を開花させ始めます。
-                    </p>
+                    <p>そして、親御さんの心がスッと軽くなった時、子どもは安心して自分の才能を開花させ始めます。それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
                     
-                    <p>それぞれの強みを生かしたサポートで、子どもたちが自分らしく輝けるようお手伝いしたいと願っています。</p>
+                    <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。<br>親子がそれぞれの場所で、ありのままの自分で笑顔あふれる未来を、一緒に創っていきたいと願っています。</p>
                     
-                    <p>勉強も子育ても、もっと楽しんでいい。もっと私たちを頼っていい。</p>
-                    
-                    <p>親子がそれぞれの場所で、ありのままの自分で笑顔あふれる未来を、一緒に創っていきたいと願っています。</p>
                     <p class="message-signature sans-text">岡本 瑞生</p>
                 </div>
             </div>
